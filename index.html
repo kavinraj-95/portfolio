@@ -6,6 +6,9 @@
          Stage 1: Foundation and Boot Sequence
          Stage 2: Hero Section and Navigation
          Stage 3: Education and Experience Sections
+         Stage 4: Projects Showcase (File Explorer)
+         Stage 5: Technical Skills Visualization
+         Stage 6: Terminal, Contact & Footer (COMPLETE)
          A retro-themed ML Engineer portfolio
     ============================================= -->
     <meta charset="UTF-8">
@@ -1658,6 +1661,259 @@
         }
 
         /* ============================================
+           SKILLS SECTION - SYSTEM DIAGNOSTICS
+        ============================================= */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        /* Category Card */
+        .skill-category {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-xl);
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all var(--transition-base);
+        }
+
+        .skill-category.animate-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .skill-category:nth-child(1) { transition-delay: 0.1s; }
+        .skill-category:nth-child(2) { transition-delay: 0.2s; }
+        .skill-category:nth-child(3) { transition-delay: 0.3s; }
+
+        /* Category accent borders */
+        .skill-category.category-languages {
+            border-left: 3px solid var(--accent-amber);
+        }
+
+        .skill-category.category-ml {
+            border-left: 3px solid var(--accent-purple);
+        }
+
+        .skill-category.category-tools {
+            border-left: 3px solid var(--accent-teal);
+        }
+
+        /* Category hover effects */
+        .skill-category:hover {
+            border-color: var(--border-glow);
+            transform: translateX(4px);
+        }
+
+        .skill-category.category-languages:hover {
+            box-shadow: 0 0 25px var(--glow-amber);
+        }
+
+        .skill-category.category-ml:hover {
+            box-shadow: 0 0 25px var(--glow-purple);
+        }
+
+        .skill-category.category-tools:hover {
+            box-shadow: 0 0 25px var(--glow-teal);
+        }
+
+        /* Category header */
+        .skill-category-header {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-sm);
+            padding-bottom: var(--spacing-sm);
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        /* Category description */
+        .skill-category-desc {
+            font-size: var(--font-size-xs);
+            color: var(--text-muted);
+            margin-bottom: var(--spacing-lg);
+            line-height: 1.5;
+            font-style: italic;
+        }
+
+        .skill-category-desc::before {
+            content: '// ';
+            color: var(--text-dim);
+            font-style: normal;
+        }
+
+        .skill-category-icon {
+            font-size: var(--font-size-xl);
+            line-height: 1;
+        }
+
+        .skill-category.category-languages .skill-category-icon {
+            color: var(--accent-amber);
+        }
+
+        .skill-category.category-ml .skill-category-icon {
+            color: var(--accent-purple);
+        }
+
+        .skill-category.category-tools .skill-category-icon {
+            color: var(--accent-teal);
+        }
+
+        .skill-category-title {
+            font-size: var(--font-size-sm);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .skill-category.category-languages .skill-category-title {
+            color: var(--accent-amber);
+            text-shadow: 0 0 8px var(--glow-amber);
+        }
+
+        .skill-category.category-ml .skill-category-title {
+            color: var(--accent-purple);
+            text-shadow: 0 0 8px var(--glow-purple);
+        }
+
+        .skill-category.category-tools .skill-category-title {
+            color: var(--accent-teal);
+            text-shadow: 0 0 8px var(--glow-teal);
+        }
+
+        /* Skill items */
+        .skill-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+
+        .skill-item {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-xs);
+        }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .skill-name {
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+            transition: all var(--transition-fast);
+        }
+
+        .skill-item:hover .skill-name {
+            color: var(--accent-teal);
+            text-shadow: 0 0 8px var(--glow-teal);
+        }
+
+        /* Expert skills highlight */
+        .skill-item.expert .skill-name {
+            color: var(--accent-amber);
+        }
+
+        .skill-item.expert:hover .skill-name {
+            color: var(--accent-amber);
+            text-shadow: 0 0 10px var(--glow-amber-strong);
+        }
+
+        /* Proficiency badge */
+        .skill-level {
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 2px 6px;
+            border-radius: 2px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+        }
+
+        .skill-level.level-expert {
+            color: var(--accent-amber);
+            border-color: var(--accent-amber-dim);
+            background: rgba(245, 166, 35, 0.1);
+        }
+
+        .skill-level.level-advanced {
+            color: var(--accent-teal);
+            border-color: var(--accent-teal-dim);
+            background: rgba(0, 212, 170, 0.1);
+        }
+
+        .skill-level.level-intermediate {
+            color: var(--accent-purple);
+            border-color: var(--accent-purple-dim);
+            background: rgba(124, 58, 237, 0.1);
+        }
+
+        .skill-level.level-familiar {
+            color: var(--text-muted);
+            border-color: var(--border-color);
+        }
+
+        /* Progress bar */
+        .skill-bar {
+            height: 8px;
+            background: var(--bg-secondary);
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .skill-bar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 0;
+            border-radius: 4px;
+            transition: width 1s ease-out;
+        }
+
+        .skill-item.animate-bar .skill-bar::before {
+            width: var(--skill-level);
+        }
+
+        /* Category-specific progress bar colors */
+        .skill-category.category-languages .skill-bar::before {
+            background: linear-gradient(90deg, var(--accent-amber), #ffd93d);
+        }
+
+        .skill-category.category-ml .skill-bar::before {
+            background: linear-gradient(90deg, var(--accent-purple), #a78bfa);
+        }
+
+        .skill-category.category-tools .skill-bar::before {
+            background: linear-gradient(90deg, var(--accent-teal), #5eead4);
+        }
+
+        /* Expert skill bar glow */
+        .skill-item.expert .skill-bar::before {
+            box-shadow: 0 0 10px var(--accent-amber);
+        }
+
+        /* Hover pulse effect on bars */
+        .skill-item:hover .skill-bar::before {
+            animation: barPulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes barPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        /* ============================================
            ANIMATION KEYFRAMES
         ============================================= */
         @keyframes fadeIn {
@@ -1767,6 +2023,15 @@
             .project-metrics {
                 grid-template-columns: repeat(3, 1fr);
                 gap: var(--spacing-sm);
+            }
+
+            /* Skills responsive - tablet */
+            .skills-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .skill-category:nth-child(3) {
+                grid-column: span 2;
             }
         }
 
@@ -1971,6 +2236,30 @@
             .project-link {
                 justify-content: center;
             }
+
+            /* Skills responsive - mobile */
+            .skills-container {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-md);
+            }
+
+            .skill-category {
+                padding: var(--spacing-md);
+            }
+
+            .skill-category-header {
+                margin-bottom: var(--spacing-md);
+                padding-bottom: var(--spacing-sm);
+            }
+
+            .platforms-list {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+            }
+
+            .platform-badge {
+                justify-content: center;
+            }
         }
 
         /* Small mobile */
@@ -2031,9 +2320,511 @@
             .education-content,
             .process-card,
             .projects-window,
-            .project-card {
+            .project-card,
+            .skill-category,
+            .platforms-section {
                 opacity: 1;
                 transform: none;
+            }
+
+            .skill-item .skill-bar::before {
+                transition: none;
+            }
+
+            .skill-item:hover .skill-bar::before {
+                animation: none;
+            }
+        }
+
+        /* ============================================
+           STAGE 6: CONTACT SECTION
+        ============================================= */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-lg);
+        }
+
+        .contact-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-left: 3px solid var(--accent-teal);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-lg);
+            text-decoration: none;
+            display: block;
+            transition: all var(--transition-base);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .contact-card.animate-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .contact-card:nth-child(1) { transition-delay: 0.1s; }
+        .contact-card:nth-child(2) { transition-delay: 0.15s; }
+        .contact-card:nth-child(3) { transition-delay: 0.2s; }
+        .contact-card:nth-child(4) { transition-delay: 0.25s; }
+
+        .contact-card:hover {
+            border-color: var(--accent-teal);
+            transform: translateX(4px);
+            box-shadow: 0 0 20px var(--glow-teal);
+        }
+
+        .contact-card-header {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .contact-icon {
+            font-size: var(--font-size-lg);
+            color: var(--accent-teal);
+            font-weight: 600;
+            min-width: 32px;
+            text-align: center;
+        }
+
+        .contact-command {
+            font-size: var(--font-size-sm);
+            color: var(--text-muted);
+        }
+
+        .contact-command::before {
+            content: '$ ';
+            color: var(--accent-amber);
+        }
+
+        .contact-value {
+            font-size: var(--font-size-base);
+            color: var(--text-primary);
+            text-shadow: 0 0 8px var(--glow-teal);
+            margin-left: calc(32px + var(--spacing-md));
+        }
+
+        /* ============================================
+           STAGE 6: TERMINAL SYSTEM
+        ============================================= */
+        .terminal-toggle-btn {
+            position: fixed;
+            bottom: var(--spacing-xl);
+            right: var(--spacing-xl);
+            width: 56px;
+            height: 56px;
+            background: var(--bg-secondary);
+            border: 2px solid var(--accent-teal);
+            border-radius: 50%;
+            color: var(--accent-teal);
+            font-family: var(--font-mono);
+            font-size: var(--font-size-lg);
+            font-weight: 700;
+            cursor: pointer;
+            z-index: calc(var(--z-nav) + 5);
+            transition: all var(--transition-base);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 15px var(--glow-teal);
+        }
+
+        .terminal-toggle-btn:hover {
+            background: var(--accent-teal);
+            color: var(--bg-primary);
+            transform: scale(1.1);
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.5), 0 0 25px var(--glow-teal-strong);
+        }
+
+        .terminal-toggle-btn.active {
+            background: var(--accent-amber);
+            border-color: var(--accent-amber);
+            color: var(--bg-primary);
+        }
+
+        .terminal-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 45vh;
+            max-height: 450px;
+            min-height: 300px;
+            background: rgba(10, 15, 20, 0.98);
+            border-top: 2px solid var(--accent-teal);
+            z-index: calc(var(--z-nav) + 10);
+            display: flex;
+            flex-direction: column;
+            transform: translateY(100%);
+            opacity: 0;
+            visibility: hidden;
+            transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .terminal-container.open {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .terminal-titlebar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-sm) var(--spacing-md);
+            background: var(--bg-tertiary);
+            border-bottom: 1px solid var(--border-color);
+            flex-shrink: 0;
+        }
+
+        .terminal-controls {
+            display: flex;
+            gap: 8px;
+        }
+
+        .control-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .control-dot.close { background: var(--accent-red); }
+        .control-dot.minimize { background: var(--accent-amber); }
+        .control-dot.maximize { background: var(--accent-teal); }
+
+        .terminal-title {
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .terminal-path-display {
+            font-size: var(--font-size-xs);
+            color: var(--text-muted);
+        }
+
+        .terminal-output {
+            flex: 1;
+            overflow-y: auto;
+            padding: var(--spacing-md);
+            font-size: var(--font-size-sm);
+            line-height: 1.6;
+        }
+
+        .terminal-output::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .terminal-output::-webkit-scrollbar-track {
+            background: var(--bg-tertiary);
+        }
+
+        .terminal-output::-webkit-scrollbar-thumb {
+            background: var(--border-color);
+            border-radius: 4px;
+        }
+
+        .terminal-output::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-teal-dim);
+        }
+
+        .terminal-line {
+            margin-bottom: var(--spacing-xs);
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        .terminal-line.command {
+            color: var(--text-white);
+        }
+
+        .terminal-line.command::before {
+            content: '$ ';
+            color: var(--accent-amber);
+        }
+
+        .terminal-line.response {
+            color: var(--text-secondary);
+        }
+
+        .terminal-line.error {
+            color: var(--accent-red);
+        }
+
+        .terminal-line.success {
+            color: var(--accent-teal);
+        }
+
+        .terminal-line.header {
+            color: var(--accent-amber);
+            font-weight: 600;
+        }
+
+        .terminal-line.ascii {
+            color: var(--accent-teal);
+            line-height: 1.2;
+        }
+
+        .terminal-line.dim {
+            color: var(--text-muted);
+        }
+
+        .terminal-input-line {
+            display: flex;
+            align-items: center;
+            padding: var(--spacing-sm) var(--spacing-md);
+            background: var(--bg-tertiary);
+            border-top: 1px solid var(--border-color);
+            flex-shrink: 0;
+        }
+
+        .terminal-prompt {
+            display: flex;
+            align-items: center;
+            font-size: var(--font-size-sm);
+            flex-shrink: 0;
+            margin-right: var(--spacing-sm);
+        }
+
+        .terminal-user { color: var(--accent-purple); }
+        .terminal-at { color: var(--text-muted); }
+        .terminal-host { color: var(--accent-teal); }
+        .terminal-path { color: var(--accent-amber); }
+        .terminal-dollar { color: var(--text-primary); margin-left: 2px; }
+
+        .terminal-input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: var(--text-white);
+            font-family: var(--font-mono);
+            font-size: var(--font-size-sm);
+            outline: none;
+            caret-color: var(--accent-teal);
+        }
+
+        .terminal-input::placeholder {
+            color: var(--text-dim);
+        }
+
+        .terminal-cursor {
+            color: var(--accent-teal);
+            animation: terminalCursorBlink 530ms infinite;
+            margin-left: 2px;
+        }
+
+        @keyframes terminalCursorBlink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        .terminal-statusbar {
+            display: flex;
+            justify-content: space-between;
+            padding: var(--spacing-xs) var(--spacing-md);
+            background: var(--bg-primary);
+            font-size: var(--font-size-xs);
+            color: var(--text-dim);
+            border-top: 1px solid var(--border-color);
+            flex-shrink: 0;
+        }
+
+        /* Terminal highlight effect on sections */
+        .section.terminal-highlight {
+            animation: terminalPulse 1.5s ease;
+        }
+
+        @keyframes terminalPulse {
+            0% { box-shadow: none; }
+            50% { box-shadow: 0 0 30px var(--glow-teal-strong), inset 0 0 20px var(--glow-teal); }
+            100% { box-shadow: none; }
+        }
+
+        /* Matrix rain effect container */
+        .matrix-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: calc(var(--z-overlay) + 50);
+            overflow: hidden;
+        }
+
+        .matrix-column {
+            position: absolute;
+            top: -100%;
+            font-family: var(--font-mono);
+            font-size: 14px;
+            color: var(--accent-teal);
+            text-shadow: 0 0 10px var(--glow-teal-strong);
+            line-height: 1;
+            animation: matrixFall linear forwards;
+        }
+
+        @keyframes matrixFall {
+            to { top: 100%; }
+        }
+
+        /* Confetti effect */
+        .confetti-piece {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            z-index: calc(var(--z-overlay) + 100);
+            animation: confettiFall 3s ease-out forwards;
+        }
+
+        @keyframes confettiFall {
+            0% {
+                opacity: 1;
+                transform: translateY(0) rotate(0deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(100vh) rotate(720deg);
+            }
+        }
+
+        /* ============================================
+           STAGE 6: FOOTER
+        ============================================= */
+        .footer {
+            background: var(--bg-primary);
+            border-top: 1px solid var(--accent-teal);
+            padding: var(--spacing-xl) var(--spacing-xl);
+            text-align: center;
+            margin-top: var(--spacing-2xl);
+        }
+
+        .footer-content {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--spacing-md);
+        }
+
+        .footer-copyright {
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+        }
+
+        .footer-copyright span {
+            color: var(--accent-teal);
+            text-shadow: 0 0 8px var(--glow-teal);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: var(--spacing-lg);
+        }
+
+        .footer-link {
+            font-size: var(--font-size-sm);
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: all var(--transition-fast);
+        }
+
+        .footer-link::before {
+            content: './';
+            color: var(--accent-amber);
+        }
+
+        .footer-link:hover {
+            color: var(--accent-teal);
+            text-shadow: 0 0 8px var(--glow-teal);
+        }
+
+        /* ============================================
+           STAGE 6: RESPONSIVE ADDITIONS
+        ============================================= */
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .terminal-toggle-btn {
+                width: 48px;
+                height: 48px;
+                bottom: var(--spacing-md);
+                right: var(--spacing-md);
+                font-size: var(--font-size-base);
+            }
+
+            .terminal-container {
+                height: 50vh;
+                max-height: none;
+            }
+
+            .terminal-input {
+                font-size: 16px; /* Prevent iOS zoom */
+            }
+
+            .terminal-titlebar {
+                flex-wrap: wrap;
+                gap: var(--spacing-xs);
+            }
+
+            .terminal-path-display {
+                order: 3;
+                width: 100%;
+                text-align: center;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-direction: row;
+                gap: var(--spacing-md);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .terminal-container {
+                height: 60vh;
+            }
+
+            .contact-card {
+                padding: var(--spacing-md);
+            }
+
+            .contact-value {
+                margin-left: 0;
+                margin-top: var(--spacing-sm);
+            }
+        }
+
+        /* Terminal reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            .terminal-container {
+                transition: none;
+            }
+
+            .terminal-cursor {
+                animation: none;
+                opacity: 1;
+            }
+
+            .section.terminal-highlight {
+                animation: none;
+            }
+
+            .matrix-column {
+                animation: none;
+            }
+
+            .confetti-piece {
+                animation: none;
             }
         }
     </style>
@@ -2390,33 +3181,34 @@
                 <!-- Projects Grid -->
                 <div class="projects-grid" role="list" aria-label="Project files">
 
-                    <!-- Project 1: Fraud Detection -->
-                    <article class="project-card category-ml" data-animate-project aria-labelledby="project-fraud-title" role="listitem">
+                    <!-- Project 1: FAAA (Fraud Detection & Anomaly Analysis) -->
+                    <article class="project-card category-ml" data-animate-project aria-labelledby="project-faaa-title" role="listitem">
                         <div class="project-header"
                              role="button"
                              tabindex="0"
                              aria-expanded="false"
-                             aria-controls="project-fraud-details">
+                             aria-controls="project-faaa-details">
                             <div class="project-top">
                                 <div class="project-file">
                                     <span class="project-icon icon-ml" aria-hidden="true">&#129504;</span>
-                                    <span class="project-filename" id="project-fraud-title">fraud_detection.exe</span>
+                                    <span class="project-filename" id="project-faaa-title">fraud_detection.exe</span>
                                 </div>
                                 <span class="project-category cat-ml">ML/AI</span>
                             </div>
-                            <p class="project-preview">Developed anomaly detection system for financial transactions using ensemble methods. Built end-to-end pipeline for fraud identification with XGBoost and isolation forests.</p>
+                            <p class="project-preview">Advanced fraud detection system for credit card transactions handling extreme class imbalance (0.17% fraud rate) with multiple ML models and real-time predictions via Streamlit dashboard.</p>
                             <div class="project-tech">
                                 <span class="tech-tag">Python</span>
-                                <span class="tech-tag">Pandas</span>
-                                <span class="tech-tag">Scikit-learn</span>
-                                <span class="tech-tag">XGBoost</span>
+                                <span class="tech-tag">scikit-learn</span>
+                                <span class="tech-tag">TensorFlow</span>
+                                <span class="tech-tag">Streamlit</span>
+                                <span class="tech-tag">SMOTE</span>
                             </div>
                             <div class="project-meta">
-                                <span class="project-date">2024</span>
+                                <span class="project-date">Feb 2026</span>
                                 <span class="project-expand-hint"><span class="project-expand-icon" aria-hidden="true">></span> Click to expand</span>
                             </div>
                         </div>
-                        <div class="project-details" id="project-fraud-details">
+                        <div class="project-details" id="project-faaa-details">
                             <div class="project-details-inner">
                                 <div class="project-metrics">
                                     <div class="project-metric">
@@ -2424,85 +3216,131 @@
                                         <div class="project-metric-label">Transactions</div>
                                     </div>
                                     <div class="project-metric">
-                                        <div class="project-metric-value">96.8%</div>
-                                        <div class="project-metric-label">Accuracy</div>
+                                        <div class="project-metric-value">0.807</div>
+                                        <div class="project-metric-label">RF AUPRC</div>
                                     </div>
                                     <div class="project-metric">
-                                        <div class="project-metric-value">$2.4M</div>
-                                        <div class="project-metric-label">Fraud Prevented</div>
+                                        <div class="project-metric-value">Real-time</div>
+                                        <div class="project-metric-label">Dashboard</div>
                                     </div>
                                 </div>
                                 <div class="project-links">
-                                    <a href="#" class="project-link" aria-label="View source code">
+                                    <a href="https://github.com/kavinraj-95/FAAA" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View source code on GitHub">
                                         <span class="project-link-icon">&gt;_</span>
                                         <span>./view-source</span>
-                                    </a>
-                                    <a href="#" class="project-link" aria-label="View demo">
-                                        <span class="project-link-icon">&#9654;</span>
-                                        <span>./run-demo</span>
                                     </a>
                                 </div>
                             </div>
                         </div>
                     </article>
 
-                    <!-- Project 2: Federated Learning -->
-                    <article class="project-card category-research" data-animate-project aria-labelledby="project-fl-title" role="listitem">
+                    <!-- Project 2: Schneider Electric AI Unit Test Generator -->
+                    <article class="project-card category-tools" data-animate-project aria-labelledby="project-schneider-title" role="listitem">
                         <div class="project-header"
                              role="button"
                              tabindex="0"
                              aria-expanded="false"
-                             aria-controls="project-fl-details">
+                             aria-controls="project-schneider-details">
                             <div class="project-top">
                                 <div class="project-file">
-                                    <span class="project-icon icon-research" aria-hidden="true">&#128300;</span>
-                                    <span class="project-filename" id="project-fl-title">federated_learning.py</span>
+                                    <span class="project-icon icon-tools" aria-hidden="true">&#129302;</span>
+                                    <span class="project-filename" id="project-schneider-title">test_generator.vscode</span>
                                 </div>
-                                <span class="project-category cat-research">Research</span>
+                                <span class="project-category cat-tools">Tools</span>
                             </div>
-                            <p class="project-preview">Research project implementing secure multi-party computation for distributed ML training. Privacy-preserving federated learning with differential privacy guarantees.</p>
+                            <p class="project-preview">AI-powered VS Code extension that automatically generates comprehensive unit tests by analyzing source code with LLM integration. Built for Schneider Electric hackathon.</p>
                             <div class="project-tech">
-                                <span class="tech-tag">FLwr</span>
-                                <span class="tech-tag">PyTorch</span>
-                                <span class="tech-tag">TensorFlow</span>
+                                <span class="tech-tag">TypeScript</span>
                                 <span class="tech-tag">Python</span>
+                                <span class="tech-tag">VS Code API</span>
+                                <span class="tech-tag">LLM</span>
+                                <span class="tech-tag">AST</span>
                             </div>
                             <div class="project-meta">
-                                <span class="project-date">2024</span>
+                                <span class="project-date">Jan 2026</span>
                                 <span class="project-expand-hint"><span class="project-expand-icon" aria-hidden="true">></span> Click to expand</span>
                             </div>
                         </div>
-                        <div class="project-details" id="project-fl-details">
+                        <div class="project-details" id="project-schneider-details">
                             <div class="project-details-inner">
                                 <div class="project-metrics">
                                     <div class="project-metric">
-                                        <div class="project-metric-value">98.2%</div>
-                                        <div class="project-metric-label">Model Accuracy</div>
+                                        <div class="project-metric-value">85%</div>
+                                        <div class="project-metric-label">Time Saved</div>
                                     </div>
                                     <div class="project-metric">
-                                        <div class="project-metric-value">50+</div>
-                                        <div class="project-metric-label">Clients</div>
+                                        <div class="project-metric-value">Enterprise</div>
+                                        <div class="project-metric-label">Quality</div>
                                     </div>
                                     <div class="project-metric">
-                                        <div class="project-metric-value">Zero</div>
-                                        <div class="project-metric-label">Data Exposure</div>
+                                        <div class="project-metric-value">10K+</div>
+                                        <div class="project-metric-label">Tests Generated</div>
                                     </div>
                                 </div>
                                 <div class="project-links">
-                                    <a href="#" class="project-link" aria-label="View source code">
+                                    <a href="https://github.com/kavinraj-95/schneider-electric" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View source code on GitHub">
                                         <span class="project-link-icon">&gt;_</span>
                                         <span>./view-source</span>
-                                    </a>
-                                    <a href="#" class="project-link" aria-label="Read paper">
-                                        <span class="project-link-icon">&#128196;</span>
-                                        <span>./read-paper</span>
                                     </a>
                                 </div>
                             </div>
                         </div>
                     </article>
 
-                    <!-- Project 3: NEAT-Drive -->
+                    <!-- Project 3: DevVault -->
+                    <article class="project-card category-tools" data-animate-project aria-labelledby="project-devvault-title" role="listitem">
+                        <div class="project-header"
+                             role="button"
+                             tabindex="0"
+                             aria-expanded="false"
+                             aria-controls="project-devvault-details">
+                            <div class="project-top">
+                                <div class="project-file">
+                                    <span class="project-icon icon-tools" aria-hidden="true">&#128274;</span>
+                                    <span class="project-filename" id="project-devvault-title">devvault.platform</span>
+                                </div>
+                                <span class="project-category cat-tools">Security</span>
+                            </div>
+                            <p class="project-preview">Enterprise-grade secure coding platform with post-quantum cryptography, behavioral biometrics, Bell-LaPadula access control, AES-256+RSA-2048 hybrid encryption, and Shamir's Secret Sharing.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">FastAPI</span>
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">SQLAlchemy</span>
+                                <span class="tech-tag">PyCryptodome</span>
+                            </div>
+                            <div class="project-meta">
+                                <span class="project-date">Jan 2026</span>
+                                <span class="project-expand-hint"><span class="project-expand-icon" aria-hidden="true">></span> Click to expand</span>
+                            </div>
+                        </div>
+                        <div class="project-details" id="project-devvault-details">
+                            <div class="project-details-inner">
+                                <div class="project-metrics">
+                                    <div class="project-metric">
+                                        <div class="project-metric-value">4</div>
+                                        <div class="project-metric-label">Class Levels</div>
+                                    </div>
+                                    <div class="project-metric">
+                                        <div class="project-metric-value">MFA</div>
+                                        <div class="project-metric-label">TOTP Auth</div>
+                                    </div>
+                                    <div class="project-metric">
+                                        <div class="project-metric-value">Merkle</div>
+                                        <div class="project-metric-label">Integrity</div>
+                                    </div>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://github.com/kavinraj-95/DevVault" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View source code on GitHub">
+                                        <span class="project-link-icon">&gt;_</span>
+                                        <span>./view-source</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 4: NEAT-drive 2.0 -->
                     <article class="project-card category-ml" data-animate-project aria-labelledby="project-neat-title" role="listitem">
                         <div class="project-header"
                              role="button"
@@ -2516,15 +3354,16 @@
                                 </div>
                                 <span class="project-category cat-ml">ML/AI</span>
                             </div>
-                            <p class="project-preview">Autonomous vehicle simulator using neuroevolution of augmenting topologies (NEAT). Self-driving cars learn through evolutionary neural network optimization.</p>
+                            <p class="project-preview">Evolutionary neural network simulation where cars autonomously learn to drive using NEAT genetic algorithm with realistic physics including acceleration, friction, traction, and speed-dependent steering.</p>
                             <div class="project-tech">
                                 <span class="tech-tag">Python</span>
-                                <span class="tech-tag">NEAT-Python</span>
-                                <span class="tech-tag">PyGame</span>
-                                <span class="tech-tag">NumPy</span>
+                                <span class="tech-tag">pygame</span>
+                                <span class="tech-tag">NEAT</span>
+                                <span class="tech-tag">GraphViz</span>
+                                <span class="tech-tag">matplotlib</span>
                             </div>
                             <div class="project-meta">
-                                <span class="project-date">2024</span>
+                                <span class="project-date">Nov 2025</span>
                                 <span class="project-expand-hint"><span class="project-expand-icon" aria-hidden="true">></span> Click to expand</span>
                             </div>
                         </div>
@@ -2532,195 +3371,127 @@
                             <div class="project-details-inner">
                                 <div class="project-metrics">
                                     <div class="project-metric">
-                                        <div class="project-metric-value">94%</div>
-                                        <div class="project-metric-label">Success Rate</div>
-                                    </div>
-                                    <div class="project-metric">
-                                        <div class="project-metric-value">500+</div>
-                                        <div class="project-metric-label">Generations</div>
-                                    </div>
-                                    <div class="project-metric">
                                         <div class="project-metric-value">60fps</div>
-                                        <div class="project-metric-label">Real-time</div>
+                                        <div class="project-metric-label">Rendering</div>
+                                    </div>
+                                    <div class="project-metric">
+                                        <div class="project-metric-value">Physics</div>
+                                        <div class="project-metric-label">Simulation</div>
+                                    </div>
+                                    <div class="project-metric">
+                                        <div class="project-metric-value">Auto</div>
+                                        <div class="project-metric-label">Lap Complete</div>
                                     </div>
                                 </div>
                                 <div class="project-links">
-                                    <a href="#" class="project-link" aria-label="View source code">
+                                    <a href="https://github.com/kavinraj-95/NEAT-drive2.0" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View source code on GitHub">
                                         <span class="project-link-icon">&gt;_</span>
                                         <span>./view-source</span>
-                                    </a>
-                                    <a href="#" class="project-link" aria-label="View demo">
-                                        <span class="project-link-icon">&#9654;</span>
-                                        <span>./run-demo</span>
                                     </a>
                                 </div>
                             </div>
                         </div>
                     </article>
 
-                    <!-- Project 4: AI Unit Test Generator -->
-                    <article class="project-card category-tools" data-animate-project aria-labelledby="project-test-title" role="listitem">
+                    <!-- Project 5: SentinelHealth -->
+                    <article class="project-card category-tools" data-animate-project aria-labelledby="project-sentinel-title" role="listitem">
                         <div class="project-header"
                              role="button"
                              tabindex="0"
                              aria-expanded="false"
-                             aria-controls="project-test-details">
+                             aria-controls="project-sentinel-details">
                             <div class="project-top">
                                 <div class="project-file">
-                                    <span class="project-icon icon-tools" aria-hidden="true">&#128736;</span>
-                                    <span class="project-filename" id="project-test-title">test_generator.vscode</span>
+                                    <span class="project-icon icon-tools" aria-hidden="true">&#127973;</span>
+                                    <span class="project-filename" id="project-sentinel-title">sentinel_health.med</span>
                                 </div>
                                 <span class="project-category cat-tools">Tools</span>
                             </div>
-                            <p class="project-preview">Tool that automatically generates comprehensive unit tests using AI analysis of source code. Integrates with VS Code for seamless developer workflow.</p>
+                            <p class="project-preview">Comprehensive EHR application with role-based access control for patients, physicians, and emergency personnel. Features AES-256 encryption, digital prescription verification, and "Break Glass" emergency override.</p>
                             <div class="project-tech">
                                 <span class="tech-tag">Python</span>
-                                <span class="tech-tag">LLM API</span>
-                                <span class="tech-tag">AST Parser</span>
                                 <span class="tech-tag">FastAPI</span>
+                                <span class="tech-tag">SQLite</span>
+                                <span class="tech-tag">SQLAlchemy</span>
+                                <span class="tech-tag">Cryptography</span>
                             </div>
                             <div class="project-meta">
-                                <span class="project-date">2023</span>
+                                <span class="project-date">Jan 2026</span>
                                 <span class="project-expand-hint"><span class="project-expand-icon" aria-hidden="true">></span> Click to expand</span>
                             </div>
                         </div>
-                        <div class="project-details" id="project-test-details">
+                        <div class="project-details" id="project-sentinel-details">
                             <div class="project-details-inner">
                                 <div class="project-metrics">
                                     <div class="project-metric">
-                                        <div class="project-metric-value">87%</div>
-                                        <div class="project-metric-label">Code Coverage</div>
+                                        <div class="project-metric-value">RBAC</div>
+                                        <div class="project-metric-label">Dashboards</div>
                                     </div>
                                     <div class="project-metric">
-                                        <div class="project-metric-value">10K+</div>
-                                        <div class="project-metric-label">Tests Generated</div>
+                                        <div class="project-metric-value">AES-256</div>
+                                        <div class="project-metric-label">Encryption</div>
                                     </div>
                                     <div class="project-metric">
-                                        <div class="project-metric-value">95%</div>
-                                        <div class="project-metric-label">Relevance</div>
+                                        <div class="project-metric-value">Audit</div>
+                                        <div class="project-metric-label">Trail System</div>
                                     </div>
                                 </div>
                                 <div class="project-links">
-                                    <a href="#" class="project-link" aria-label="View source code">
+                                    <a href="https://github.com/kavinraj-95/SentinelHealth" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View source code on GitHub">
                                         <span class="project-link-icon">&gt;_</span>
                                         <span>./view-source</span>
-                                    </a>
-                                    <a href="#" class="project-link" aria-label="Install extension">
-                                        <span class="project-link-icon">&#128229;</span>
-                                        <span>./install</span>
                                     </a>
                                 </div>
                             </div>
                         </div>
                     </article>
 
-                    <!-- Project 5: Medical Image Segmentation -->
-                    <article class="project-card category-ml" data-animate-project aria-labelledby="project-med-title" role="listitem">
+                    <!-- Project 6: Touchless Screen -->
+                    <article class="project-card category-research" data-animate-project aria-labelledby="project-touchless-title" role="listitem">
                         <div class="project-header"
                              role="button"
                              tabindex="0"
                              aria-expanded="false"
-                             aria-controls="project-med-details">
+                             aria-controls="project-touchless-details">
                             <div class="project-top">
                                 <div class="project-file">
-                                    <span class="project-icon icon-ml" aria-hidden="true">&#129658;</span>
-                                    <span class="project-filename" id="project-med-title">tumor_detection.med</span>
+                                    <span class="project-icon icon-research" aria-hidden="true">&#128065;</span>
+                                    <span class="project-filename" id="project-touchless-title">touchless.cv</span>
                                 </div>
-                                <span class="project-category cat-ml">ML/AI</span>
+                                <span class="project-category cat-research">CV</span>
                             </div>
-                            <p class="project-preview">Deep learning model for medical imaging - tumor detection and segmentation in MRI/CT scans. U-Net architecture with attention mechanisms for precise localization.</p>
+                            <p class="project-preview">Real-time hand gesture recognition system enabling touchless computer control via webcam. Interprets hand movements as mouse commands with cursor control, click-and-drag, and automatic hand tracking.</p>
                             <div class="project-tech">
                                 <span class="tech-tag">Python</span>
-                                <span class="tech-tag">TensorFlow</span>
                                 <span class="tech-tag">OpenCV</span>
-                                <span class="tech-tag">DICOM</span>
+                                <span class="tech-tag">MediaPipe</span>
+                                <span class="tech-tag">Linux uinput</span>
                             </div>
                             <div class="project-meta">
-                                <span class="project-date">2023</span>
+                                <span class="project-date">Aug 2025</span>
                                 <span class="project-expand-hint"><span class="project-expand-icon" aria-hidden="true">></span> Click to expand</span>
                             </div>
                         </div>
-                        <div class="project-details" id="project-med-details">
+                        <div class="project-details" id="project-touchless-details">
                             <div class="project-details-inner">
                                 <div class="project-metrics">
                                     <div class="project-metric">
-                                        <div class="project-metric-value">94.7%</div>
-                                        <div class="project-metric-label">Accuracy</div>
+                                        <div class="project-metric-value">Real-time</div>
+                                        <div class="project-metric-label">Processing</div>
                                     </div>
                                     <div class="project-metric">
-                                        <div class="project-metric-value">0.92</div>
-                                        <div class="project-metric-label">Dice Score</div>
+                                        <div class="project-metric-value">Hand</div>
+                                        <div class="project-metric-label">Lock-on</div>
                                     </div>
                                     <div class="project-metric">
-                                        <div class="project-metric-value">2000+</div>
-                                        <div class="project-metric-label">Images</div>
+                                        <div class="project-metric-value">Gesture</div>
+                                        <div class="project-metric-label">Detection</div>
                                     </div>
                                 </div>
                                 <div class="project-links">
-                                    <a href="#" class="project-link" aria-label="View source code">
+                                    <a href="https://github.com/kavinraj-95/touchless_screen" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View source code on GitHub">
                                         <span class="project-link-icon">&gt;_</span>
                                         <span>./view-source</span>
-                                    </a>
-                                    <a href="#" class="project-link" aria-label="View demo">
-                                        <span class="project-link-icon">&#9654;</span>
-                                        <span>./run-demo</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Project 6: Analytics Dashboard -->
-                    <article class="project-card category-tools" data-animate-project aria-labelledby="project-analytics-title" role="listitem">
-                        <div class="project-header"
-                             role="button"
-                             tabindex="0"
-                             aria-expanded="false"
-                             aria-controls="project-analytics-details">
-                            <div class="project-top">
-                                <div class="project-file">
-                                    <span class="project-icon icon-tools" aria-hidden="true">&#128202;</span>
-                                    <span class="project-filename" id="project-analytics-title">analytics.dashboard</span>
-                                </div>
-                                <span class="project-category cat-tools">Tools</span>
-                            </div>
-                            <p class="project-preview">Interactive dashboard for real-time visualization of system metrics and KPIs with streaming data. Built with Streamlit for rapid prototyping and deployment.</p>
-                            <div class="project-tech">
-                                <span class="tech-tag">Python</span>
-                                <span class="tech-tag">Streamlit</span>
-                                <span class="tech-tag">Pandas</span>
-                                <span class="tech-tag">Plotly</span>
-                                <span class="tech-tag">PostgreSQL</span>
-                            </div>
-                            <div class="project-meta">
-                                <span class="project-date">2023</span>
-                                <span class="project-expand-hint"><span class="project-expand-icon" aria-hidden="true">></span> Click to expand</span>
-                            </div>
-                        </div>
-                        <div class="project-details" id="project-analytics-details">
-                            <div class="project-details-inner">
-                                <div class="project-metrics">
-                                    <div class="project-metric">
-                                        <div class="project-metric-value">100K+</div>
-                                        <div class="project-metric-label">Events/Day</div>
-                                    </div>
-                                    <div class="project-metric">
-                                        <div class="project-metric-value">&lt;200ms</div>
-                                        <div class="project-metric-label">Latency</div>
-                                    </div>
-                                    <div class="project-metric">
-                                        <div class="project-metric-value">99.9%</div>
-                                        <div class="project-metric-label">Uptime</div>
-                                    </div>
-                                </div>
-                                <div class="project-links">
-                                    <a href="#" class="project-link" aria-label="View source code">
-                                        <span class="project-link-icon">&gt;_</span>
-                                        <span>./view-source</span>
-                                    </a>
-                                    <a href="#" class="project-link" aria-label="View demo">
-                                        <span class="project-link-icon">&#9654;</span>
-                                        <span>./run-demo</span>
                                     </a>
                                 </div>
                             </div>
@@ -2732,25 +3503,290 @@
         </section>
 
         <!-- ============================================
-             PLACEHOLDER SECTIONS
-             Will be implemented in Stage 5
+             SKILLS SECTION - SYSTEM DIAGNOSTICS
         ============================================= -->
+        <section class="section" id="skills" aria-label="Technical Skills">
+            <header class="section-header" data-animate>
+                <div class="section-header-box" aria-hidden="true">+------------------------------------------+
+|  <span class="section-header-title">SYSTEM_DIAGNOSTICS</span>                     |
++------------------------------------------+</div>
+                <p class="section-header-subtitle">// Proficiency analysis and capability matrix</p>
+            </header>
 
-        <section class="section" id="skills">
-            <div class="section-placeholder">
-                <h2>// SKILLS</h2>
-                <p>Stage 4: Technical skills matrix</p>
+            <div class="skills-container" role="list" aria-label="Skill categories">
+                <!-- Languages - CORE_PROCESSORS -->
+                <div class="skill-category category-languages" data-animate-skill role="listitem" aria-labelledby="cat-languages">
+                    <div class="skill-category-header">
+                        <span class="skill-category-icon" aria-hidden="true">&#9881;</span>
+                        <h3 class="skill-category-title" id="cat-languages">CORE_PROCESSORS</h3>
+                    </div>
+                    <p class="skill-category-desc">Primary languages for ML engineering and system development</p>
+                    <div class="skill-list">
+                        <div class="skill-item expert" data-level="95">
+                            <div class="skill-info">
+                                <span class="skill-name">Python</span>
+                                <span class="skill-level level-expert">Expert</span>
+                            </div>
+                            <div class="skill-bar" style="--skill-level: 95%;" aria-label="Python - Expert proficiency"></div>
+                        </div>
+                        <div class="skill-item" data-level="85">
+                            <div class="skill-info">
+                                <span class="skill-name">SQL</span>
+                                <span class="skill-level level-advanced">Advanced</span>
+                            </div>
+                            <div class="skill-bar" style="--skill-level: 85%;" aria-label="SQL - Advanced proficiency"></div>
+                        </div>
+                        <div class="skill-item" data-level="80">
+                            <div class="skill-info">
+                                <span class="skill-name">C</span>
+                                <span class="skill-level level-advanced">Advanced</span>
+                            </div>
+                            <div class="skill-bar" style="--skill-level: 80%;" aria-label="C - Advanced proficiency"></div>
+                        </div>
+                        <div class="skill-item" data-level="75">
+                            <div class="skill-info">
+                                <span class="skill-name">C++</span>
+                                <span class="skill-level level-intermediate">Intermediate</span>
+                            </div>
+                            <div class="skill-bar" style="--skill-level: 75%;" aria-label="C++ - Intermediate proficiency"></div>
+                        </div>
+                        <div class="skill-item" data-level="75">
+                            <div class="skill-info">
+                                <span class="skill-name">JavaScript</span>
+                                <span class="skill-level level-intermediate">Intermediate</span>
+                            </div>
+                            <div class="skill-bar" style="--skill-level: 75%;" aria-label="JavaScript - Intermediate proficiency"></div>
+                        </div>
+                        <div class="skill-item" data-level="70">
+                            <div class="skill-info">
+                                <span class="skill-name">Java</span>
+                                <span class="skill-level level-intermediate">Intermediate</span>
+                            </div>
+                            <div class="skill-bar" style="--skill-level: 70%;" aria-label="Java - Intermediate proficiency"></div>
+                        </div>
+                        <div class="skill-item" data-level="65">
+                            <div class="skill-info">
+                                <span class="skill-name">Go</span>
+                                <span class="skill-level level-familiar">Familiar</span>
+                            </div>
+                            <div class="skill-bar" style="--skill-level: 65%;" aria-label="Go - Familiar proficiency"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ML & AI - NEURAL_MODULES -->
+                <div class="skill-category category-ml" data-animate-skill role="listitem" aria-labelledby="cat-ml">
+                    <div class="skill-category-header">
+                        <span class="skill-category-icon" aria-hidden="true">&#129504;</span>
+                        <h3 class="skill-category-title" id="cat-ml">NEURAL_MODULES</h3>
+                    </div>
+                    <p class="skill-category-desc">Advanced ML frameworks and research implementations</p>
+                    <div class="skill-list">
+                        <div class="skill-item expert" data-level="92">
+                            <div class="skill-info">
+                                <span class="skill-name">scikit-learn</span>
+                                <span class="skill-level level-expert">Expert</span>
+                            </div>
+                            <div class="skill-bar" style="--skill-level: 92%;" aria-label="scikit-learn - Expert proficiency"></div>
+                        </div>
+                        <div class="skill-item expert" data-level="90">
+                            <div class="skill-info">
+                                <span class="skill-name">PyTorch</span>
+                                <span class="skill-level level-expert">Expert</span>
+                            </div>
+                            <div class="skill-bar" style="--skill-level: 90%;" aria-label="PyTorch - Expert proficiency"></div>
+                        </div>
+                        <div class="skill-item" data-level="88">
+                            <div class="skill-info">
+                                <span class="skill-name">TensorFlow</span>
+                                <span class="skill-level level-advanced">Advanced</span>
+                            </div>
+                            <div class="skill-bar" style="--skill-level: 88%;" aria-label="TensorFlow - Advanced proficiency"></div>
+                        </div>
+                        <div class="skill-item" data-level="85">
+                            <div class="skill-info">
+                                <span class="skill-name">Flower (Federated)</span>
+                                <span class="skill-level level-advanced">Advanced</span>
+                            </div>
+                            <div class="skill-bar" style="--skill-level: 85%;" aria-label="Flower Federated Learning - Advanced proficiency"></div>
+                        </div>
+                        <div class="skill-item" data-level="85">
+                            <div class="skill-info">
+                                <span class="skill-name">SMOTE / Imbalanced</span>
+                                <span class="skill-level level-advanced">Advanced</span>
+                            </div>
+                            <div class="skill-bar" style="--skill-level: 85%;" aria-label="SMOTE and Imbalanced Learning - Advanced proficiency"></div>
+                        </div>
+                        <div class="skill-item" data-level="80">
+                            <div class="skill-info">
+                                <span class="skill-name">OpenCV</span>
+                                <span class="skill-level level-advanced">Advanced</span>
+                            </div>
+                            <div class="skill-bar" style="--skill-level: 80%;" aria-label="OpenCV - Advanced proficiency"></div>
+                        </div>
+                        <div class="skill-item" data-level="80">
+                            <div class="skill-info">
+                                <span class="skill-name">LangGraph / LLMs</span>
+                                <span class="skill-level level-advanced">Advanced</span>
+                            </div>
+                            <div class="skill-bar" style="--skill-level: 80%;" aria-label="LangGraph and LLM Integration - Advanced proficiency"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Developer Tools - PERIPHERALS -->
+                <div class="skill-category category-tools" data-animate-skill role="listitem" aria-labelledby="cat-tools">
+                    <div class="skill-category-header">
+                        <span class="skill-category-icon" aria-hidden="true">&#128295;</span>
+                        <h3 class="skill-category-title" id="cat-tools">PERIPHERALS</h3>
+                    </div>
+                    <p class="skill-category-desc">Professional developer tools and infrastructure</p>
+                    <div class="skill-list">
+                        <div class="skill-item expert" data-level="95">
+                            <div class="skill-info">
+                                <span class="skill-name">Git / GitHub</span>
+                                <span class="skill-level level-expert">Expert</span>
+                            </div>
+                            <div class="skill-bar" style="--skill-level: 95%;" aria-label="Git and GitHub - Expert proficiency"></div>
+                        </div>
+                        <div class="skill-item" data-level="90">
+                            <div class="skill-info">
+                                <span class="skill-name">VS Code</span>
+                                <span class="skill-level level-expert">Expert</span>
+                            </div>
+                            <div class="skill-bar" style="--skill-level: 90%;" aria-label="VS Code - Expert proficiency"></div>
+                        </div>
+                        <div class="skill-item" data-level="90">
+                            <div class="skill-info">
+                                <span class="skill-name">Linux / Bash</span>
+                                <span class="skill-level level-expert">Expert</span>
+                            </div>
+                            <div class="skill-bar" style="--skill-level: 90%;" aria-label="Linux and Bash - Expert proficiency"></div>
+                        </div>
+                        <div class="skill-item" data-level="85">
+                            <div class="skill-info">
+                                <span class="skill-name">Vim / Neovim</span>
+                                <span class="skill-level level-advanced">Advanced</span>
+                            </div>
+                            <div class="skill-bar" style="--skill-level: 85%;" aria-label="Vim and Neovim - Advanced proficiency"></div>
+                        </div>
+                        <div class="skill-item" data-level="85">
+                            <div class="skill-info">
+                                <span class="skill-name">Streamlit</span>
+                                <span class="skill-level level-advanced">Advanced</span>
+                            </div>
+                            <div class="skill-bar" style="--skill-level: 85%;" aria-label="Streamlit - Advanced proficiency"></div>
+                        </div>
+                        <div class="skill-item" data-level="75">
+                            <div class="skill-info">
+                                <span class="skill-name">GCP / Cloud</span>
+                                <span class="skill-level level-intermediate">Intermediate</span>
+                            </div>
+                            <div class="skill-bar" style="--skill-level: 75%;" aria-label="GCP and Cloud Services - Intermediate proficiency"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section class="section" id="contact">
-            <div class="section-placeholder">
-                <h2>// CONTACT</h2>
-                <p>Stage 4: Contact information and form</p>
+        <!-- ============================================
+             CONTACT SECTION - GET_IN_TOUCH
+        ============================================= -->
+        <section class="section" id="contact" aria-label="Contact Information">
+            <header class="section-header" data-animate>
+                <div class="section-header-box" aria-hidden="true">+------------------------------------------+
+|  <span class="section-header-title">GET_IN_TOUCH</span>                          |
++------------------------------------------+</div>
+                <p class="section-header-subtitle">// Execute connection protocols</p>
+            </header>
+
+            <div class="contact-grid" role="list" aria-label="Contact methods">
+                <!-- Email -->
+                <a href="mailto:kavinraj191105@gmail.com" class="contact-card" data-animate-contact role="listitem" aria-label="Send email">
+                    <div class="contact-card-header">
+                        <span class="contact-icon">[@]</span>
+                        <span class="contact-command">cat send_email.txt</span>
+                    </div>
+                    <div class="contact-value">kavinraj191105@gmail.com</div>
+                </a>
+
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/in/kavinraj95/" target="_blank" rel="noopener noreferrer" class="contact-card" data-animate-contact role="listitem" aria-label="Connect on LinkedIn">
+                    <div class="contact-card-header">
+                        <span class="contact-icon">[in]</span>
+                        <span class="contact-command">./linkedin --connect</span>
+                    </div>
+                    <div class="contact-value">linkedin.com/in/kavinraj95</div>
+                </a>
+
+                <!-- GitHub -->
+                <a href="https://github.com/kavinraj-95" target="_blank" rel="noopener noreferrer" class="contact-card" data-animate-contact role="listitem" aria-label="View GitHub profile">
+                    <div class="contact-card-header">
+                        <span class="contact-icon">[gh]</span>
+                        <span class="contact-command">./github --view</span>
+                    </div>
+                    <div class="contact-value">github.com/kavinraj-95</div>
+                </a>
+
+                <!-- Phone -->
+                <a href="tel:+917305199372" class="contact-card" data-animate-contact role="listitem" aria-label="Call phone">
+                    <div class="contact-card-header">
+                        <span class="contact-icon">[#]</span>
+                        <span class="contact-command">./phone --call</span>
+                    </div>
+                    <div class="contact-value">+91 7305199372</div>
+                </a>
             </div>
         </section>
 
     </main>
+
+    <!-- ============================================
+         FOOTER
+    ============================================= -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer-content">
+            <p class="footer-copyright">&copy; 2026 <span>Kavinraj S</span>. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="https://github.com/kavinraj-95" target="_blank" rel="noopener noreferrer" class="footer-link">source-code</a>
+                <a href="#contact" class="footer-link">contact-me</a>
+                <a href="#hero" class="footer-link">back-to-top</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================
+         TERMINAL TOGGLE BUTTON
+    ============================================= -->
+    <button class="terminal-toggle-btn" id="terminal-toggle" aria-label="Toggle terminal" aria-expanded="false" title="Open Terminal (` key)">
+        <span class="terminal-icon">>_</span>
+    </button>
+
+    <!-- ============================================
+         TERMINAL CONTAINER
+    ============================================= -->
+    <div class="terminal-container" id="terminal" role="application" aria-label="Interactive terminal">
+        <div class="terminal-titlebar">
+            <div class="terminal-controls">
+                <span class="control-dot close" id="terminal-close" title="Close terminal"></span>
+                <span class="control-dot minimize"></span>
+                <span class="control-dot maximize"></span>
+            </div>
+            <span class="terminal-title">KAVINRAJ.SYS TERMINAL v1.0</span>
+            <span class="terminal-path-display" id="terminal-path-display">~/home</span>
+        </div>
+        <div class="terminal-output" id="terminal-output" aria-live="polite" role="log"></div>
+        <div class="terminal-input-line">
+            <span class="terminal-prompt">
+                <span class="terminal-user">kavinraj</span><span class="terminal-at">@</span><span class="terminal-host">portfolio</span>:<span class="terminal-path" id="terminal-prompt-path">~</span><span class="terminal-dollar">$</span>
+            </span>
+            <input type="text" class="terminal-input" id="terminal-input" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Terminal command input" placeholder="Type 'help' for commands...">
+        </div>
+        <div class="terminal-statusbar">
+            <span class="status-hint">Press ` or ESC to toggle</span>
+            <span class="status-commands">Commands: help, cd, ls, whoami</span>
+        </div>
+    </div>
 
     <!-- ============================================
          JAVASCRIPT - BOOT SEQUENCE + HERO + SECTIONS
@@ -2761,6 +3797,9 @@
          * Stage 1: Boot Sequence
          * Stage 2: Hero Animations & Navigation
          * Stage 3: Education & Experience Sections
+         * Stage 4: Projects Showcase
+         * Stage 5: Technical Skills Visualization
+         * Stage 6: Terminal System, Contact & Footer
          */
         (function() {
             'use strict';
@@ -2842,6 +3881,26 @@
                 // Process cards (experience)
                 processCards: document.querySelectorAll('.process-card'),
 
+                // Project cards
+                projectCards: document.querySelectorAll('.project-card'),
+                projectAnimateElements: document.querySelectorAll('[data-animate-project]'),
+
+                // Skills section
+                skillCategories: document.querySelectorAll('[data-animate-skill]'),
+                skillItems: document.querySelectorAll('.skill-item'),
+
+                // Contact cards
+                contactCards: document.querySelectorAll('[data-animate-contact]'),
+
+                // Terminal
+                terminalToggle: document.getElementById('terminal-toggle'),
+                terminalContainer: document.getElementById('terminal'),
+                terminalClose: document.getElementById('terminal-close'),
+                terminalOutput: document.getElementById('terminal-output'),
+                terminalInput: document.getElementById('terminal-input'),
+                terminalPathDisplay: document.getElementById('terminal-path-display'),
+                terminalPromptPath: document.getElementById('terminal-prompt-path'),
+
                 // Body
                 body: document.body
             };
@@ -2855,7 +3914,13 @@
                 currentSubtitle: 0,
                 subtitleInterval: null,
                 navVisible: false,
-                mobileNavOpen: false
+                mobileNavOpen: false,
+                // Terminal state
+                terminalOpen: false,
+                terminalHistory: [],
+                terminalHistoryIndex: -1,
+                currentPath: '~',
+                pageLoadTime: Date.now()
             };
 
             // ============================================
@@ -3070,6 +4135,161 @@
             }
 
             // ============================================
+            // PROJECT CARDS - EXPAND/COLLAPSE
+            // ============================================
+            function initProjectCards() {
+                elements.projectCards.forEach(card => {
+                    const header = card.querySelector('.project-header');
+                    if (!header) return;
+
+                    // Click handler
+                    header.addEventListener('click', () => {
+                        toggleProjectCard(card);
+                    });
+
+                    // Keyboard handler for accessibility
+                    header.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            toggleProjectCard(card);
+                        }
+                    });
+                });
+
+                // Initialize project card animations
+                initProjectAnimations();
+            }
+
+            function toggleProjectCard(card) {
+                const isExpanded = card.classList.contains('expanded');
+                const header = card.querySelector('.project-header');
+
+                // Close other expanded cards (optional - accordion behavior)
+                // Uncomment if you want only one card expanded at a time:
+                // elements.projectCards.forEach(c => {
+                //     if (c !== card && c.classList.contains('expanded')) {
+                //         c.classList.remove('expanded');
+                //         c.querySelector('.project-header').setAttribute('aria-expanded', 'false');
+                //     }
+                // });
+
+                // Toggle expanded state
+                card.classList.toggle('expanded');
+
+                // Update ARIA attribute
+                header.setAttribute('aria-expanded', !isExpanded);
+            }
+
+            function initProjectAnimations() {
+                // Skip if user prefers reduced motion
+                if (prefersReducedMotion()) {
+                    elements.projectAnimateElements.forEach(el => {
+                        el.classList.add('animate-in');
+                    });
+                    return;
+                }
+
+                const observerOptions = {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -30px 0px'
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('animate-in');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, observerOptions);
+
+                elements.projectAnimateElements.forEach(el => {
+                    observer.observe(el);
+                });
+            }
+
+            // ============================================
+            // SKILLS SECTION - ANIMATIONS
+            // ============================================
+            function initSkillsSection() {
+                // Initialize category card animations
+                initSkillCategoryAnimations();
+
+                // Initialize progress bar animations
+                initSkillBarAnimations();
+            }
+
+            function initSkillCategoryAnimations() {
+                // Skip if user prefers reduced motion
+                if (prefersReducedMotion()) {
+                    elements.skillCategories.forEach(el => {
+                        el.classList.add('animate-in');
+                    });
+                    // Also trigger bar animations immediately
+                    elements.skillItems.forEach(item => {
+                        item.classList.add('animate-bar');
+                    });
+                    return;
+                }
+
+                const observerOptions = {
+                    threshold: 0.15,
+                    rootMargin: '0px 0px -50px 0px'
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('animate-in');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, observerOptions);
+
+                elements.skillCategories.forEach(el => {
+                    observer.observe(el);
+                });
+            }
+
+            function initSkillBarAnimations() {
+                // Skip if user prefers reduced motion - already handled in category animations
+                if (prefersReducedMotion()) {
+                    return;
+                }
+
+                const observerOptions = {
+                    threshold: 0.3,
+                    rootMargin: '0px 0px -20px 0px'
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            // Find all skill items within this category and animate them
+                            const category = entry.target;
+                            const skillItems = category.querySelectorAll('.skill-item');
+
+                            // Stagger the animations
+                            skillItems.forEach((item, index) => {
+                                setTimeout(() => {
+                                    item.classList.add('animate-bar');
+                                }, index * 100); // 100ms stagger between each bar
+                            });
+
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, observerOptions);
+
+                // Observe each skill category
+                elements.skillCategories.forEach(category => {
+                    if (category.classList.contains('skill-category')) {
+                        observer.observe(category);
+                    }
+                });
+            }
+
+            // ============================================
             // NAVIGATION
             // ============================================
             function initNavigation() {
@@ -3168,6 +4388,688 @@
             }
 
             // ============================================
+            // CONTACT SECTION ANIMATIONS
+            // ============================================
+            function initContactAnimations() {
+                if (prefersReducedMotion()) {
+                    elements.contactCards.forEach(el => el.classList.add('animate-in'));
+                    return;
+                }
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('animate-in');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+
+                elements.contactCards.forEach(el => observer.observe(el));
+            }
+
+            // ============================================
+            // TERMINAL MODULE
+            // ============================================
+            const TERMINAL_COMMANDS = {
+                help: {
+                    description: 'Show available commands',
+                    usage: 'help [command]',
+                    handler: handleHelp
+                },
+                clear: {
+                    description: 'Clear terminal screen',
+                    usage: 'clear',
+                    handler: handleClear
+                },
+                cd: {
+                    description: 'Navigate to a section',
+                    usage: 'cd <section>',
+                    handler: handleCd
+                },
+                ls: {
+                    description: 'List available sections',
+                    usage: 'ls [-a]',
+                    handler: handleLs
+                },
+                pwd: {
+                    description: 'Print current location',
+                    usage: 'pwd',
+                    handler: handlePwd
+                },
+                whoami: {
+                    description: 'Display user information',
+                    usage: 'whoami',
+                    handler: handleWhoami
+                },
+                about: {
+                    description: 'Extended bio',
+                    usage: 'about',
+                    handler: handleAbout
+                },
+                cat: {
+                    description: 'Display file contents',
+                    usage: 'cat <file>',
+                    handler: handleCat
+                },
+                history: {
+                    description: 'Show command history',
+                    usage: 'history',
+                    handler: handleHistory
+                },
+                echo: {
+                    description: 'Print text',
+                    usage: 'echo <text>',
+                    handler: handleEcho
+                },
+                date: {
+                    description: 'Show current date/time',
+                    usage: 'date',
+                    handler: handleDate
+                },
+                uptime: {
+                    description: 'Show page load time',
+                    usage: 'uptime',
+                    handler: handleUptime
+                },
+                // Easter eggs
+                sudo: { handler: handleSudo, hidden: true },
+                neofetch: { handler: handleNeofetch, hidden: true },
+                matrix: { handler: handleMatrix, hidden: true },
+                cowsay: { handler: handleCowsay, hidden: true },
+                fortune: { handler: handleFortune, hidden: true },
+                vim: { handler: handleVim, hidden: true },
+                nano: { handler: handleNano, hidden: true },
+                ':q': { handler: handleQuit, hidden: true },
+                ':q!': { handler: handleQuit, hidden: true },
+                ':wq': { handler: handleQuit, hidden: true },
+                'rm': { handler: handleRm, hidden: true },
+                exit: { handler: handleExit, hidden: true },
+                git: { handler: handleGit, hidden: true },
+                ping: { handler: handlePing, hidden: true },
+                nmap: { handler: handleNmap, hidden: true }
+            };
+
+            const SECTIONS = {
+                home: { id: 'hero', name: 'Home', path: '~' },
+                education: { id: 'education', name: 'Education', path: '~/education' },
+                experience: { id: 'experience', name: 'Experience', path: '~/experience' },
+                projects: { id: 'projects', name: 'Projects', path: '~/projects' },
+                skills: { id: 'skills', name: 'Skills', path: '~/skills' },
+                contact: { id: 'contact', name: 'Contact', path: '~/contact' }
+            };
+
+            const FORTUNES = [
+                '"Any sufficiently advanced technology is indistinguishable from magic." - Arthur C. Clarke',
+                '"Talk is cheap. Show me the code." - Linus Torvalds',
+                '"First, solve the problem. Then, write the code." - John Johnson',
+                '"Code is like humor. When you have to explain it, it is bad." - Cory House',
+                '"The best error message is the one that never shows up." - Thomas Fuchs',
+                '"Simplicity is the soul of efficiency." - Austin Freeman'
+            ];
+
+            function initTerminal() {
+                // Toggle button
+                elements.terminalToggle.addEventListener('click', toggleTerminal);
+
+                // Close button
+                elements.terminalClose.addEventListener('click', closeTerminal);
+
+                // Input handling
+                elements.terminalInput.addEventListener('keydown', handleTerminalKeydown);
+
+                // Global keyboard shortcuts
+                document.addEventListener('keydown', handleGlobalKeydown);
+
+                // Show welcome message on first open
+                state.terminalWelcomeShown = false;
+            }
+
+            function handleGlobalKeydown(e) {
+                // Backtick to toggle terminal
+                if (e.key === '`' && !e.ctrlKey && !e.altKey && !e.metaKey) {
+                    if (document.activeElement !== elements.terminalInput) {
+                        e.preventDefault();
+                        toggleTerminal();
+                    }
+                }
+                // ESC to close terminal
+                if (e.key === 'Escape' && state.terminalOpen) {
+                    closeTerminal();
+                }
+            }
+
+            function toggleTerminal() {
+                if (state.terminalOpen) {
+                    closeTerminal();
+                } else {
+                    openTerminal();
+                }
+            }
+
+            function openTerminal() {
+                state.terminalOpen = true;
+                elements.terminalContainer.classList.add('open');
+                elements.terminalToggle.classList.add('active');
+                elements.terminalToggle.setAttribute('aria-expanded', 'true');
+                elements.terminalInput.focus();
+
+                // Show welcome message on first open
+                if (!state.terminalWelcomeShown) {
+                    showWelcomeMessage();
+                    state.terminalWelcomeShown = true;
+                }
+            }
+
+            function closeTerminal() {
+                state.terminalOpen = false;
+                elements.terminalContainer.classList.remove('open');
+                elements.terminalToggle.classList.remove('active');
+                elements.terminalToggle.setAttribute('aria-expanded', 'false');
+            }
+
+            function showWelcomeMessage() {
+                appendOutput('Welcome to KAVINRAJ.SYS Terminal v1.0', 'header');
+                appendOutput('Type "help" for available commands.', 'dim');
+                appendOutput('', 'response');
+            }
+
+            function handleTerminalKeydown(e) {
+                if (e.key === 'Enter') {
+                    const command = elements.terminalInput.value.trim();
+                    if (command) {
+                        executeCommand(command);
+                        state.terminalHistory.push(command);
+                        state.terminalHistoryIndex = state.terminalHistory.length;
+                    }
+                    elements.terminalInput.value = '';
+                } else if (e.key === 'ArrowUp') {
+                    e.preventDefault();
+                    navigateHistory(-1);
+                } else if (e.key === 'ArrowDown') {
+                    e.preventDefault();
+                    navigateHistory(1);
+                } else if (e.key === 'Tab') {
+                    e.preventDefault();
+                    autocomplete();
+                }
+            }
+
+            function navigateHistory(direction) {
+                const newIndex = state.terminalHistoryIndex + direction;
+                if (newIndex >= 0 && newIndex < state.terminalHistory.length) {
+                    state.terminalHistoryIndex = newIndex;
+                    elements.terminalInput.value = state.terminalHistory[newIndex];
+                } else if (newIndex >= state.terminalHistory.length) {
+                    state.terminalHistoryIndex = state.terminalHistory.length;
+                    elements.terminalInput.value = '';
+                }
+            }
+
+            function autocomplete() {
+                const input = elements.terminalInput.value.trim().toLowerCase();
+                if (!input) return;
+
+                const parts = input.split(' ');
+                const cmd = parts[0];
+
+                if (parts.length === 1) {
+                    // Autocomplete command
+                    const matches = Object.keys(TERMINAL_COMMANDS).filter(c =>
+                        c.startsWith(cmd) && !TERMINAL_COMMANDS[c].hidden
+                    );
+                    if (matches.length === 1) {
+                        elements.terminalInput.value = matches[0] + ' ';
+                    }
+                } else if (cmd === 'cd' && parts.length === 2) {
+                    // Autocomplete section
+                    const sectionInput = parts[1];
+                    const matches = Object.keys(SECTIONS).filter(s => s.startsWith(sectionInput));
+                    if (matches.length === 1) {
+                        elements.terminalInput.value = 'cd ' + matches[0];
+                    }
+                }
+            }
+
+            function executeCommand(input) {
+                appendOutput(input, 'command');
+
+                const parts = input.trim().split(/\s+/);
+                const cmd = parts[0].toLowerCase();
+                const args = parts.slice(1);
+
+                if (TERMINAL_COMMANDS[cmd]) {
+                    TERMINAL_COMMANDS[cmd].handler(args);
+                } else {
+                    appendOutput(`Command not found: ${cmd}. Type 'help' for available commands.`, 'error');
+                }
+
+                scrollTerminalToBottom();
+            }
+
+            function appendOutput(text, type = 'response') {
+                const line = document.createElement('div');
+                line.className = `terminal-line ${type}`;
+                line.textContent = text;
+                elements.terminalOutput.appendChild(line);
+            }
+
+            function appendOutputHTML(html, type = 'response') {
+                const line = document.createElement('div');
+                line.className = `terminal-line ${type}`;
+                line.innerHTML = html;
+                elements.terminalOutput.appendChild(line);
+            }
+
+            function scrollTerminalToBottom() {
+                elements.terminalOutput.scrollTop = elements.terminalOutput.scrollHeight;
+            }
+
+            function updatePath(path) {
+                state.currentPath = path;
+                elements.terminalPathDisplay.textContent = path;
+                elements.terminalPromptPath.textContent = path;
+            }
+
+            // Command handlers
+            function handleHelp(args) {
+                if (args.length > 0) {
+                    const cmd = args[0].toLowerCase();
+                    if (TERMINAL_COMMANDS[cmd] && !TERMINAL_COMMANDS[cmd].hidden) {
+                        appendOutput(`${cmd}: ${TERMINAL_COMMANDS[cmd].description}`, 'response');
+                        appendOutput(`Usage: ${TERMINAL_COMMANDS[cmd].usage}`, 'dim');
+                    } else {
+                        appendOutput(`No help available for: ${cmd}`, 'error');
+                    }
+                } else {
+                    appendOutput('Available commands:', 'header');
+                    appendOutput('', 'response');
+                    Object.entries(TERMINAL_COMMANDS)
+                        .filter(([_, v]) => !v.hidden)
+                        .forEach(([name, cmd]) => {
+                            appendOutput(`  ${name.padEnd(12)} - ${cmd.description}`, 'response');
+                        });
+                    appendOutput('', 'response');
+                    appendOutput('Tip: Try some hidden easter egg commands ;)', 'dim');
+                }
+            }
+
+            function handleClear() {
+                elements.terminalOutput.innerHTML = '';
+            }
+
+            function handleCd(args) {
+                if (args.length === 0) {
+                    updatePath('~');
+                    navigateToSection('home');
+                    return;
+                }
+
+                const target = args[0].toLowerCase().replace(/[~\/]/g, '');
+
+                if (target === '' || target === 'home') {
+                    updatePath('~');
+                    navigateToSection('home');
+                } else if (SECTIONS[target]) {
+                    updatePath(SECTIONS[target].path);
+                    navigateToSection(target);
+                } else if (target === '..') {
+                    updatePath('~');
+                    navigateToSection('home');
+                } else {
+                    appendOutput(`cd: no such directory: ${args[0]}`, 'error');
+                    appendOutput('Available: home, education, experience, projects, skills, contact', 'dim');
+                }
+            }
+
+            function navigateToSection(sectionKey) {
+                const section = SECTIONS[sectionKey];
+                if (!section) return;
+
+                const el = document.getElementById(section.id);
+                if (el) {
+                    el.scrollIntoView({ behavior: 'smooth' });
+                    el.classList.add('terminal-highlight');
+                    setTimeout(() => el.classList.remove('terminal-highlight'), 1500);
+                    appendOutput(`Navigated to ${section.name}`, 'success');
+
+                    // Update nav
+                    elements.navItems.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === '#' + section.id) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            }
+
+            function handleLs(args) {
+                const showHidden = args.includes('-a');
+
+                appendOutput('Directory listing for ~/portfolio:', 'header');
+                appendOutput('', 'response');
+
+                Object.entries(SECTIONS).forEach(([key, section]) => {
+                    const current = state.currentPath === section.path ? ' <-- you are here' : '';
+                    appendOutput(`  drwxr-xr-x  ${key.padEnd(12)}${current}`, 'response');
+                });
+
+                if (showHidden) {
+                    appendOutput('', 'response');
+                    appendOutput('  -rw-r--r--  .secrets', 'dim');
+                    appendOutput('  -rw-r--r--  .easter_eggs', 'dim');
+                    appendOutput('', 'response');
+                    appendOutput('Hint: Try "sudo", "neofetch", "matrix", "cowsay", or "fortune"', 'dim');
+                }
+            }
+
+            function handlePwd() {
+                appendOutput(state.currentPath, 'response');
+            }
+
+            function handleWhoami() {
+                appendOutput('', 'response');
+                appendOutput('  Name:       Kavinraj S', 'response');
+                appendOutput('  Role:       ML Research Engineer', 'response');
+                appendOutput('  University: Amrita Vishwa Vidyapeetham', 'response');
+                appendOutput('  CGPA:       9.0 / 10.0', 'response');
+                appendOutput('  Email:      kavinraj191105@gmail.com', 'response');
+                appendOutput('  GitHub:     github.com/kavinraj-95', 'response');
+                appendOutput('  LinkedIn:   linkedin.com/in/kavinraj95', 'response');
+                appendOutput('', 'response');
+            }
+
+            function handleAbout() {
+                appendOutput('', 'response');
+                appendOutput('=== ABOUT KAVINRAJ S ===', 'header');
+                appendOutput('', 'response');
+                appendOutput('I am a passionate ML Research Engineer specializing in:', 'response');
+                appendOutput('  - Federated Learning & Privacy-Preserving ML', 'response');
+                appendOutput('  - Computer Vision & Real-time Image Processing', 'response');
+                appendOutput('  - Full-Stack Development with Python & JavaScript', 'response');
+                appendOutput('', 'response');
+                appendOutput('Currently pursuing B.Tech in Computer Science at Amrita', 'response');
+                appendOutput('Vishwa Vidyapeetham with a minor in IoT.', 'response');
+                appendOutput('', 'response');
+                appendOutput('Always eager to tackle complex problems and build', 'response');
+                appendOutput('innovative solutions that make a difference.', 'response');
+                appendOutput('', 'response');
+            }
+
+            function handleCat(args) {
+                if (args.length === 0) {
+                    appendOutput('cat: missing file operand', 'error');
+                    return;
+                }
+
+                const file = args[0].toLowerCase();
+
+                if (file === 'resume.pdf' || file === 'resume') {
+                    appendOutput('Opening resume...', 'success');
+                    window.open('Kavinraj\'s Resume.pdf', '_blank');
+                } else if (file === 'skills.txt' || file === 'skills') {
+                    appendOutput('', 'response');
+                    appendOutput('=== SKILLS OVERVIEW ===', 'header');
+                    appendOutput('', 'response');
+                    appendOutput('Languages: Python, SQL, C, C++, JavaScript, Java, Go', 'response');
+                    appendOutput('ML/AI: scikit-learn, PyTorch, TensorFlow, FLwr, OpenCV', 'response');
+                    appendOutput('Tools: Git, Linux, VS Code, Vim, Streamlit, GCP', 'response');
+                    appendOutput('', 'response');
+                } else if (file === 'projects.txt' || file === 'projects') {
+                    appendOutput('', 'response');
+                    appendOutput('=== PROJECT INDEX ===', 'header');
+                    appendOutput('', 'response');
+                    appendOutput('1. fraud_detection.exe  - ML fraud detection (284K+ txns)', 'response');
+                    appendOutput('2. test_generator.vscode- AI unit test generator (85% time saved)', 'response');
+                    appendOutput('3. devvault.platform    - Post-quantum secure coding', 'response');
+                    appendOutput('4. neat_drive.sim       - NEAT self-driving simulation', 'response');
+                    appendOutput('5. sentinel_health      - Secure EHR application', 'response');
+                    appendOutput('6. touchless.cv         - Hand gesture recognition', 'response');
+                    appendOutput('', 'response');
+                } else {
+                    appendOutput(`cat: ${file}: No such file`, 'error');
+                }
+            }
+
+            function handleHistory() {
+                if (state.terminalHistory.length === 0) {
+                    appendOutput('No commands in history', 'dim');
+                } else {
+                    state.terminalHistory.forEach((cmd, i) => {
+                        appendOutput(`  ${(i + 1).toString().padStart(4)}  ${cmd}`, 'response');
+                    });
+                }
+            }
+
+            function handleEcho(args) {
+                appendOutput(args.join(' '), 'response');
+            }
+
+            function handleDate() {
+                const now = new Date();
+                appendOutput(now.toString(), 'response');
+            }
+
+            function handleUptime() {
+                const uptime = Math.floor((Date.now() - state.pageLoadTime) / 1000);
+                const hours = Math.floor(uptime / 3600);
+                const minutes = Math.floor((uptime % 3600) / 60);
+                const seconds = uptime % 60;
+                appendOutput(`Portfolio uptime: ${hours}h ${minutes}m ${seconds}s`, 'response');
+            }
+
+            // Easter egg handlers
+            function handleSudo(args) {
+                const fullCmd = args.join(' ').toLowerCase();
+
+                if (fullCmd.includes('hire') && fullCmd.includes('kavinraj')) {
+                    appendOutput('', 'response');
+                    appendOutput('  EXCELLENT CHOICE!', 'success');
+                    appendOutput('', 'response');
+                    appendOutput('  Initiating hiring protocol...', 'response');
+                    appendOutput('  Contact: kavinraj191105@gmail.com', 'response');
+                    appendOutput('', 'response');
+                    triggerConfetti();
+                } else if (fullCmd) {
+                    appendOutput('Nice try! No root access here ;)', 'error');
+                    appendOutput('Hint: try "sudo hire kavinraj"', 'dim');
+                } else {
+                    appendOutput('sudo: a]rgument required', 'error');
+                }
+            }
+
+            function handleNeofetch() {
+                const ascii = [
+                    '',
+                    '    ██╗  ██╗ █████╗ ██╗   ██╗██╗███╗   ██╗',
+                    '    ██║ ██╔╝██╔══██╗██║   ██║██║████╗  ██║',
+                    '    █████╔╝ ███████║██║   ██║██║██╔██╗ ██║',
+                    '    ██╔═██╗ ██╔══██║╚██╗ ██╔╝██║██║╚██╗██║',
+                    '    ██║  ██╗██║  ██║ ╚████╔╝ ██║██║ ╚████║',
+                    '    ╚═╝  ╚═╝╚═╝  ╚═╝  ╚═══╝  ╚═╝╚═╝  ╚═══╝',
+                    ''
+                ];
+
+                const info = [
+                    'kavinraj@portfolio',
+                    '──────────────────',
+                    'OS: KAVINRAJ.SYS v1.0',
+                    'Host: Web Browser',
+                    'Kernel: JavaScript ES6+',
+                    'Shell: Terminal v1.0',
+                    'Theme: Retro Terminal',
+                    'CPU: Neural Processors x8',
+                    'Memory: Infinite Ideas',
+                    'Uptime: Since 2023'
+                ];
+
+                ascii.forEach(line => appendOutput(line, 'ascii'));
+                info.forEach(line => appendOutput('    ' + line, 'response'));
+                appendOutput('', 'response');
+            }
+
+            function handleMatrix() {
+                appendOutput('Initiating Matrix rain...', 'success');
+                triggerMatrixRain();
+            }
+
+            function handleCowsay(args) {
+                const text = args.length > 0 ? args.join(' ') : 'Moo!';
+                const border = '_'.repeat(text.length + 2);
+
+                appendOutput(' ' + border, 'response');
+                appendOutput('< ' + text + ' >', 'response');
+                appendOutput(' ' + '-'.repeat(text.length + 2), 'response');
+                appendOutput('        \\   ^__^', 'response');
+                appendOutput('         \\  (oo)\\_______', 'response');
+                appendOutput('            (__)\\       )\\/\\', 'response');
+                appendOutput('                ||----w |', 'response');
+                appendOutput('                ||     ||', 'response');
+            }
+
+            function handleFortune() {
+                const fortune = FORTUNES[Math.floor(Math.random() * FORTUNES.length)];
+                appendOutput('', 'response');
+                appendOutput(fortune, 'response');
+                appendOutput('', 'response');
+            }
+
+            function handleVim() {
+                appendOutput('', 'response');
+                appendOutput('How do I exit vim?!', 'error');
+                appendOutput('Just kidding. Try :q, :wq, or :q!', 'dim');
+                appendOutput('', 'response');
+            }
+
+            function handleNano() {
+                appendOutput('nano is for beginners ;)', 'response');
+                appendOutput('Real developers use vim (and then google how to exit)', 'dim');
+            }
+
+            function handleQuit() {
+                appendOutput('This is not vim, but nice try!', 'response');
+                appendOutput('Use "clear" to clear the terminal.', 'dim');
+            }
+
+            function handleRm(args) {
+                if (args.join(' ').includes('-rf') && args.join(' ').includes('/')) {
+                    appendOutput('Nice try! No files were harmed in this portfolio.', 'error');
+                    appendOutput('System protected by ML-powered security ;)', 'dim');
+                } else {
+                    appendOutput('rm: permission denied', 'error');
+                }
+            }
+
+            function handleExit() {
+                appendOutput('', 'response');
+                appendOutput('"You can check out any time you like,', 'response');
+                appendOutput(' but you can never leave..."', 'response');
+                appendOutput('', 'response');
+                appendOutput('- Hotel California, The Eagles', 'dim');
+                appendOutput('', 'response');
+                appendOutput('(Use ESC or the X button to close the terminal)', 'dim');
+            }
+
+            function handleGit(args) {
+                const subcmd = args[0]?.toLowerCase();
+
+                if (subcmd === 'status') {
+                    appendOutput('On branch: main', 'response');
+                    appendOutput('Your branch is up to date with origin/main.', 'response');
+                    appendOutput('', 'response');
+                    appendOutput('nothing to commit, working tree clean', 'success');
+                } else if (subcmd === 'log') {
+                    appendOutput('commit abc123 (HEAD -> main)', 'response');
+                    appendOutput('Author: Kavinraj S <kavinraj191105@gmail.com>', 'dim');
+                    appendOutput('Date: Today', 'dim');
+                    appendOutput('', 'response');
+                    appendOutput('    Added awesome portfolio features', 'response');
+                } else {
+                    appendOutput(`git: '${subcmd || ''}' is not a git command.`, 'error');
+                }
+            }
+
+            function handlePing(args) {
+                const host = args[0] || 'google.com';
+                appendOutput(`PING ${host} (142.250.185.78): 56 data bytes`, 'response');
+
+                let count = 0;
+                const pingInterval = setInterval(() => {
+                    const time = (Math.random() * 20 + 10).toFixed(3);
+                    appendOutput(`64 bytes from ${host}: icmp_seq=${count} ttl=117 time=${time} ms`, 'response');
+                    scrollTerminalToBottom();
+                    count++;
+                    if (count >= 3) {
+                        clearInterval(pingInterval);
+                        appendOutput('', 'response');
+                        appendOutput(`--- ${host} ping statistics ---`, 'response');
+                        appendOutput('3 packets transmitted, 3 packets received, 0.0% packet loss', 'success');
+                    }
+                }, 500);
+            }
+
+            function handleNmap() {
+                appendOutput('Starting Nmap scan...', 'response');
+                appendOutput('', 'response');
+                appendOutput('PORT      STATE    SERVICE', 'header');
+                appendOutput('22/tcp    open     ssh (education)', 'response');
+                appendOutput('80/tcp    open     http (experience)', 'response');
+                appendOutput('443/tcp   open     https (projects)', 'response');
+                appendOutput('3000/tcp  open     ppp (skills)', 'response');
+                appendOutput('8080/tcp  open     http-proxy (contact)', 'response');
+                appendOutput('9000/tcp  open     cslistener (terminal)', 'response');
+                appendOutput('', 'response');
+                appendOutput('Nmap done: 1 IP address (1 host up) scanned', 'success');
+                appendOutput('Found 6 open projects ready for exploration!', 'dim');
+            }
+
+            // Special effects
+            function triggerConfetti() {
+                const colors = ['#00d4aa', '#f5a623', '#7c3aed', '#ff6b6b', '#4da6ff'];
+
+                for (let i = 0; i < 50; i++) {
+                    setTimeout(() => {
+                        const confetti = document.createElement('div');
+                        confetti.className = 'confetti-piece';
+                        confetti.style.left = Math.random() * 100 + 'vw';
+                        confetti.style.top = '-10px';
+                        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                        confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+                        document.body.appendChild(confetti);
+
+                        setTimeout(() => confetti.remove(), 3000);
+                    }, i * 50);
+                }
+            }
+
+            function triggerMatrixRain() {
+                const overlay = document.createElement('div');
+                overlay.className = 'matrix-overlay';
+                document.body.appendChild(overlay);
+
+                const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()';
+                const columns = Math.floor(window.innerWidth / 20);
+
+                for (let i = 0; i < columns; i++) {
+                    setTimeout(() => {
+                        const column = document.createElement('div');
+                        column.className = 'matrix-column';
+                        column.style.left = (i * 20) + 'px';
+                        column.style.animationDuration = (Math.random() * 2 + 1) + 's';
+
+                        let text = '';
+                        for (let j = 0; j < 30; j++) {
+                            text += chars[Math.floor(Math.random() * chars.length)] + '\n';
+                        }
+                        column.textContent = text;
+                        overlay.appendChild(column);
+                    }, i * 30);
+                }
+
+                setTimeout(() => overlay.remove(), 3000);
+            }
+
+            // ============================================
             // INITIALIZATION
             // ============================================
             function init() {
@@ -3189,6 +5091,18 @@
 
                 // Initialize process cards (experience expandables)
                 initProcessCards();
+
+                // Initialize project cards
+                initProjectCards();
+
+                // Initialize skills section
+                initSkillsSection();
+
+                // Initialize contact animations
+                initContactAnimations();
+
+                // Initialize terminal
+                initTerminal();
 
                 // Start boot sequence
                 runBootSequence();
