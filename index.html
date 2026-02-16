@@ -5,6 +5,7 @@
          KAVINRAJ.SYS - Portfolio v1.0
          Stage 1: Foundation and Boot Sequence
          Stage 2: Hero Section and Navigation
+         Stage 3: Education and Experience Sections
          A retro-themed ML Engineer portfolio
     ============================================= -->
     <meta charset="UTF-8">
@@ -60,6 +61,7 @@
             --glow-teal: rgba(0, 212, 170, 0.15);
             --glow-teal-strong: rgba(0, 212, 170, 0.3);
             --glow-amber: rgba(245, 166, 35, 0.15);
+            --glow-amber-strong: rgba(245, 166, 35, 0.3);
             --glow-purple: rgba(124, 58, 237, 0.15);
 
             /* Borders and lines */
@@ -748,13 +750,48 @@
             visibility: visible;
         }
 
-        /* Content sections (placeholder for future stages) */
+        /* ============================================
+           SECTION BASE STYLES
+        ============================================= */
         .section {
             max-width: var(--max-width);
             margin: 0 auto;
             padding: var(--spacing-3xl) var(--spacing-xl);
         }
 
+        /* Section header with ASCII box */
+        .section-header {
+            margin-bottom: var(--spacing-2xl);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .section-header.animate-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-header-box {
+            font-size: var(--font-size-sm);
+            color: var(--text-dim);
+            line-height: 1.4;
+            white-space: pre;
+        }
+
+        .section-header-title {
+            color: var(--accent-teal);
+            font-weight: 600;
+            text-shadow: 0 0 10px var(--glow-teal);
+        }
+
+        .section-header-subtitle {
+            font-size: var(--font-size-sm);
+            color: var(--text-muted);
+            margin-top: var(--spacing-sm);
+        }
+
+        /* Placeholder sections */
         .section-placeholder {
             min-height: 50vh;
             display: flex;
@@ -777,6 +814,847 @@
         .section-placeholder p {
             color: var(--text-muted);
             font-size: var(--font-size-sm);
+        }
+
+        /* ============================================
+           EDUCATION SECTION - INSTALLED_MODULES
+        ============================================= */
+        .education-content {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+            transition-delay: 0.2s;
+        }
+
+        .education-content.animate-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Module card (University) */
+        .module-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-xl);
+            margin-bottom: var(--spacing-xl);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .module-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--accent-teal), var(--accent-purple));
+        }
+
+        .module-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .module-info {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .module-name {
+            font-size: var(--font-size-xl);
+            color: var(--text-primary);
+            font-weight: 600;
+            text-shadow: 0 0 8px var(--glow-teal);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .module-name::before {
+            content: '$ npm install ';
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .module-version {
+            font-size: var(--font-size-sm);
+            color: var(--accent-amber);
+            text-shadow: 0 0 5px var(--glow-amber);
+        }
+
+        .module-description {
+            font-size: var(--font-size-base);
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .module-minor {
+            font-size: var(--font-size-sm);
+            color: var(--accent-purple);
+        }
+
+        .module-meta {
+            text-align: right;
+        }
+
+        .module-status {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            font-size: var(--font-size-sm);
+            color: var(--accent-amber);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .module-status-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent-amber);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--accent-amber);
+            animation: statusPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes statusPulse {
+            0%, 100% { opacity: 1; box-shadow: 0 0 8px var(--accent-amber); }
+            50% { opacity: 0.6; box-shadow: 0 0 4px var(--accent-amber); }
+        }
+
+        .module-date {
+            font-size: var(--font-size-xs);
+            color: var(--text-muted);
+        }
+
+        /* Installed packages (Courses) */
+        .packages-section {
+            margin-top: var(--spacing-xl);
+        }
+
+        .packages-header {
+            font-size: var(--font-size-sm);
+            color: var(--text-muted);
+            margin-bottom: var(--spacing-md);
+            padding-bottom: var(--spacing-sm);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .packages-header::before {
+            content: '// ';
+            color: var(--text-dim);
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-sm);
+        }
+
+        .package-tag {
+            display: inline-flex;
+            align-items: center;
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+            background: var(--bg-tertiary);
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: var(--border-radius);
+            border: 1px solid transparent;
+            transition: all var(--transition-base);
+            cursor: default;
+        }
+
+        .package-tag::before {
+            content: '[';
+            color: var(--text-dim);
+            margin-right: 2px;
+        }
+
+        .package-tag::after {
+            content: ']';
+            color: var(--text-dim);
+            margin-left: 2px;
+        }
+
+        .package-tag:hover {
+            color: var(--accent-teal);
+            border-color: var(--border-glow);
+            text-shadow: 0 0 8px var(--glow-teal);
+            transform: translateX(4px);
+        }
+
+        /* ============================================
+           EXPERIENCE SECTION - ACTIVE_PROCESSES
+        ============================================= */
+        .experience-content {
+            position: relative;
+        }
+
+        /* Timeline connector (desktop only) */
+        .timeline-connector {
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: var(--border-color);
+        }
+
+        .timeline-connector::before {
+            content: '|';
+            position: absolute;
+            top: -10px;
+            left: -3px;
+            color: var(--text-dim);
+            font-size: var(--font-size-sm);
+        }
+
+        .timeline-connector::after {
+            content: '|';
+            position: absolute;
+            bottom: -10px;
+            left: -3px;
+            color: var(--text-dim);
+            font-size: var(--font-size-sm);
+        }
+
+        /* Process card (Experience item) */
+        .process-card {
+            position: relative;
+            margin-left: 50px;
+            margin-bottom: var(--spacing-xl);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .process-card.animate-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .process-card:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+
+        .process-card:nth-child(3) {
+            transition-delay: 0.4s;
+        }
+
+        /* Status indicator on timeline */
+        .process-indicator {
+            position: absolute;
+            left: -42px;
+            top: 24px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: 2px solid var(--bg-primary);
+        }
+
+        .process-indicator.status-active {
+            background: var(--accent-amber);
+            box-shadow: 0 0 12px var(--accent-amber);
+            animation: statusPulse 2s ease-in-out infinite;
+        }
+
+        .process-indicator.status-complete {
+            background: var(--accent-teal);
+            box-shadow: 0 0 8px var(--accent-teal);
+        }
+
+        /* Process card inner */
+        .process-inner {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            transition: all var(--transition-base);
+        }
+
+        .process-card:hover .process-inner {
+            transform: translateX(4px);
+            border-color: var(--border-glow);
+            box-shadow: 0 0 20px var(--glow-teal);
+        }
+
+        .process-card.status-active .process-inner {
+            border-left: 3px solid var(--accent-amber);
+        }
+
+        .process-card.status-complete .process-inner {
+            border-left: 3px solid var(--accent-teal);
+        }
+
+        /* Process header */
+        .process-header {
+            padding: var(--spacing-lg);
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .process-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .process-pid {
+            font-size: var(--font-size-xs);
+            color: var(--text-dim);
+            font-weight: 400;
+        }
+
+        .process-name {
+            font-size: var(--font-size-xl);
+            color: var(--text-primary);
+            font-weight: 600;
+            text-shadow: 0 0 8px var(--glow-teal);
+        }
+
+        .process-role {
+            font-size: var(--font-size-base);
+            color: var(--text-secondary);
+            margin-top: var(--spacing-xs);
+        }
+
+        .process-meta {
+            text-align: right;
+            flex-shrink: 0;
+        }
+
+        .process-status {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            font-size: var(--font-size-xs);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .process-card.status-active .process-status {
+            color: var(--accent-amber);
+        }
+
+        .process-card.status-complete .process-status {
+            color: var(--accent-teal);
+        }
+
+        .process-status-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+        }
+
+        .process-card.status-active .process-status-dot {
+            background: var(--accent-amber);
+            box-shadow: 0 0 6px var(--accent-amber);
+        }
+
+        .process-card.status-complete .process-status-dot {
+            background: var(--accent-teal);
+            box-shadow: 0 0 6px var(--accent-teal);
+        }
+
+        .process-runtime {
+            font-size: var(--font-size-xs);
+            color: var(--text-muted);
+        }
+
+        .process-location {
+            font-size: var(--font-size-xs);
+            color: var(--text-dim);
+            margin-top: var(--spacing-xs);
+        }
+
+        /* Expand indicator */
+        .process-expand {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            font-size: var(--font-size-xs);
+            color: var(--text-dim);
+            margin-top: var(--spacing-md);
+            transition: color var(--transition-fast);
+        }
+
+        .process-header:hover .process-expand {
+            color: var(--text-muted);
+        }
+
+        .process-expand-icon {
+            transition: transform var(--transition-base);
+        }
+
+        .process-card.expanded .process-expand-icon {
+            transform: rotate(90deg);
+        }
+
+        /* Process details (expandable) */
+        .process-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+            background: var(--bg-tertiary);
+        }
+
+        .process-card.expanded .process-details {
+            max-height: 500px;
+        }
+
+        .process-details-inner {
+            padding: var(--spacing-lg);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .process-task {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .process-task:last-child {
+            margin-bottom: 0;
+        }
+
+        .process-task-marker {
+            color: var(--accent-teal);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .process-task-text {
+            flex: 1;
+        }
+
+        /* Metrics visualization */
+        .process-metrics {
+            display: flex;
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+            padding-top: var(--spacing-md);
+            border-top: 1px dashed var(--border-color);
+        }
+
+        .process-metric {
+            flex: 1;
+        }
+
+        .process-metric-label {
+            font-size: var(--font-size-xs);
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .process-metric-bar {
+            height: 4px;
+            background: var(--bg-secondary);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .process-metric-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-teal), var(--accent-purple));
+            border-radius: 2px;
+            transition: width 0.6s ease;
+        }
+
+        .process-metric-value {
+            font-size: var(--font-size-xs);
+            color: var(--text-muted);
+            margin-top: var(--spacing-xs);
+        }
+
+        /* ============================================
+           PROJECTS SECTION - FILE EXPLORER AESTHETIC
+        ============================================= */
+        .projects-window {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .projects-window.animate-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Window title bar */
+        .window-titlebar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-sm) var(--spacing-md);
+            background: var(--bg-tertiary);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .window-title {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+        }
+
+        .window-title-icon {
+            color: var(--accent-amber);
+        }
+
+        .window-controls {
+            display: flex;
+            gap: var(--spacing-sm);
+        }
+
+        .window-btn {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: none;
+            cursor: default;
+        }
+
+        .window-btn.close {
+            background: var(--accent-red);
+            opacity: 0.8;
+        }
+
+        .window-btn.minimize {
+            background: var(--accent-amber);
+            opacity: 0.8;
+        }
+
+        .window-btn.maximize {
+            background: var(--accent-teal);
+            opacity: 0.8;
+        }
+
+        /* Breadcrumb path */
+        .window-breadcrumb {
+            padding: var(--spacing-sm) var(--spacing-md);
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border-color);
+            font-size: var(--font-size-xs);
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+
+        .breadcrumb-segment {
+            color: var(--text-dim);
+        }
+
+        .breadcrumb-current {
+            color: var(--accent-teal);
+            text-shadow: 0 0 5px var(--glow-teal);
+        }
+
+        /* Projects grid container */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-lg);
+            padding: var(--spacing-lg);
+        }
+
+        /* Individual project card */
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: all var(--transition-base);
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .project-card.animate-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .project-card:nth-child(1) { transition-delay: 0.1s; }
+        .project-card:nth-child(2) { transition-delay: 0.15s; }
+        .project-card:nth-child(3) { transition-delay: 0.2s; }
+        .project-card:nth-child(4) { transition-delay: 0.25s; }
+        .project-card:nth-child(5) { transition-delay: 0.3s; }
+        .project-card:nth-child(6) { transition-delay: 0.35s; }
+
+        /* Category accents */
+        .project-card.category-ml {
+            border-left: 3px solid var(--accent-purple);
+        }
+
+        .project-card.category-research {
+            border-left: 3px solid var(--accent-teal);
+        }
+
+        .project-card.category-tools {
+            border-left: 3px solid var(--accent-amber);
+        }
+
+        /* Hover state */
+        .project-card:hover {
+            border-color: var(--border-glow);
+            transform: translateX(4px);
+        }
+
+        .project-card.category-ml:hover {
+            box-shadow: 0 0 20px var(--glow-purple), 0 4px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-card.category-research:hover {
+            box-shadow: 0 0 20px var(--glow-teal), 0 4px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-card.category-tools:hover {
+            box-shadow: 0 0 20px var(--glow-amber), 0 4px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Expanded state */
+        .project-card.expanded {
+            background: var(--bg-secondary);
+        }
+
+        .project-card.expanded:hover {
+            transform: none;
+        }
+
+        /* Project header (always visible) */
+        .project-header {
+            padding: var(--spacing-lg);
+            user-select: none;
+        }
+
+        .project-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        /* File info (icon + filename) */
+        .project-file {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .project-icon {
+            font-size: var(--font-size-xl);
+            line-height: 1;
+        }
+
+        .project-icon.icon-ml {
+            color: var(--accent-purple);
+        }
+
+        .project-icon.icon-research {
+            color: var(--accent-teal);
+        }
+
+        .project-icon.icon-tools {
+            color: var(--accent-amber);
+        }
+
+        .project-filename {
+            font-size: var(--font-size-base);
+            color: var(--text-primary);
+            font-weight: 600;
+            text-shadow: 0 0 8px var(--glow-teal);
+        }
+
+        /* Category badge */
+        .project-category {
+            font-size: var(--font-size-xs);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: var(--border-radius);
+            background: var(--bg-tertiary);
+        }
+
+        .project-category.cat-ml {
+            color: var(--accent-purple);
+            border: 1px solid var(--accent-purple-dim);
+        }
+
+        .project-category.cat-research {
+            color: var(--accent-teal);
+            border: 1px solid var(--accent-teal-dim);
+        }
+
+        .project-category.cat-tools {
+            color: var(--accent-amber);
+            border: 1px solid var(--accent-amber-dim);
+        }
+
+        /* Project description preview */
+        .project-preview {
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin-bottom: var(--spacing-md);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .project-card.expanded .project-preview {
+            -webkit-line-clamp: unset;
+            overflow: visible;
+        }
+
+        /* Tech stack tags */
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-xs);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .tech-tag {
+            font-size: var(--font-size-xs);
+            color: var(--text-muted);
+            background: var(--bg-tertiary);
+            padding: 2px var(--spacing-sm);
+            border-radius: 2px;
+            border: 1px solid var(--border-color);
+        }
+
+        /* Project metadata (year) */
+        .project-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: var(--font-size-xs);
+            color: var(--text-dim);
+        }
+
+        .project-date {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+
+        .project-date::before {
+            content: 'Last modified:';
+        }
+
+        .project-expand-hint {
+            color: var(--text-dim);
+            transition: color var(--transition-fast);
+        }
+
+        .project-header:hover .project-expand-hint {
+            color: var(--text-muted);
+        }
+
+        .project-expand-icon {
+            display: inline-block;
+            transition: transform var(--transition-base);
+        }
+
+        .project-card.expanded .project-expand-icon {
+            transform: rotate(90deg);
+        }
+
+        /* Project details (expandable) */
+        .project-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background: var(--bg-tertiary);
+        }
+
+        .project-card.expanded .project-details {
+            max-height: 400px;
+        }
+
+        .project-details-inner {
+            padding: var(--spacing-lg);
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* Key metrics */
+        .project-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .project-metric {
+            text-align: center;
+            padding: var(--spacing-sm);
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+        }
+
+        .project-metric-value {
+            font-size: var(--font-size-lg);
+            font-weight: 600;
+            color: var(--accent-amber);
+            text-shadow: 0 0 8px var(--glow-amber);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .project-metric-label {
+            font-size: var(--font-size-xs);
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Project links */
+        .project-links {
+            display: flex;
+            gap: var(--spacing-md);
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            font-size: var(--font-size-sm);
+            color: var(--text-muted);
+            text-decoration: none;
+            padding: var(--spacing-sm) var(--spacing-md);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            transition: all var(--transition-fast);
+        }
+
+        .project-link:hover {
+            color: var(--accent-teal);
+            border-color: var(--accent-teal);
+            text-shadow: 0 0 8px var(--glow-teal);
+        }
+
+        .project-link-icon {
+            font-size: var(--font-size-base);
         }
 
         /* ============================================
@@ -875,6 +1753,20 @@
 
             .nav-bar {
                 padding: 0 var(--spacing-lg);
+            }
+
+            .packages-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            /* Projects responsive - tablet */
+            .projects-grid {
+                gap: var(--spacing-md);
+            }
+
+            .project-metrics {
+                grid-template-columns: repeat(3, 1fr);
+                gap: var(--spacing-sm);
             }
         }
 
@@ -986,6 +1878,99 @@
             .section {
                 padding: var(--spacing-xl) var(--spacing-md);
             }
+
+            /* Section header responsive */
+            .section-header-box {
+                font-size: var(--font-size-xs);
+                overflow-x: auto;
+            }
+
+            /* Education responsive */
+            .module-header {
+                flex-direction: column;
+            }
+
+            .module-meta {
+                text-align: left;
+            }
+
+            .packages-grid {
+                grid-template-columns: 1fr;
+            }
+
+            /* Experience responsive */
+            .timeline-connector {
+                display: none;
+            }
+
+            .process-card {
+                margin-left: 0;
+            }
+
+            .process-indicator {
+                display: none;
+            }
+
+            .process-top {
+                flex-direction: column;
+            }
+
+            .process-meta {
+                text-align: left;
+            }
+
+            .process-metrics {
+                flex-direction: column;
+                gap: var(--spacing-md);
+            }
+
+            /* Projects responsive - mobile */
+            .projects-grid {
+                grid-template-columns: 1fr;
+                padding: var(--spacing-md);
+            }
+
+            .window-titlebar {
+                padding: var(--spacing-sm);
+            }
+
+            .window-title {
+                font-size: var(--font-size-xs);
+            }
+
+            .window-breadcrumb {
+                font-size: 0.625rem;
+                padding: var(--spacing-xs) var(--spacing-sm);
+            }
+
+            .project-header {
+                padding: var(--spacing-md);
+            }
+
+            .project-top {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+            }
+
+            .project-category {
+                align-self: flex-start;
+            }
+
+            .project-metrics {
+                grid-template-columns: 1fr;
+            }
+
+            .project-details-inner {
+                padding: var(--spacing-md);
+            }
+
+            .project-links {
+                flex-direction: column;
+            }
+
+            .project-link {
+                justify-content: center;
+            }
         }
 
         /* Small mobile */
@@ -1001,6 +1986,10 @@
 
             .hero-name {
                 font-size: var(--font-size-4xl);
+            }
+
+            .module-name::before {
+                content: '$ install ';
             }
         }
 
@@ -1031,6 +2020,20 @@
 
             .scroll-chevron {
                 animation: none;
+            }
+
+            .module-status-dot,
+            .process-indicator.status-active {
+                animation: none;
+            }
+
+            .section-header,
+            .education-content,
+            .process-card,
+            .projects-window,
+            .project-card {
+                opacity: 1;
+                transform: none;
             }
         }
     </style>
@@ -1082,6 +2085,7 @@
 
         <ul class="nav-links" id="nav-links">
             <li><a href="#hero" class="nav-link active">HOME</a></li>
+            <li><a href="#education" class="nav-link">EDUCATION</a></li>
             <li><a href="#experience" class="nav-link">EXPERIENCE</a></li>
             <li><a href="#projects" class="nav-link">PROJECTS</a></li>
             <li><a href="#skills" class="nav-link">SKILLS</a></li>
@@ -1134,19 +2138,19 @@
 
             <!-- Contact Commands -->
             <div class="hero-commands">
-                <a href="mailto:kavinraj.sathyan@gmail.com" class="hero-command" aria-label="Send email">
+                <a href="mailto:kavinraj191105@gmail.com" class="hero-command" aria-label="Send email">
                     <span class="hero-command-icon">@</span>
                     <span class="hero-command-text">./email --send</span>
                 </a>
-                <a href="https://linkedin.com/in/kavinraj-s" class="hero-command" target="_blank" rel="noopener noreferrer" aria-label="Connect on LinkedIn">
+                <a href="https://linkedin.com/in/kavinraj95" class="hero-command" target="_blank" rel="noopener noreferrer" aria-label="Connect on LinkedIn">
                     <span class="hero-command-icon">in</span>
                     <span class="hero-command-text">./linkedin --connect</span>
                 </a>
-                <a href="https://github.com/kavinraj-s" class="hero-command" target="_blank" rel="noopener noreferrer" aria-label="View GitHub profile">
+                <a href="https://github.com/kavinraj-95" class="hero-command" target="_blank" rel="noopener noreferrer" aria-label="View GitHub profile">
                     <span class="hero-command-icon">&gt;_</span>
                     <span class="hero-command-text">./github --view</span>
                 </a>
-                <a href="tel:+1234567890" class="hero-command" aria-label="Call phone">
+                <a href="tel:+917305199372" class="hero-command" aria-label="Call phone">
                     <span class="hero-command-icon">#</span>
                     <span class="hero-command-text">./phone --call</span>
                 </a>
@@ -1160,47 +2164,603 @@
         </section>
 
         <!-- ============================================
-             PLACEHOLDER SECTIONS
-             Will be implemented in Stage 3+
+             EDUCATION SECTION - INSTALLED_MODULES
         ============================================= -->
-        <section class="section" id="experience">
-            <div class="section-placeholder">
-                <h2>// EXPERIENCE</h2>
-                <p>Stage 3: Work history and achievements</p>
+        <section class="section" id="education" aria-label="Education">
+            <header class="section-header" data-animate>
+                <div class="section-header-box" aria-hidden="true">+------------------------------------------+
+|  <span class="section-header-title">INSTALLED_MODULES</span>                      |
++------------------------------------------+</div>
+                <p class="section-header-subtitle">// Academic credentials and installed knowledge packages</p>
+            </header>
+
+            <div class="education-content" data-animate>
+                <!-- University Module Card -->
+                <article class="module-card">
+                    <div class="module-header">
+                        <div class="module-info">
+                            <h3 class="module-name">amrita-vishwa-vidyapeetham@9.0.0</h3>
+                            <p class="module-description">Bachelor of Technology in Computer Science</p>
+                            <p class="module-minor">Minor: Internet of Things</p>
+                        </div>
+                        <div class="module-meta">
+                            <div class="module-status">
+                                <span class="module-status-dot" aria-hidden="true"></span>
+                                <span>ACTIVE</span>
+                            </div>
+                            <p class="module-date">June 2023 - May 2027</p>
+                            <p class="module-version">CGPA: 9.0 / 10.0</p>
+                        </div>
+                    </div>
+
+                    <!-- Installed Packages (Coursework) -->
+                    <div class="packages-section">
+                        <h4 class="packages-header">Installed Packages (Relevant Coursework)</h4>
+                        <div class="packages-grid" role="list" aria-label="Courses">
+                            <span class="package-tag" role="listitem">DATA_STRUCTURES</span>
+                            <span class="package-tag" role="listitem">ALGORITHMS</span>
+                            <span class="package-tag" role="listitem">MACHINE_LEARNING</span>
+                            <span class="package-tag" role="listitem">COMPUTER_VISION</span>
+                            <span class="package-tag" role="listitem">NATURAL_LANG_PROC</span>
+                            <span class="package-tag" role="listitem">DATABASE_SYSTEMS</span>
+                            <span class="package-tag" role="listitem">INTERNET_OF_THINGS</span>
+                            <span class="package-tag" role="listitem">DEEP_LEARNING</span>
+                            <span class="package-tag" role="listitem">DISTRIBUTED_SYSTEMS</span>
+                        </div>
+                    </div>
+                </article>
             </div>
         </section>
 
-        <section class="section" id="projects">
-            <div class="section-placeholder">
-                <h2>// PROJECTS</h2>
-                <p>Stage 3: Featured projects showcase</p>
+        <!-- ============================================
+             EXPERIENCE SECTION - ACTIVE_PROCESSES
+        ============================================= -->
+        <section class="section" id="experience" aria-label="Work Experience">
+            <header class="section-header" data-animate>
+                <div class="section-header-box" aria-hidden="true">+------------------------------------------+
+|  <span class="section-header-title">ACTIVE_PROCESSES</span>                       |
++------------------------------------------+</div>
+                <p class="section-header-subtitle">// Professional experience and completed tasks</p>
+            </header>
+
+            <div class="experience-content">
+                <!-- Timeline connector (desktop) -->
+                <div class="timeline-connector" aria-hidden="true"></div>
+
+                <!-- IEEE - ML Research Intern (Recent/Active) -->
+                <article class="process-card status-active" data-animate aria-labelledby="ieee-title">
+                    <div class="process-indicator status-active" aria-hidden="true"></div>
+                    <div class="process-inner">
+                        <div class="process-header"
+                             role="button"
+                             tabindex="0"
+                             aria-expanded="false"
+                             aria-controls="ieee-details">
+                            <div class="process-top">
+                                <div>
+                                    <span class="process-pid">PID: 2024</span>
+                                    <h3 class="process-name" id="ieee-title">IEEE</h3>
+                                    <p class="process-role">Machine Learning Research Intern</p>
+                                </div>
+                                <div class="process-meta">
+                                    <div class="process-status">
+                                        <span class="process-status-dot" aria-hidden="true"></span>
+                                        <span>RECENT</span>
+                                    </div>
+                                    <p class="process-runtime">RUNTIME: 4 months</p>
+                                    <p class="process-location">Remote</p>
+                                </div>
+                            </div>
+                            <div class="process-expand">
+                                <span class="process-expand-icon" aria-hidden="true">></span>
+                                <span>Click to expand process details</span>
+                            </div>
+                        </div>
+                        <div class="process-details" id="ieee-details">
+                            <div class="process-details-inner">
+                                <div class="process-task">
+                                    <span class="process-task-marker" aria-hidden="true">-></span>
+                                    <span class="process-task-text">Authored comprehensive Federated Learning case study analyzing privacy-utility tradeoffs across 8 benchmark datasets, published in IEEE research repository.</span>
+                                </div>
+                                <div class="process-task">
+                                    <span class="process-task-marker" aria-hidden="true">-></span>
+                                    <span class="process-task-text">Built automated FL simulation pipeline reducing experiment setup from 4 hours to 15 minutes, enabling 3x faster iteration on distributed model architectures.</span>
+                                </div>
+
+                                <!-- Metrics visualization -->
+                                <div class="process-metrics" aria-label="Performance metrics">
+                                    <div class="process-metric">
+                                        <div class="process-metric-label">Research Output</div>
+                                        <div class="process-metric-bar">
+                                            <div class="process-metric-fill" style="width: 100%;" aria-hidden="true"></div>
+                                        </div>
+                                        <div class="process-metric-value">IEEE Publication</div>
+                                    </div>
+                                    <div class="process-metric">
+                                        <div class="process-metric-label">Efficiency Gain</div>
+                                        <div class="process-metric-bar">
+                                            <div class="process-metric-fill" style="width: 94%;" aria-hidden="true"></div>
+                                        </div>
+                                        <div class="process-metric-value">94% faster setup</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- XCMG - Software Engineering Intern (Completed) -->
+                <article class="process-card status-complete" data-animate aria-labelledby="xcmg-title">
+                    <div class="process-indicator status-complete" aria-hidden="true"></div>
+                    <div class="process-inner">
+                        <div class="process-header"
+                             role="button"
+                             tabindex="0"
+                             aria-expanded="false"
+                             aria-controls="xcmg-details">
+                            <div class="process-top">
+                                <div>
+                                    <span class="process-pid">PID: 2024</span>
+                                    <h3 class="process-name" id="xcmg-title">XCMG</h3>
+                                    <p class="process-role">Software Engineering Intern</p>
+                                </div>
+                                <div class="process-meta">
+                                    <div class="process-status">
+                                        <span class="process-status-dot" aria-hidden="true"></span>
+                                        <span>COMPLETE</span>
+                                    </div>
+                                    <p class="process-runtime">RUNTIME: 3 months</p>
+                                    <p class="process-location">Tamil Nadu, India</p>
+                                </div>
+                            </div>
+                            <div class="process-expand">
+                                <span class="process-expand-icon" aria-hidden="true">></span>
+                                <span>Click to expand process details</span>
+                            </div>
+                        </div>
+                        <div class="process-details" id="xcmg-details">
+                            <div class="process-details-inner">
+                                <div class="process-task">
+                                    <span class="process-task-marker" aria-hidden="true">-></span>
+                                    <span class="process-task-text">Engineered a real-time consumables tracking dashboard in Python that reduced reporting time by 75% and eliminated 12+ hours/week of manual data entry across 3 departments.</span>
+                                </div>
+                                <div class="process-task">
+                                    <span class="process-task-marker" aria-hidden="true">-></span>
+                                    <span class="process-task-text">Identified and resolved 5 critical workflow bottlenecks through cross-functional analysis, streamlining data pipelines and improving inventory accuracy by 40%.</span>
+                                </div>
+
+                                <!-- Metrics visualization -->
+                                <div class="process-metrics" aria-label="Performance metrics">
+                                    <div class="process-metric">
+                                        <div class="process-metric-label">Time Saved</div>
+                                        <div class="process-metric-bar">
+                                            <div class="process-metric-fill" style="width: 75%;" aria-hidden="true"></div>
+                                        </div>
+                                        <div class="process-metric-value">75% reduction</div>
+                                    </div>
+                                    <div class="process-metric">
+                                        <div class="process-metric-label">Accuracy Improvement</div>
+                                        <div class="process-metric-bar">
+                                            <div class="process-metric-fill" style="width: 40%;" aria-hidden="true"></div>
+                                        </div>
+                                        <div class="process-metric-value">40% better accuracy</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
             </div>
         </section>
+
+        <!-- ============================================
+             PROJECTS SECTION - FILE EXPLORER
+        ============================================= -->
+        <section class="section" id="projects" aria-label="Projects">
+            <header class="section-header" data-animate>
+                <div class="section-header-box" aria-hidden="true">+------------------------------------------+
+|  <span class="section-header-title">PROJECTS.DIR</span>                           |
++------------------------------------------+</div>
+                <p class="section-header-subtitle">// Showcasing ML engineering and research projects</p>
+            </header>
+
+            <!-- File Explorer Window -->
+            <div class="projects-window" data-animate>
+                <!-- Title Bar -->
+                <div class="window-titlebar">
+                    <div class="window-title">
+                        <span class="window-title-icon">&#128193;</span>
+                        <span>PROJECTS.DIR - 6 items</span>
+                    </div>
+                    <div class="window-controls" aria-hidden="true">
+                        <span class="window-btn minimize"></span>
+                        <span class="window-btn maximize"></span>
+                        <span class="window-btn close"></span>
+                    </div>
+                </div>
+
+                <!-- Breadcrumb Path -->
+                <div class="window-breadcrumb" aria-label="File path">
+                    <span class="breadcrumb-segment">/</span>
+                    <span class="breadcrumb-segment">kavinraj@portfolio</span>
+                    <span class="breadcrumb-segment">/</span>
+                    <span class="breadcrumb-current">projects.dir/</span>
+                </div>
+
+                <!-- Projects Grid -->
+                <div class="projects-grid" role="list" aria-label="Project files">
+
+                    <!-- Project 1: Fraud Detection -->
+                    <article class="project-card category-ml" data-animate-project aria-labelledby="project-fraud-title" role="listitem">
+                        <div class="project-header"
+                             role="button"
+                             tabindex="0"
+                             aria-expanded="false"
+                             aria-controls="project-fraud-details">
+                            <div class="project-top">
+                                <div class="project-file">
+                                    <span class="project-icon icon-ml" aria-hidden="true">&#129504;</span>
+                                    <span class="project-filename" id="project-fraud-title">fraud_detection.exe</span>
+                                </div>
+                                <span class="project-category cat-ml">ML/AI</span>
+                            </div>
+                            <p class="project-preview">Developed anomaly detection system for financial transactions using ensemble methods. Built end-to-end pipeline for fraud identification with XGBoost and isolation forests.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Pandas</span>
+                                <span class="tech-tag">Scikit-learn</span>
+                                <span class="tech-tag">XGBoost</span>
+                            </div>
+                            <div class="project-meta">
+                                <span class="project-date">2024</span>
+                                <span class="project-expand-hint"><span class="project-expand-icon" aria-hidden="true">></span> Click to expand</span>
+                            </div>
+                        </div>
+                        <div class="project-details" id="project-fraud-details">
+                            <div class="project-details-inner">
+                                <div class="project-metrics">
+                                    <div class="project-metric">
+                                        <div class="project-metric-value">284K+</div>
+                                        <div class="project-metric-label">Transactions</div>
+                                    </div>
+                                    <div class="project-metric">
+                                        <div class="project-metric-value">96.8%</div>
+                                        <div class="project-metric-label">Accuracy</div>
+                                    </div>
+                                    <div class="project-metric">
+                                        <div class="project-metric-value">$2.4M</div>
+                                        <div class="project-metric-label">Fraud Prevented</div>
+                                    </div>
+                                </div>
+                                <div class="project-links">
+                                    <a href="#" class="project-link" aria-label="View source code">
+                                        <span class="project-link-icon">&gt;_</span>
+                                        <span>./view-source</span>
+                                    </a>
+                                    <a href="#" class="project-link" aria-label="View demo">
+                                        <span class="project-link-icon">&#9654;</span>
+                                        <span>./run-demo</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 2: Federated Learning -->
+                    <article class="project-card category-research" data-animate-project aria-labelledby="project-fl-title" role="listitem">
+                        <div class="project-header"
+                             role="button"
+                             tabindex="0"
+                             aria-expanded="false"
+                             aria-controls="project-fl-details">
+                            <div class="project-top">
+                                <div class="project-file">
+                                    <span class="project-icon icon-research" aria-hidden="true">&#128300;</span>
+                                    <span class="project-filename" id="project-fl-title">federated_learning.py</span>
+                                </div>
+                                <span class="project-category cat-research">Research</span>
+                            </div>
+                            <p class="project-preview">Research project implementing secure multi-party computation for distributed ML training. Privacy-preserving federated learning with differential privacy guarantees.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">FLwr</span>
+                                <span class="tech-tag">PyTorch</span>
+                                <span class="tech-tag">TensorFlow</span>
+                                <span class="tech-tag">Python</span>
+                            </div>
+                            <div class="project-meta">
+                                <span class="project-date">2024</span>
+                                <span class="project-expand-hint"><span class="project-expand-icon" aria-hidden="true">></span> Click to expand</span>
+                            </div>
+                        </div>
+                        <div class="project-details" id="project-fl-details">
+                            <div class="project-details-inner">
+                                <div class="project-metrics">
+                                    <div class="project-metric">
+                                        <div class="project-metric-value">98.2%</div>
+                                        <div class="project-metric-label">Model Accuracy</div>
+                                    </div>
+                                    <div class="project-metric">
+                                        <div class="project-metric-value">50+</div>
+                                        <div class="project-metric-label">Clients</div>
+                                    </div>
+                                    <div class="project-metric">
+                                        <div class="project-metric-value">Zero</div>
+                                        <div class="project-metric-label">Data Exposure</div>
+                                    </div>
+                                </div>
+                                <div class="project-links">
+                                    <a href="#" class="project-link" aria-label="View source code">
+                                        <span class="project-link-icon">&gt;_</span>
+                                        <span>./view-source</span>
+                                    </a>
+                                    <a href="#" class="project-link" aria-label="Read paper">
+                                        <span class="project-link-icon">&#128196;</span>
+                                        <span>./read-paper</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 3: NEAT-Drive -->
+                    <article class="project-card category-ml" data-animate-project aria-labelledby="project-neat-title" role="listitem">
+                        <div class="project-header"
+                             role="button"
+                             tabindex="0"
+                             aria-expanded="false"
+                             aria-controls="project-neat-details">
+                            <div class="project-top">
+                                <div class="project-file">
+                                    <span class="project-icon icon-ml" aria-hidden="true">&#128663;</span>
+                                    <span class="project-filename" id="project-neat-title">neat_drive.sim</span>
+                                </div>
+                                <span class="project-category cat-ml">ML/AI</span>
+                            </div>
+                            <p class="project-preview">Autonomous vehicle simulator using neuroevolution of augmenting topologies (NEAT). Self-driving cars learn through evolutionary neural network optimization.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">NEAT-Python</span>
+                                <span class="tech-tag">PyGame</span>
+                                <span class="tech-tag">NumPy</span>
+                            </div>
+                            <div class="project-meta">
+                                <span class="project-date">2024</span>
+                                <span class="project-expand-hint"><span class="project-expand-icon" aria-hidden="true">></span> Click to expand</span>
+                            </div>
+                        </div>
+                        <div class="project-details" id="project-neat-details">
+                            <div class="project-details-inner">
+                                <div class="project-metrics">
+                                    <div class="project-metric">
+                                        <div class="project-metric-value">94%</div>
+                                        <div class="project-metric-label">Success Rate</div>
+                                    </div>
+                                    <div class="project-metric">
+                                        <div class="project-metric-value">500+</div>
+                                        <div class="project-metric-label">Generations</div>
+                                    </div>
+                                    <div class="project-metric">
+                                        <div class="project-metric-value">60fps</div>
+                                        <div class="project-metric-label">Real-time</div>
+                                    </div>
+                                </div>
+                                <div class="project-links">
+                                    <a href="#" class="project-link" aria-label="View source code">
+                                        <span class="project-link-icon">&gt;_</span>
+                                        <span>./view-source</span>
+                                    </a>
+                                    <a href="#" class="project-link" aria-label="View demo">
+                                        <span class="project-link-icon">&#9654;</span>
+                                        <span>./run-demo</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 4: AI Unit Test Generator -->
+                    <article class="project-card category-tools" data-animate-project aria-labelledby="project-test-title" role="listitem">
+                        <div class="project-header"
+                             role="button"
+                             tabindex="0"
+                             aria-expanded="false"
+                             aria-controls="project-test-details">
+                            <div class="project-top">
+                                <div class="project-file">
+                                    <span class="project-icon icon-tools" aria-hidden="true">&#128736;</span>
+                                    <span class="project-filename" id="project-test-title">test_generator.vscode</span>
+                                </div>
+                                <span class="project-category cat-tools">Tools</span>
+                            </div>
+                            <p class="project-preview">Tool that automatically generates comprehensive unit tests using AI analysis of source code. Integrates with VS Code for seamless developer workflow.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">LLM API</span>
+                                <span class="tech-tag">AST Parser</span>
+                                <span class="tech-tag">FastAPI</span>
+                            </div>
+                            <div class="project-meta">
+                                <span class="project-date">2023</span>
+                                <span class="project-expand-hint"><span class="project-expand-icon" aria-hidden="true">></span> Click to expand</span>
+                            </div>
+                        </div>
+                        <div class="project-details" id="project-test-details">
+                            <div class="project-details-inner">
+                                <div class="project-metrics">
+                                    <div class="project-metric">
+                                        <div class="project-metric-value">87%</div>
+                                        <div class="project-metric-label">Code Coverage</div>
+                                    </div>
+                                    <div class="project-metric">
+                                        <div class="project-metric-value">10K+</div>
+                                        <div class="project-metric-label">Tests Generated</div>
+                                    </div>
+                                    <div class="project-metric">
+                                        <div class="project-metric-value">95%</div>
+                                        <div class="project-metric-label">Relevance</div>
+                                    </div>
+                                </div>
+                                <div class="project-links">
+                                    <a href="#" class="project-link" aria-label="View source code">
+                                        <span class="project-link-icon">&gt;_</span>
+                                        <span>./view-source</span>
+                                    </a>
+                                    <a href="#" class="project-link" aria-label="Install extension">
+                                        <span class="project-link-icon">&#128229;</span>
+                                        <span>./install</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 5: Medical Image Segmentation -->
+                    <article class="project-card category-ml" data-animate-project aria-labelledby="project-med-title" role="listitem">
+                        <div class="project-header"
+                             role="button"
+                             tabindex="0"
+                             aria-expanded="false"
+                             aria-controls="project-med-details">
+                            <div class="project-top">
+                                <div class="project-file">
+                                    <span class="project-icon icon-ml" aria-hidden="true">&#129658;</span>
+                                    <span class="project-filename" id="project-med-title">tumor_detection.med</span>
+                                </div>
+                                <span class="project-category cat-ml">ML/AI</span>
+                            </div>
+                            <p class="project-preview">Deep learning model for medical imaging - tumor detection and segmentation in MRI/CT scans. U-Net architecture with attention mechanisms for precise localization.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">TensorFlow</span>
+                                <span class="tech-tag">OpenCV</span>
+                                <span class="tech-tag">DICOM</span>
+                            </div>
+                            <div class="project-meta">
+                                <span class="project-date">2023</span>
+                                <span class="project-expand-hint"><span class="project-expand-icon" aria-hidden="true">></span> Click to expand</span>
+                            </div>
+                        </div>
+                        <div class="project-details" id="project-med-details">
+                            <div class="project-details-inner">
+                                <div class="project-metrics">
+                                    <div class="project-metric">
+                                        <div class="project-metric-value">94.7%</div>
+                                        <div class="project-metric-label">Accuracy</div>
+                                    </div>
+                                    <div class="project-metric">
+                                        <div class="project-metric-value">0.92</div>
+                                        <div class="project-metric-label">Dice Score</div>
+                                    </div>
+                                    <div class="project-metric">
+                                        <div class="project-metric-value">2000+</div>
+                                        <div class="project-metric-label">Images</div>
+                                    </div>
+                                </div>
+                                <div class="project-links">
+                                    <a href="#" class="project-link" aria-label="View source code">
+                                        <span class="project-link-icon">&gt;_</span>
+                                        <span>./view-source</span>
+                                    </a>
+                                    <a href="#" class="project-link" aria-label="View demo">
+                                        <span class="project-link-icon">&#9654;</span>
+                                        <span>./run-demo</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 6: Analytics Dashboard -->
+                    <article class="project-card category-tools" data-animate-project aria-labelledby="project-analytics-title" role="listitem">
+                        <div class="project-header"
+                             role="button"
+                             tabindex="0"
+                             aria-expanded="false"
+                             aria-controls="project-analytics-details">
+                            <div class="project-top">
+                                <div class="project-file">
+                                    <span class="project-icon icon-tools" aria-hidden="true">&#128202;</span>
+                                    <span class="project-filename" id="project-analytics-title">analytics.dashboard</span>
+                                </div>
+                                <span class="project-category cat-tools">Tools</span>
+                            </div>
+                            <p class="project-preview">Interactive dashboard for real-time visualization of system metrics and KPIs with streaming data. Built with Streamlit for rapid prototyping and deployment.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Streamlit</span>
+                                <span class="tech-tag">Pandas</span>
+                                <span class="tech-tag">Plotly</span>
+                                <span class="tech-tag">PostgreSQL</span>
+                            </div>
+                            <div class="project-meta">
+                                <span class="project-date">2023</span>
+                                <span class="project-expand-hint"><span class="project-expand-icon" aria-hidden="true">></span> Click to expand</span>
+                            </div>
+                        </div>
+                        <div class="project-details" id="project-analytics-details">
+                            <div class="project-details-inner">
+                                <div class="project-metrics">
+                                    <div class="project-metric">
+                                        <div class="project-metric-value">100K+</div>
+                                        <div class="project-metric-label">Events/Day</div>
+                                    </div>
+                                    <div class="project-metric">
+                                        <div class="project-metric-value">&lt;200ms</div>
+                                        <div class="project-metric-label">Latency</div>
+                                    </div>
+                                    <div class="project-metric">
+                                        <div class="project-metric-value">99.9%</div>
+                                        <div class="project-metric-label">Uptime</div>
+                                    </div>
+                                </div>
+                                <div class="project-links">
+                                    <a href="#" class="project-link" aria-label="View source code">
+                                        <span class="project-link-icon">&gt;_</span>
+                                        <span>./view-source</span>
+                                    </a>
+                                    <a href="#" class="project-link" aria-label="View demo">
+                                        <span class="project-link-icon">&#9654;</span>
+                                        <span>./run-demo</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             PLACEHOLDER SECTIONS
+             Will be implemented in Stage 5
+        ============================================= -->
 
         <section class="section" id="skills">
             <div class="section-placeholder">
                 <h2>// SKILLS</h2>
-                <p>Stage 3: Technical skills matrix</p>
+                <p>Stage 4: Technical skills matrix</p>
             </div>
         </section>
 
         <section class="section" id="contact">
             <div class="section-placeholder">
                 <h2>// CONTACT</h2>
-                <p>Stage 3: Contact information and form</p>
+                <p>Stage 4: Contact information and form</p>
             </div>
         </section>
 
     </main>
 
     <!-- ============================================
-         JAVASCRIPT - BOOT SEQUENCE + HERO LOGIC
+         JAVASCRIPT - BOOT SEQUENCE + HERO + SECTIONS
     ============================================= -->
     <script>
         /**
          * KAVINRAJ.SYS Portfolio Scripts
          * Stage 1: Boot Sequence
          * Stage 2: Hero Animations & Navigation
+         * Stage 3: Education & Experience Sections
          */
         (function() {
             'use strict';
@@ -1225,7 +2785,11 @@
                 subtitleFadeTime: 500,      // 500ms fade transition
 
                 // Navigation settings
-                navScrollThreshold: 100     // pixels before nav appears
+                navScrollThreshold: 100,    // pixels before nav appears
+
+                // Animation settings
+                animationThreshold: 0.15,   // Intersection Observer threshold
+                animationRootMargin: '0px 0px -50px 0px'
             };
 
             // Boot sequence messages
@@ -1272,6 +2836,12 @@
                 navLinks: document.getElementById('nav-links'),
                 navItems: document.querySelectorAll('.nav-link'),
 
+                // Animated elements
+                animatedElements: document.querySelectorAll('[data-animate]'),
+
+                // Process cards (experience)
+                processCards: document.querySelectorAll('.process-card'),
+
                 // Body
                 body: document.body
             };
@@ -1293,6 +2863,11 @@
             // ============================================
             function sleep(ms) {
                 return new Promise(resolve => setTimeout(resolve, ms));
+            }
+
+            // Check for reduced motion preference
+            function prefersReducedMotion() {
+                return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
             }
 
             // ============================================
@@ -1378,6 +2953,7 @@
                     // Start hero animations after portfolio is visible
                     setTimeout(() => {
                         initHeroAnimations();
+                        initSectionAnimations();
                     }, 200);
                 }, CONFIG.skipTransition);
             }
@@ -1431,6 +3007,69 @@
             }
 
             // ============================================
+            // SECTION ANIMATIONS (Intersection Observer)
+            // ============================================
+            function initSectionAnimations() {
+                // Skip if user prefers reduced motion
+                if (prefersReducedMotion()) {
+                    elements.animatedElements.forEach(el => {
+                        el.classList.add('animate-in');
+                    });
+                    return;
+                }
+
+                const observerOptions = {
+                    threshold: CONFIG.animationThreshold,
+                    rootMargin: CONFIG.animationRootMargin
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('animate-in');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, observerOptions);
+
+                elements.animatedElements.forEach(el => {
+                    observer.observe(el);
+                });
+            }
+
+            // ============================================
+            // EXPERIENCE CARDS - EXPAND/COLLAPSE
+            // ============================================
+            function initProcessCards() {
+                elements.processCards.forEach(card => {
+                    const header = card.querySelector('.process-header');
+                    if (!header) return;
+
+                    header.addEventListener('click', () => {
+                        toggleProcessCard(card);
+                    });
+
+                    header.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            toggleProcessCard(card);
+                        }
+                    });
+                });
+            }
+
+            function toggleProcessCard(card) {
+                const isExpanded = card.classList.contains('expanded');
+                const header = card.querySelector('.process-header');
+
+                // Toggle expanded state
+                card.classList.toggle('expanded');
+
+                // Update ARIA attribute
+                header.setAttribute('aria-expanded', !isExpanded);
+            }
+
+            // ============================================
             // NAVIGATION
             // ============================================
             function initNavigation() {
@@ -1478,7 +3117,7 @@
             }
 
             function updateActiveNavLink() {
-                const sections = ['hero', 'experience', 'projects', 'skills', 'contact'];
+                const sections = ['hero', 'education', 'experience', 'projects', 'skills', 'contact'];
                 const scrollY = window.scrollY + CONFIG.navScrollThreshold + 100;
 
                 for (let i = sections.length - 1; i >= 0; i--) {
@@ -1547,6 +3186,9 @@
 
                 // Initialize navigation
                 initNavigation();
+
+                // Initialize process cards (experience expandables)
+                initProcessCards();
 
                 // Start boot sequence
                 runBootSequence();

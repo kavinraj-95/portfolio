@@ -2,6 +2,16 @@
 
 ## Project: KAVINRAJ.SYS Portfolio
 
+### User Information (from Resume)
+- **Name**: Kavinraj S
+- **Email**: kavinraj191105@gmail.com
+- **Phone**: +91 7305199372
+- **LinkedIn**: linkedin.com/in/kavinraj95
+- **GitHub**: github.com/kavinraj-95
+- **University**: Amrita Vishwa Vidyapeetham (NOT SJCE)
+- **Degree**: B.Tech in Computer Science, CGPA: 9.0, Minor: IoT
+- **Duration**: June 2023 - May 2027
+
 ### Design System
 - **Color Palette**: Dark terminal theme with teal (#00d4aa) primary, amber (#f5a623) for highlights, purple (#7c3aed) accent
 - **Typography**: JetBrains Mono primary, Fira Code fallback - loaded from Google Fonts
@@ -9,27 +19,45 @@
 
 ### Implementation Stages
 1. **Stage 1 (Complete)**: Foundation + Boot Sequence
-   - CSS custom properties for entire color system
-   - CRT scanline overlay effect
-   - Boot sequence with realistic system messages
-   - Skip button (ESC key) for accessibility
-   - Auto-advance after boot completes
-
 2. **Stage 2 (Complete)**: Hero + Navigation
-   - Full-screen hero section (100vh) with terminal aesthetics
-   - Animated typing effect for "KAVINRAJ S" (80ms/char)
-   - Terminal prompt prefix with color-coded segments
-   - ASCII art neural network decoration (desktop only)
-   - Rotating subtitle system (4 roles, 3s display, 500ms fade)
-   - Contact links styled as executable commands (./email --send, etc.)
-   - Scroll indicator with pulsing chevron animation
-   - Sticky navigation bar (appears after scrolling past hero)
-   - Nav links with bracket hover effect [LINK]
-   - Mobile hamburger menu with slide-down animation
+3. **Stage 3 (Complete)**: Education + Experience Sections
+4. **Stage 4 (Pending)**: Projects Section
+5. **Stage 5 (Pending)**: Skills + Contact + Terminal Easter Egg
+6. **Stage 6 (Pending)**: Polish + Deployment
 
-3. **Stage 3 (Pending)**: Content Sections
-4. **Stage 4 (Pending)**: Terminal Easter Egg
-5. **Stage 5 (Pending)**: Polish + Deployment
+### Stage 3 Implementation Details
+
+#### Education Section ("INSTALLED_MODULES")
+- ASCII box-drawing header with `+--` borders
+- University displayed as npm package: `amrita-vishwa-vidyapeetham@9.0.0`
+- Module card with left gradient border (teal to purple)
+- Status indicator with amber pulsing dot for "ACTIVE"
+- Coursework as package tags in 3-column grid (2 tablet, 1 mobile)
+- Package tags with bracket notation: `[COURSE_NAME]`
+- Hover effect: translateX(4px) + teal glow
+
+#### Experience Section ("ACTIVE_PROCESSES")
+- Timeline connector with ASCII pipe characters (desktop only)
+- Process cards with status indicators on timeline
+- IEEE: status-active (amber), 4 months, Remote
+- XCMG: status-complete (teal), 3 months, Tamil Nadu
+- Expandable details via click/keyboard (Enter/Space)
+- ARIA attributes for accessibility (aria-expanded, aria-controls)
+- Metrics visualization with gradient progress bars
+- Hover effect on cards: translateX(4px) + glow intensification
+
+#### CSS Patterns Used
+- `.section-header` with `[data-animate]` for Intersection Observer
+- Staggered animation delays via nth-child selectors
+- Status indicators: 8px dots with box-shadow glow
+- Process card border-left: 3px solid (amber for active, teal for complete)
+- `max-height` transition for expandable sections (0 to 500px)
+
+#### JavaScript Additions
+- `initSectionAnimations()`: Intersection Observer for fade-in-up
+- `initProcessCards()`: Click/keyboard handlers for expand/collapse
+- `prefersReducedMotion()`: Accessibility check
+- Animation threshold: 0.15, rootMargin: '0px 0px -50px 0px'
 
 ### Technical Patterns
 - Single HTML file with embedded CSS/JS (no build process)
@@ -39,30 +67,15 @@
 - Desktop-first responsive approach (breakpoints: 1024px, 768px, 480px)
 - Passive scroll event listeners for performance
 
-### Boot Sequence Details
-- Duration: ~3.5 seconds
-- 12 sequential messages with status indicators
-- Blinking cursor effect with CSS animation
-- Smooth fade transition to portfolio content
-- Skip via ESC key or button click
+### Key Responsive Breakpoints
+- 1024px: Tablet - 2-column course grid, hide ASCII art
+- 768px: Mobile - Single column, hide timeline, stack layouts
+- 480px: Small mobile - Reduced font sizes
 
-### Hero Section Details
-- Typing effect: Character-by-character with 80ms delay
-- Cursor blink: 530ms timing (classic terminal feel)
-- Subtitle rotation: 3000ms display, 500ms fade transition
-- Commands hover: Sweep animation + amber color change
-- Scroll indicator: Appears after 2.5s delay with pulse animation
-
-### Navigation Details
-- Height: 60px (--nav-height CSS variable)
-- Background: rgba(10, 15, 20, 0.95) with backdrop-filter blur
-- Appears when scrolling past hero height - 100px threshold
-- Active link tracking based on scroll position
-- Mobile: Hamburger toggle with slide-down menu
-
-### Key CSS Techniques
-- Scanlines: `repeating-linear-gradient` with 2px transparent / 1px semi-transparent
-- Text glow: Multiple layered `text-shadow` with rgba teal values
-- CRT vignette: `radial-gradient` overlay from transparent center to dark edges
-- Command hover sweep: `linear-gradient` animated via `left` property
-- Nav bracket effect: `::before`/`::after` with opacity + transform transitions
+### Accessibility Features
+- Proper heading hierarchy (h2 for sections, h3 for items)
+- ARIA labels on interactive elements
+- role="button" with tabindex="0" for keyboard navigation
+- aria-expanded for expandable sections
+- aria-controls linking headers to detail panels
+- prefers-reduced-motion support
