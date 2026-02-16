@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- ============================================
          KAVINRAJ.SYS - Portfolio v1.0
@@ -13,8 +14,10 @@
     ============================================= -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Kavinraj S - ML Engineer specializing in Federated Learning, Computer Vision, and IoT. Portfolio showcasing projects in machine learning and distributed systems.">
-    <meta name="keywords" content="Machine Learning, ML Engineer, Federated Learning, Computer Vision, IoT, Python, Portfolio">
+    <meta name="description"
+        content="Kavinraj S - ML Engineer specializing in Federated Learning, Computer Vision, and IoT. Portfolio showcasing projects in machine learning and distributed systems.">
+    <meta name="keywords"
+        content="Machine Learning, ML Engineer, Federated Learning, Computer Vision, IoT, Python, Portfolio">
     <meta name="author" content="Kavinraj S">
     <meta name="theme-color" content="#0a0f14">
 
@@ -28,7 +31,9 @@
     <!-- Preload fonts for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 
     <style>
         /* ============================================
@@ -176,21 +181,32 @@
             height: 100%;
             pointer-events: none;
             z-index: var(--z-overlay);
-            background: repeating-linear-gradient(
-                0deg,
-                transparent,
-                transparent 2px,
-                rgba(0, 0, 0, 0.03) 2px,
-                rgba(0, 0, 0, 0.03) 3px
-            );
+            background: repeating-linear-gradient(0deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(0, 0, 0, 0.03) 2px,
+                    rgba(0, 0, 0, 0.03) 3px);
         }
 
         /* Subtle screen flicker animation */
         @keyframes screenFlicker {
-            0%, 100% { opacity: 1; }
-            92% { opacity: 1; }
-            93% { opacity: 0.95; }
-            94% { opacity: 1; }
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            92% {
+                opacity: 1;
+            }
+
+            93% {
+                opacity: 0.95;
+            }
+
+            94% {
+                opacity: 1;
+            }
         }
 
         body::after {
@@ -201,11 +217,9 @@
             width: 100%;
             height: 100%;
             pointer-events: none;
-            background: radial-gradient(
-                ellipse at center,
-                transparent 0%,
-                rgba(0, 0, 0, 0.15) 100%
-            );
+            background: radial-gradient(ellipse at center,
+                    transparent 0%,
+                    rgba(0, 0, 0, 0.15) 100%);
             z-index: calc(var(--z-overlay) - 1);
         }
 
@@ -332,8 +346,16 @@
         }
 
         @keyframes cursorBlink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0; }
+
+            0%,
+            50% {
+                opacity: 1;
+            }
+
+            51%,
+            100% {
+                opacity: 0;
+            }
         }
 
         /* Boot prompt styling */
@@ -368,8 +390,15 @@
         }
 
         @keyframes pulseFade {
-            0%, 100% { opacity: 0.5; }
-            50% { opacity: 1; }
+
+            0%,
+            100% {
+                opacity: 0.5;
+            }
+
+            50% {
+                opacity: 1;
+            }
         }
 
         /* Skip button */
@@ -606,8 +635,16 @@
         }
 
         @keyframes heroCursorBlink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0; }
+
+            0%,
+            50% {
+                opacity: 1;
+            }
+
+            51%,
+            100% {
+                opacity: 0;
+            }
         }
 
         /* Subtitle rotation container */
@@ -673,12 +710,10 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(
-                90deg,
-                transparent,
-                var(--glow-teal),
-                transparent
-            );
+            background: linear-gradient(90deg,
+                    transparent,
+                    var(--glow-teal),
+                    transparent);
             transition: left 0.4s ease;
         }
 
@@ -730,13 +765,27 @@
         }
 
         @keyframes scrollBounce {
-            0%, 100% { transform: rotate(45deg) translateY(0); }
-            50% { transform: rotate(45deg) translateY(5px); }
+
+            0%,
+            100% {
+                transform: rotate(45deg) translateY(0);
+            }
+
+            50% {
+                transform: rotate(45deg) translateY(5px);
+            }
         }
 
         @keyframes scrollPulse {
-            0%, 100% { opacity: 0.6; }
-            50% { opacity: 1; }
+
+            0%,
+            100% {
+                opacity: 0.6;
+            }
+
+            50% {
+                opacity: 1;
+            }
         }
 
         /* ============================================
@@ -923,8 +972,17 @@
         }
 
         @keyframes statusPulse {
-            0%, 100% { opacity: 1; box-shadow: 0 0 8px var(--accent-amber); }
-            50% { opacity: 0.6; box-shadow: 0 0 4px var(--accent-amber); }
+
+            0%,
+            100% {
+                opacity: 1;
+                box-shadow: 0 0 8px var(--accent-amber);
+            }
+
+            50% {
+                opacity: 0.6;
+                box-shadow: 0 0 4px var(--accent-amber);
+            }
         }
 
         .module-date {
@@ -1395,12 +1453,29 @@
             transform: translateY(0);
         }
 
-        .project-card:nth-child(1) { transition-delay: 0.1s; }
-        .project-card:nth-child(2) { transition-delay: 0.15s; }
-        .project-card:nth-child(3) { transition-delay: 0.2s; }
-        .project-card:nth-child(4) { transition-delay: 0.25s; }
-        .project-card:nth-child(5) { transition-delay: 0.3s; }
-        .project-card:nth-child(6) { transition-delay: 0.35s; }
+        .project-card:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+
+        .project-card:nth-child(2) {
+            transition-delay: 0.15s;
+        }
+
+        .project-card:nth-child(3) {
+            transition-delay: 0.2s;
+        }
+
+        .project-card:nth-child(4) {
+            transition-delay: 0.25s;
+        }
+
+        .project-card:nth-child(5) {
+            transition-delay: 0.3s;
+        }
+
+        .project-card:nth-child(6) {
+            transition-delay: 0.35s;
+        }
 
         /* Category accents */
         .project-card.category-ml {
@@ -1687,9 +1762,17 @@
             transform: translateY(0);
         }
 
-        .skill-category:nth-child(1) { transition-delay: 0.1s; }
-        .skill-category:nth-child(2) { transition-delay: 0.2s; }
-        .skill-category:nth-child(3) { transition-delay: 0.3s; }
+        .skill-category:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+
+        .skill-category:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+
+        .skill-category:nth-child(3) {
+            transition-delay: 0.3s;
+        }
 
         /* Category accent borders */
         .skill-category.category-languages {
@@ -1909,8 +1992,15 @@
         }
 
         @keyframes barPulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.8; }
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.8;
+            }
         }
 
         /* ============================================
@@ -1920,6 +2010,7 @@
             from {
                 opacity: 0;
             }
+
             to {
                 opacity: 1;
             }
@@ -1930,6 +2021,7 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -1941,6 +2033,7 @@
                 opacity: 0;
                 transform: translateY(-20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -1952,6 +2045,7 @@
                 opacity: 0;
                 transform: translateX(-20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateX(0);
@@ -1962,6 +2056,7 @@
             from {
                 width: 0;
             }
+
             to {
                 width: 100%;
             }
@@ -2251,15 +2346,6 @@
                 margin-bottom: var(--spacing-md);
                 padding-bottom: var(--spacing-sm);
             }
-
-            .platforms-list {
-                flex-direction: column;
-                gap: var(--spacing-sm);
-            }
-
-            .platform-badge {
-                justify-content: center;
-            }
         }
 
         /* Small mobile */
@@ -2284,6 +2370,7 @@
 
         /* Reduced motion preference */
         @media (prefers-reduced-motion: reduce) {
+
             *,
             *::before,
             *::after {
@@ -2321,8 +2408,7 @@
             .process-card,
             .projects-window,
             .project-card,
-            .skill-category,
-            .platforms-section {
+            .skill-category {
                 opacity: 1;
                 transform: none;
             }
@@ -2363,10 +2449,21 @@
             transform: translateY(0);
         }
 
-        .contact-card:nth-child(1) { transition-delay: 0.1s; }
-        .contact-card:nth-child(2) { transition-delay: 0.15s; }
-        .contact-card:nth-child(3) { transition-delay: 0.2s; }
-        .contact-card:nth-child(4) { transition-delay: 0.25s; }
+        .contact-card:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+
+        .contact-card:nth-child(2) {
+            transition-delay: 0.15s;
+        }
+
+        .contact-card:nth-child(3) {
+            transition-delay: 0.2s;
+        }
+
+        .contact-card:nth-child(4) {
+            transition-delay: 0.25s;
+        }
 
         .contact-card:hover {
             border-color: var(--accent-teal);
@@ -2426,6 +2523,20 @@
             z-index: calc(var(--z-nav) + 5);
             transition: all var(--transition-base);
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 15px var(--glow-teal);
+            animation: terminalPulse 3s ease-in-out infinite;
+            animation-delay: 5s;
+        }
+
+        @keyframes terminalPulse {
+
+            0%,
+            100% {
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 15px var(--glow-teal);
+            }
+
+            50% {
+                box-shadow: 0 4px 25px rgba(0, 0, 0, 0.5), 0 0 30px var(--glow-teal-strong), 0 0 50px var(--glow-teal);
+            }
         }
 
         .terminal-toggle-btn:hover {
@@ -2433,12 +2544,51 @@
             color: var(--bg-primary);
             transform: scale(1.1);
             box-shadow: 0 4px 25px rgba(0, 0, 0, 0.5), 0 0 25px var(--glow-teal-strong);
+            animation: none;
         }
 
         .terminal-toggle-btn.active {
             background: var(--accent-amber);
             border-color: var(--accent-amber);
             color: var(--bg-primary);
+            animation: none;
+        }
+
+        .terminal-hint {
+            position: fixed;
+            bottom: calc(var(--spacing-xl) + 64px);
+            right: var(--spacing-xl);
+            font-family: var(--font-mono);
+            font-size: var(--font-size-xs);
+            color: var(--text-muted);
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-color);
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: var(--border-radius);
+            opacity: 0;
+            transform: translateY(5px);
+            transition: all var(--transition-base);
+            z-index: calc(var(--z-nav) + 4);
+            pointer-events: none;
+            white-space: nowrap;
+        }
+
+        .terminal-hint.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .terminal-hint::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            right: 20px;
+            width: 10px;
+            height: 10px;
+            background: var(--bg-elevated);
+            border-right: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            transform: rotate(45deg);
         }
 
         .terminal-container {
@@ -2490,9 +2640,17 @@
             cursor: pointer;
         }
 
-        .control-dot.close { background: var(--accent-red); }
-        .control-dot.minimize { background: var(--accent-amber); }
-        .control-dot.maximize { background: var(--accent-teal); }
+        .control-dot.close {
+            background: var(--accent-red);
+        }
+
+        .control-dot.minimize {
+            background: var(--accent-amber);
+        }
+
+        .control-dot.maximize {
+            background: var(--accent-teal);
+        }
 
         .terminal-title {
             font-size: var(--font-size-sm);
@@ -2588,11 +2746,26 @@
             margin-right: var(--spacing-sm);
         }
 
-        .terminal-user { color: var(--accent-purple); }
-        .terminal-at { color: var(--text-muted); }
-        .terminal-host { color: var(--accent-teal); }
-        .terminal-path { color: var(--accent-amber); }
-        .terminal-dollar { color: var(--text-primary); margin-left: 2px; }
+        .terminal-user {
+            color: var(--accent-purple);
+        }
+
+        .terminal-at {
+            color: var(--text-muted);
+        }
+
+        .terminal-host {
+            color: var(--accent-teal);
+        }
+
+        .terminal-path {
+            color: var(--accent-amber);
+        }
+
+        .terminal-dollar {
+            color: var(--text-primary);
+            margin-left: 2px;
+        }
 
         .terminal-input {
             flex: 1;
@@ -2616,8 +2789,16 @@
         }
 
         @keyframes terminalCursorBlink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0; }
+
+            0%,
+            50% {
+                opacity: 1;
+            }
+
+            51%,
+            100% {
+                opacity: 0;
+            }
         }
 
         .terminal-statusbar {
@@ -2637,9 +2818,17 @@
         }
 
         @keyframes terminalPulse {
-            0% { box-shadow: none; }
-            50% { box-shadow: 0 0 30px var(--glow-teal-strong), inset 0 0 20px var(--glow-teal); }
-            100% { box-shadow: none; }
+            0% {
+                box-shadow: none;
+            }
+
+            50% {
+                box-shadow: 0 0 30px var(--glow-teal-strong), inset 0 0 20px var(--glow-teal);
+            }
+
+            100% {
+                box-shadow: none;
+            }
         }
 
         /* Matrix rain effect container */
@@ -2666,7 +2855,9 @@
         }
 
         @keyframes matrixFall {
-            to { top: 100%; }
+            to {
+                top: 100%;
+            }
         }
 
         /* Confetti effect */
@@ -2683,6 +2874,7 @@
                 opacity: 1;
                 transform: translateY(0) rotate(0deg);
             }
+
             100% {
                 opacity: 0;
                 transform: translateY(100vh) rotate(720deg);
@@ -2742,6 +2934,138 @@
             text-shadow: 0 0 8px var(--glow-teal);
         }
 
+        .footer-status {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-xl);
+            margin-top: var(--spacing-md);
+            padding-top: var(--spacing-md);
+            border-top: 1px solid var(--border-color);
+            flex-wrap: wrap;
+        }
+
+        .footer-status-item {
+            font-size: var(--font-size-xs);
+            color: var(--text-dim);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+
+        .footer-status-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent-teal);
+            box-shadow: 0 0 6px var(--glow-teal-strong);
+            animation: statusPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes statusPulse {
+
+            0%,
+            100% {
+                opacity: 1;
+                box-shadow: 0 0 6px var(--glow-teal-strong);
+            }
+
+            50% {
+                opacity: 0.6;
+                box-shadow: 0 0 3px var(--glow-teal);
+            }
+        }
+
+        .footer-social-links {
+            display: flex;
+            gap: var(--spacing-md);
+            align-items: center;
+        }
+
+        .footer-social-link {
+            font-size: var(--font-size-sm);
+            color: var(--text-dim);
+            text-decoration: none;
+            transition: all var(--transition-fast);
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border: 1px solid transparent;
+            border-radius: var(--border-radius);
+        }
+
+        .footer-social-link:hover {
+            color: var(--accent-teal);
+            border-color: var(--border-color);
+            text-shadow: 0 0 8px var(--glow-teal);
+        }
+
+        /* ============================================
+           SCROLL PROGRESS BAR
+        ============================================= */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            width: 0%;
+            background: linear-gradient(90deg, var(--accent-teal), var(--accent-amber));
+            box-shadow: 0 0 10px var(--glow-teal-strong), 0 0 5px var(--glow-amber);
+            z-index: calc(var(--z-nav) + 1);
+            transition: width 50ms linear;
+        }
+
+        /* ============================================
+           BACK TO TOP BUTTON
+        ============================================= */
+        .back-to-top-btn {
+            position: fixed;
+            bottom: 90px;
+            right: var(--spacing-xl);
+            width: 44px;
+            height: 44px;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            color: var(--text-muted);
+            font-family: var(--font-mono);
+            font-size: var(--font-size-lg);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all var(--transition-base);
+            z-index: var(--z-elevated);
+        }
+
+        .back-to-top-btn.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .back-to-top-btn:hover {
+            color: var(--accent-teal);
+            border-color: var(--accent-teal);
+            box-shadow: 0 0 12px var(--glow-teal), 0 0 4px var(--glow-teal);
+            text-shadow: 0 0 8px var(--glow-teal);
+        }
+
+        /* ============================================
+           RESUME DOWNLOAD BUTTON STYLE
+        ============================================= */
+        .hero-command.resume-cmd {
+            border-color: var(--accent-amber);
+            color: var(--accent-amber-dim);
+        }
+
+        .hero-command.resume-cmd:hover {
+            color: var(--accent-teal);
+            border-color: var(--accent-teal);
+            text-shadow: 0 0 8px var(--glow-teal);
+            box-shadow: 0 0 12px var(--glow-teal);
+        }
+
         /* ============================================
            STAGE 6: RESPONSIVE ADDITIONS
         ============================================= */
@@ -2764,7 +3088,8 @@
             }
 
             .terminal-input {
-                font-size: 16px; /* Prevent iOS zoom */
+                font-size: 16px;
+                /* Prevent iOS zoom */
             }
 
             .terminal-titlebar {
@@ -2829,6 +3154,7 @@
         }
     </style>
 </head>
+
 <body class="booting">
     <!-- CRT Scanline Overlay -->
     <div class="crt-overlay" aria-hidden="true"></div>
@@ -2897,20 +3223,22 @@
 
             <!-- ASCII Art Neural Network Decoration -->
             <div class="hero-ascii" aria-hidden="true">
-     o---o
-    /|\   |\
-   o-+-o-+-o
-    \|/   |/
-     o---o
-    /|\   |\
-   o-+-o-+-o
-    \|/   |/
-     o---o
+                o---o
+                /|\ |\
+                o-+-o-+-o
+                \|/ |/
+                o---o
+                /|\ |\
+                o-+-o-+-o
+                \|/ |/
+                o---o
             </div>
 
             <!-- Terminal Prompt -->
             <div class="hero-prompt">
-                <span class="hero-prompt-user">kavinraj</span><span class="hero-prompt-at">@</span><span class="hero-prompt-host">portfolio</span><span class="hero-prompt-path">:~</span><span class="hero-prompt-symbol">$</span> ./whoami
+                <span class="hero-prompt-user">kavinraj</span><span class="hero-prompt-at">@</span><span
+                    class="hero-prompt-host">portfolio</span><span class="hero-prompt-path">:~</span><span
+                    class="hero-prompt-symbol">$</span> ./whoami
             </div>
 
             <!-- Name with Typing Effect -->
@@ -2933,17 +3261,23 @@
                     <span class="hero-command-icon">@</span>
                     <span class="hero-command-text">./email --send</span>
                 </a>
-                <a href="https://linkedin.com/in/kavinraj95" class="hero-command" target="_blank" rel="noopener noreferrer" aria-label="Connect on LinkedIn">
+                <a href="https://linkedin.com/in/kavinraj95" class="hero-command" target="_blank"
+                    rel="noopener noreferrer" aria-label="Connect on LinkedIn">
                     <span class="hero-command-icon">in</span>
                     <span class="hero-command-text">./linkedin --connect</span>
                 </a>
-                <a href="https://github.com/kavinraj-95" class="hero-command" target="_blank" rel="noopener noreferrer" aria-label="View GitHub profile">
+                <a href="https://github.com/kavinraj-95" class="hero-command" target="_blank" rel="noopener noreferrer"
+                    aria-label="View GitHub profile">
                     <span class="hero-command-icon">&gt;_</span>
                     <span class="hero-command-text">./github --view</span>
                 </a>
                 <a href="tel:+917305199372" class="hero-command" aria-label="Call phone">
                     <span class="hero-command-icon">#</span>
                     <span class="hero-command-text">./phone --call</span>
+                </a>
+                <a href="Kavinraj's Resume.pdf" download class="hero-command resume-cmd" aria-label="Download resume">
+                    <span class="hero-command-icon">&#8681;</span>
+                    <span class="hero-command-text">./resume --download</span>
                 </a>
             </div>
 
@@ -2960,8 +3294,8 @@
         <section class="section" id="education" aria-label="Education">
             <header class="section-header" data-animate>
                 <div class="section-header-box" aria-hidden="true">+------------------------------------------+
-|  <span class="section-header-title">INSTALLED_MODULES</span>                      |
-+------------------------------------------+</div>
+                    | <span class="section-header-title">INSTALLED_MODULES</span> |
+                    +------------------------------------------+</div>
                 <p class="section-header-subtitle">// Academic credentials and installed knowledge packages</p>
             </header>
 
@@ -3009,8 +3343,8 @@
         <section class="section" id="experience" aria-label="Work Experience">
             <header class="section-header" data-animate>
                 <div class="section-header-box" aria-hidden="true">+------------------------------------------+
-|  <span class="section-header-title">ACTIVE_PROCESSES</span>                       |
-+------------------------------------------+</div>
+                    | <span class="section-header-title">ACTIVE_PROCESSES</span> |
+                    +------------------------------------------+</div>
                 <p class="section-header-subtitle">// Professional experience and completed tasks</p>
             </header>
 
@@ -3022,11 +3356,8 @@
                 <article class="process-card status-active" data-animate aria-labelledby="ieee-title">
                     <div class="process-indicator status-active" aria-hidden="true"></div>
                     <div class="process-inner">
-                        <div class="process-header"
-                             role="button"
-                             tabindex="0"
-                             aria-expanded="false"
-                             aria-controls="ieee-details">
+                        <div class="process-header" role="button" tabindex="0" aria-expanded="false"
+                            aria-controls="ieee-details">
                             <div class="process-top">
                                 <div>
                                     <span class="process-pid">PID: 2024</span>
@@ -3051,11 +3382,15 @@
                             <div class="process-details-inner">
                                 <div class="process-task">
                                     <span class="process-task-marker" aria-hidden="true">-></span>
-                                    <span class="process-task-text">Authored comprehensive Federated Learning case study analyzing privacy-utility tradeoffs across 8 benchmark datasets, published in IEEE research repository.</span>
+                                    <span class="process-task-text">Authored comprehensive Federated Learning case study
+                                        analyzing privacy-utility tradeoffs across 8 benchmark datasets, published in
+                                        IEEE research repository.</span>
                                 </div>
                                 <div class="process-task">
                                     <span class="process-task-marker" aria-hidden="true">-></span>
-                                    <span class="process-task-text">Built automated FL simulation pipeline reducing experiment setup from 4 hours to 15 minutes, enabling 3x faster iteration on distributed model architectures.</span>
+                                    <span class="process-task-text">Built automated FL simulation pipeline reducing
+                                        experiment setup from 4 hours to 15 minutes, enabling 3x faster iteration on
+                                        distributed model architectures.</span>
                                 </div>
 
                                 <!-- Metrics visualization -->
@@ -3063,14 +3398,16 @@
                                     <div class="process-metric">
                                         <div class="process-metric-label">Research Output</div>
                                         <div class="process-metric-bar">
-                                            <div class="process-metric-fill" style="width: 100%;" aria-hidden="true"></div>
+                                            <div class="process-metric-fill" style="width: 100%;" aria-hidden="true">
+                                            </div>
                                         </div>
                                         <div class="process-metric-value">IEEE Publication</div>
                                     </div>
                                     <div class="process-metric">
                                         <div class="process-metric-label">Efficiency Gain</div>
                                         <div class="process-metric-bar">
-                                            <div class="process-metric-fill" style="width: 94%;" aria-hidden="true"></div>
+                                            <div class="process-metric-fill" style="width: 94%;" aria-hidden="true">
+                                            </div>
                                         </div>
                                         <div class="process-metric-value">94% faster setup</div>
                                     </div>
@@ -3084,11 +3421,8 @@
                 <article class="process-card status-complete" data-animate aria-labelledby="xcmg-title">
                     <div class="process-indicator status-complete" aria-hidden="true"></div>
                     <div class="process-inner">
-                        <div class="process-header"
-                             role="button"
-                             tabindex="0"
-                             aria-expanded="false"
-                             aria-controls="xcmg-details">
+                        <div class="process-header" role="button" tabindex="0" aria-expanded="false"
+                            aria-controls="xcmg-details">
                             <div class="process-top">
                                 <div>
                                     <span class="process-pid">PID: 2024</span>
@@ -3113,11 +3447,15 @@
                             <div class="process-details-inner">
                                 <div class="process-task">
                                     <span class="process-task-marker" aria-hidden="true">-></span>
-                                    <span class="process-task-text">Engineered a real-time consumables tracking dashboard in Python that reduced reporting time by 75% and eliminated 12+ hours/week of manual data entry across 3 departments.</span>
+                                    <span class="process-task-text">Engineered a real-time consumables tracking
+                                        dashboard in Python that reduced reporting time by 75% and eliminated 12+
+                                        hours/week of manual data entry across 3 departments.</span>
                                 </div>
                                 <div class="process-task">
                                     <span class="process-task-marker" aria-hidden="true">-></span>
-                                    <span class="process-task-text">Identified and resolved 5 critical workflow bottlenecks through cross-functional analysis, streamlining data pipelines and improving inventory accuracy by 40%.</span>
+                                    <span class="process-task-text">Identified and resolved 5 critical workflow
+                                        bottlenecks through cross-functional analysis, streamlining data pipelines and
+                                        improving inventory accuracy by 40%.</span>
                                 </div>
 
                                 <!-- Metrics visualization -->
@@ -3125,14 +3463,16 @@
                                     <div class="process-metric">
                                         <div class="process-metric-label">Time Saved</div>
                                         <div class="process-metric-bar">
-                                            <div class="process-metric-fill" style="width: 75%;" aria-hidden="true"></div>
+                                            <div class="process-metric-fill" style="width: 75%;" aria-hidden="true">
+                                            </div>
                                         </div>
                                         <div class="process-metric-value">75% reduction</div>
                                     </div>
                                     <div class="process-metric">
                                         <div class="process-metric-label">Accuracy Improvement</div>
                                         <div class="process-metric-bar">
-                                            <div class="process-metric-fill" style="width: 40%;" aria-hidden="true"></div>
+                                            <div class="process-metric-fill" style="width: 40%;" aria-hidden="true">
+                                            </div>
                                         </div>
                                         <div class="process-metric-value">40% better accuracy</div>
                                     </div>
@@ -3150,8 +3490,8 @@
         <section class="section" id="projects" aria-label="Projects">
             <header class="section-header" data-animate>
                 <div class="section-header-box" aria-hidden="true">+------------------------------------------+
-|  <span class="section-header-title">PROJECTS.DIR</span>                           |
-+------------------------------------------+</div>
+                    | <span class="section-header-title">PROJECTS.DIR</span> |
+                    +------------------------------------------+</div>
                 <p class="section-header-subtitle">// Showcasing ML engineering and research projects</p>
             </header>
 
@@ -3182,12 +3522,10 @@
                 <div class="projects-grid" role="list" aria-label="Project files">
 
                     <!-- Project 1: FAAA (Fraud Detection & Anomaly Analysis) -->
-                    <article class="project-card category-ml" data-animate-project aria-labelledby="project-faaa-title" role="listitem">
-                        <div class="project-header"
-                             role="button"
-                             tabindex="0"
-                             aria-expanded="false"
-                             aria-controls="project-faaa-details">
+                    <article class="project-card category-ml" data-animate-project aria-labelledby="project-faaa-title"
+                        role="listitem">
+                        <div class="project-header" role="button" tabindex="0" aria-expanded="false"
+                            aria-controls="project-faaa-details">
                             <div class="project-top">
                                 <div class="project-file">
                                     <span class="project-icon icon-ml" aria-hidden="true">&#129504;</span>
@@ -3195,7 +3533,9 @@
                                 </div>
                                 <span class="project-category cat-ml">ML/AI</span>
                             </div>
-                            <p class="project-preview">Advanced fraud detection system for credit card transactions handling extreme class imbalance (0.17% fraud rate) with multiple ML models and real-time predictions via Streamlit dashboard.</p>
+                            <p class="project-preview">Advanced fraud detection system for credit card transactions
+                                handling extreme class imbalance (0.17% fraud rate) with multiple ML models and
+                                real-time predictions via Streamlit dashboard.</p>
                             <div class="project-tech">
                                 <span class="tech-tag">Python</span>
                                 <span class="tech-tag">scikit-learn</span>
@@ -3205,7 +3545,8 @@
                             </div>
                             <div class="project-meta">
                                 <span class="project-date">Feb 2026</span>
-                                <span class="project-expand-hint"><span class="project-expand-icon" aria-hidden="true">></span> Click to expand</span>
+                                <span class="project-expand-hint"><span class="project-expand-icon"
+                                        aria-hidden="true">></span> Click to expand</span>
                             </div>
                         </div>
                         <div class="project-details" id="project-faaa-details">
@@ -3225,7 +3566,9 @@
                                     </div>
                                 </div>
                                 <div class="project-links">
-                                    <a href="https://github.com/kavinraj-95/FAAA" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View source code on GitHub">
+                                    <a href="https://github.com/kavinraj-95/FAAA" target="_blank"
+                                        rel="noopener noreferrer" class="project-link"
+                                        aria-label="View source code on GitHub">
                                         <span class="project-link-icon">&gt;_</span>
                                         <span>./view-source</span>
                                     </a>
@@ -3234,51 +3577,54 @@
                         </div>
                     </article>
 
-                    <!-- Project 2: Schneider Electric AI Unit Test Generator -->
-                    <article class="project-card category-tools" data-animate-project aria-labelledby="project-schneider-title" role="listitem">
-                        <div class="project-header"
-                             role="button"
-                             tabindex="0"
-                             aria-expanded="false"
-                             aria-controls="project-schneider-details">
+                    <!-- Project 2: Polyverse - Decentralized Social Platform -->
+                    <article class="project-card category-tools" data-animate-project
+                        aria-labelledby="project-polyverse-title" role="listitem">
+                        <div class="project-header" role="button" tabindex="0" aria-expanded="false"
+                            aria-controls="project-polyverse-details">
                             <div class="project-top">
                                 <div class="project-file">
-                                    <span class="project-icon icon-tools" aria-hidden="true">&#129302;</span>
-                                    <span class="project-filename" id="project-schneider-title">test_generator.vscode</span>
+                                    <span class="project-icon icon-tools" aria-hidden="true">&#127760;</span>
+                                    <span class="project-filename" id="project-polyverse-title">polyverse.social</span>
                                 </div>
-                                <span class="project-category cat-tools">Tools</span>
+                                <span class="project-category cat-tools">Web</span>
                             </div>
-                            <p class="project-preview">AI-powered VS Code extension that automatically generates comprehensive unit tests by analyzing source code with LLM integration. Built for Schneider Electric hackathon.</p>
+                            <p class="project-preview">Decentralized social platform — a step towards the "Internet We
+                                Deserve." Full-stack SvelteKit application with ActivityPub protocol support, PostgreSQL
+                                via Drizzle ORM, user authentication, and post management.</p>
                             <div class="project-tech">
+                                <span class="tech-tag">SvelteKit</span>
                                 <span class="tech-tag">TypeScript</span>
-                                <span class="tech-tag">Python</span>
-                                <span class="tech-tag">VS Code API</span>
-                                <span class="tech-tag">LLM</span>
-                                <span class="tech-tag">AST</span>
+                                <span class="tech-tag">Drizzle ORM</span>
+                                <span class="tech-tag">PostgreSQL</span>
+                                <span class="tech-tag">Tailwind</span>
                             </div>
                             <div class="project-meta">
-                                <span class="project-date">Jan 2026</span>
-                                <span class="project-expand-hint"><span class="project-expand-icon" aria-hidden="true">></span> Click to expand</span>
+                                <span class="project-date">Feb 2026</span>
+                                <span class="project-expand-hint"><span class="project-expand-icon"
+                                        aria-hidden="true">></span> Click to expand</span>
                             </div>
                         </div>
-                        <div class="project-details" id="project-schneider-details">
+                        <div class="project-details" id="project-polyverse-details">
                             <div class="project-details-inner">
                                 <div class="project-metrics">
                                     <div class="project-metric">
-                                        <div class="project-metric-value">85%</div>
-                                        <div class="project-metric-label">Time Saved</div>
+                                        <div class="project-metric-value">ActivityPub</div>
+                                        <div class="project-metric-label">Protocol</div>
                                     </div>
                                     <div class="project-metric">
-                                        <div class="project-metric-value">Enterprise</div>
-                                        <div class="project-metric-label">Quality</div>
+                                        <div class="project-metric-value">Neon</div>
+                                        <div class="project-metric-label">Database</div>
                                     </div>
                                     <div class="project-metric">
-                                        <div class="project-metric-value">10K+</div>
-                                        <div class="project-metric-label">Tests Generated</div>
+                                        <div class="project-metric-value">Vercel</div>
+                                        <div class="project-metric-label">Deployed</div>
                                     </div>
                                 </div>
                                 <div class="project-links">
-                                    <a href="https://github.com/kavinraj-95/schneider-electric" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View source code on GitHub">
+                                    <a href="https://github.com/PiedPipers5/polyverse" target="_blank"
+                                        rel="noopener noreferrer" class="project-link"
+                                        aria-label="View source code on GitHub">
                                         <span class="project-link-icon">&gt;_</span>
                                         <span>./view-source</span>
                                     </a>
@@ -3288,12 +3634,10 @@
                     </article>
 
                     <!-- Project 3: DevVault -->
-                    <article class="project-card category-tools" data-animate-project aria-labelledby="project-devvault-title" role="listitem">
-                        <div class="project-header"
-                             role="button"
-                             tabindex="0"
-                             aria-expanded="false"
-                             aria-controls="project-devvault-details">
+                    <article class="project-card category-tools" data-animate-project
+                        aria-labelledby="project-devvault-title" role="listitem">
+                        <div class="project-header" role="button" tabindex="0" aria-expanded="false"
+                            aria-controls="project-devvault-details">
                             <div class="project-top">
                                 <div class="project-file">
                                     <span class="project-icon icon-tools" aria-hidden="true">&#128274;</span>
@@ -3301,7 +3645,9 @@
                                 </div>
                                 <span class="project-category cat-tools">Security</span>
                             </div>
-                            <p class="project-preview">Enterprise-grade secure coding platform with post-quantum cryptography, behavioral biometrics, Bell-LaPadula access control, AES-256+RSA-2048 hybrid encryption, and Shamir's Secret Sharing.</p>
+                            <p class="project-preview">Enterprise-grade secure coding platform with post-quantum
+                                cryptography, behavioral biometrics, Bell-LaPadula access control, AES-256+RSA-2048
+                                hybrid encryption, and Shamir's Secret Sharing.</p>
                             <div class="project-tech">
                                 <span class="tech-tag">Python</span>
                                 <span class="tech-tag">FastAPI</span>
@@ -3311,7 +3657,8 @@
                             </div>
                             <div class="project-meta">
                                 <span class="project-date">Jan 2026</span>
-                                <span class="project-expand-hint"><span class="project-expand-icon" aria-hidden="true">></span> Click to expand</span>
+                                <span class="project-expand-hint"><span class="project-expand-icon"
+                                        aria-hidden="true">></span> Click to expand</span>
                             </div>
                         </div>
                         <div class="project-details" id="project-devvault-details">
@@ -3331,7 +3678,9 @@
                                     </div>
                                 </div>
                                 <div class="project-links">
-                                    <a href="https://github.com/kavinraj-95/DevVault" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View source code on GitHub">
+                                    <a href="https://github.com/kavinraj-95/DevVault" target="_blank"
+                                        rel="noopener noreferrer" class="project-link"
+                                        aria-label="View source code on GitHub">
                                         <span class="project-link-icon">&gt;_</span>
                                         <span>./view-source</span>
                                     </a>
@@ -3341,12 +3690,10 @@
                     </article>
 
                     <!-- Project 4: NEAT-drive 2.0 -->
-                    <article class="project-card category-ml" data-animate-project aria-labelledby="project-neat-title" role="listitem">
-                        <div class="project-header"
-                             role="button"
-                             tabindex="0"
-                             aria-expanded="false"
-                             aria-controls="project-neat-details">
+                    <article class="project-card category-ml" data-animate-project aria-labelledby="project-neat-title"
+                        role="listitem">
+                        <div class="project-header" role="button" tabindex="0" aria-expanded="false"
+                            aria-controls="project-neat-details">
                             <div class="project-top">
                                 <div class="project-file">
                                     <span class="project-icon icon-ml" aria-hidden="true">&#128663;</span>
@@ -3354,7 +3701,9 @@
                                 </div>
                                 <span class="project-category cat-ml">ML/AI</span>
                             </div>
-                            <p class="project-preview">Evolutionary neural network simulation where cars autonomously learn to drive using NEAT genetic algorithm with realistic physics including acceleration, friction, traction, and speed-dependent steering.</p>
+                            <p class="project-preview">Evolutionary neural network simulation where cars autonomously
+                                learn to drive using NEAT genetic algorithm with realistic physics including
+                                acceleration, friction, traction, and speed-dependent steering.</p>
                             <div class="project-tech">
                                 <span class="tech-tag">Python</span>
                                 <span class="tech-tag">pygame</span>
@@ -3364,7 +3713,8 @@
                             </div>
                             <div class="project-meta">
                                 <span class="project-date">Nov 2025</span>
-                                <span class="project-expand-hint"><span class="project-expand-icon" aria-hidden="true">></span> Click to expand</span>
+                                <span class="project-expand-hint"><span class="project-expand-icon"
+                                        aria-hidden="true">></span> Click to expand</span>
                             </div>
                         </div>
                         <div class="project-details" id="project-neat-details">
@@ -3384,7 +3734,9 @@
                                     </div>
                                 </div>
                                 <div class="project-links">
-                                    <a href="https://github.com/kavinraj-95/NEAT-drive2.0" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View source code on GitHub">
+                                    <a href="https://github.com/kavinraj-95/NEAT-drive2.0" target="_blank"
+                                        rel="noopener noreferrer" class="project-link"
+                                        aria-label="View source code on GitHub">
                                         <span class="project-link-icon">&gt;_</span>
                                         <span>./view-source</span>
                                     </a>
@@ -3394,20 +3746,21 @@
                     </article>
 
                     <!-- Project 5: SentinelHealth -->
-                    <article class="project-card category-tools" data-animate-project aria-labelledby="project-sentinel-title" role="listitem">
-                        <div class="project-header"
-                             role="button"
-                             tabindex="0"
-                             aria-expanded="false"
-                             aria-controls="project-sentinel-details">
+                    <article class="project-card category-tools" data-animate-project
+                        aria-labelledby="project-sentinel-title" role="listitem">
+                        <div class="project-header" role="button" tabindex="0" aria-expanded="false"
+                            aria-controls="project-sentinel-details">
                             <div class="project-top">
                                 <div class="project-file">
                                     <span class="project-icon icon-tools" aria-hidden="true">&#127973;</span>
-                                    <span class="project-filename" id="project-sentinel-title">sentinel_health.med</span>
+                                    <span class="project-filename"
+                                        id="project-sentinel-title">sentinel_health.med</span>
                                 </div>
                                 <span class="project-category cat-tools">Tools</span>
                             </div>
-                            <p class="project-preview">Comprehensive EHR application with role-based access control for patients, physicians, and emergency personnel. Features AES-256 encryption, digital prescription verification, and "Break Glass" emergency override.</p>
+                            <p class="project-preview">Comprehensive EHR application with role-based access control for
+                                patients, physicians, and emergency personnel. Features AES-256 encryption, digital
+                                prescription verification, and "Break Glass" emergency override.</p>
                             <div class="project-tech">
                                 <span class="tech-tag">Python</span>
                                 <span class="tech-tag">FastAPI</span>
@@ -3417,7 +3770,8 @@
                             </div>
                             <div class="project-meta">
                                 <span class="project-date">Jan 2026</span>
-                                <span class="project-expand-hint"><span class="project-expand-icon" aria-hidden="true">></span> Click to expand</span>
+                                <span class="project-expand-hint"><span class="project-expand-icon"
+                                        aria-hidden="true">></span> Click to expand</span>
                             </div>
                         </div>
                         <div class="project-details" id="project-sentinel-details">
@@ -3437,7 +3791,9 @@
                                     </div>
                                 </div>
                                 <div class="project-links">
-                                    <a href="https://github.com/kavinraj-95/SentinelHealth" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View source code on GitHub">
+                                    <a href="https://github.com/kavinraj-95/SentinelHealth" target="_blank"
+                                        rel="noopener noreferrer" class="project-link"
+                                        aria-label="View source code on GitHub">
                                         <span class="project-link-icon">&gt;_</span>
                                         <span>./view-source</span>
                                     </a>
@@ -3447,12 +3803,10 @@
                     </article>
 
                     <!-- Project 6: Touchless Screen -->
-                    <article class="project-card category-research" data-animate-project aria-labelledby="project-touchless-title" role="listitem">
-                        <div class="project-header"
-                             role="button"
-                             tabindex="0"
-                             aria-expanded="false"
-                             aria-controls="project-touchless-details">
+                    <article class="project-card category-research" data-animate-project
+                        aria-labelledby="project-touchless-title" role="listitem">
+                        <div class="project-header" role="button" tabindex="0" aria-expanded="false"
+                            aria-controls="project-touchless-details">
                             <div class="project-top">
                                 <div class="project-file">
                                     <span class="project-icon icon-research" aria-hidden="true">&#128065;</span>
@@ -3460,7 +3814,9 @@
                                 </div>
                                 <span class="project-category cat-research">CV</span>
                             </div>
-                            <p class="project-preview">Real-time hand gesture recognition system enabling touchless computer control via webcam. Interprets hand movements as mouse commands with cursor control, click-and-drag, and automatic hand tracking.</p>
+                            <p class="project-preview">Real-time hand gesture recognition system enabling touchless
+                                computer control via webcam. Interprets hand movements as mouse commands with cursor
+                                control, click-and-drag, and automatic hand tracking.</p>
                             <div class="project-tech">
                                 <span class="tech-tag">Python</span>
                                 <span class="tech-tag">OpenCV</span>
@@ -3469,7 +3825,8 @@
                             </div>
                             <div class="project-meta">
                                 <span class="project-date">Aug 2025</span>
-                                <span class="project-expand-hint"><span class="project-expand-icon" aria-hidden="true">></span> Click to expand</span>
+                                <span class="project-expand-hint"><span class="project-expand-icon"
+                                        aria-hidden="true">></span> Click to expand</span>
                             </div>
                         </div>
                         <div class="project-details" id="project-touchless-details">
@@ -3489,7 +3846,9 @@
                                     </div>
                                 </div>
                                 <div class="project-links">
-                                    <a href="https://github.com/kavinraj-95/touchless_screen" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View source code on GitHub">
+                                    <a href="https://github.com/kavinraj-95/touchless_screen" target="_blank"
+                                        rel="noopener noreferrer" class="project-link"
+                                        aria-label="View source code on GitHub">
                                         <span class="project-link-icon">&gt;_</span>
                                         <span>./view-source</span>
                                     </a>
@@ -3508,181 +3867,207 @@
         <section class="section" id="skills" aria-label="Technical Skills">
             <header class="section-header" data-animate>
                 <div class="section-header-box" aria-hidden="true">+------------------------------------------+
-|  <span class="section-header-title">SYSTEM_DIAGNOSTICS</span>                     |
-+------------------------------------------+</div>
+                    | <span class="section-header-title">SYSTEM_DIAGNOSTICS</span> |
+                    +------------------------------------------+</div>
                 <p class="section-header-subtitle">// Proficiency analysis and capability matrix</p>
             </header>
 
             <div class="skills-container" role="list" aria-label="Skill categories">
                 <!-- Languages - CORE_PROCESSORS -->
-                <div class="skill-category category-languages" data-animate-skill role="listitem" aria-labelledby="cat-languages">
+                <div class="skill-category category-languages" data-animate-skill role="listitem"
+                    aria-labelledby="cat-languages">
                     <div class="skill-category-header">
                         <span class="skill-category-icon" aria-hidden="true">&#9881;</span>
-                        <h3 class="skill-category-title" id="cat-languages">CORE_PROCESSORS</h3>
+                        <h3 class="skill-category-title" id="cat-languages">LANGUAGES</h3>
                     </div>
                     <p class="skill-category-desc">Primary languages for ML engineering and system development</p>
                     <div class="skill-list">
                         <div class="skill-item expert" data-level="95">
                             <div class="skill-info">
                                 <span class="skill-name">Python</span>
-                                <span class="skill-level level-expert">Expert</span>
+                                <span class="skill-level level-expert">3+ yrs · Production</span>
                             </div>
-                            <div class="skill-bar" style="--skill-level: 95%;" aria-label="Python - Expert proficiency"></div>
+                            <div class="skill-bar" style="--skill-level: 95%;"
+                                aria-label="Python - 3+ years production experience">
+                            </div>
                         </div>
                         <div class="skill-item" data-level="85">
                             <div class="skill-info">
                                 <span class="skill-name">SQL</span>
-                                <span class="skill-level level-advanced">Advanced</span>
+                                <span class="skill-level level-advanced">2+ yrs · Data Pipelines</span>
                             </div>
-                            <div class="skill-bar" style="--skill-level: 85%;" aria-label="SQL - Advanced proficiency"></div>
+                            <div class="skill-bar" style="--skill-level: 85%;"
+                                aria-label="SQL - 2+ years data pipeline experience">
+                            </div>
                         </div>
                         <div class="skill-item" data-level="80">
                             <div class="skill-info">
                                 <span class="skill-name">C</span>
-                                <span class="skill-level level-advanced">Advanced</span>
+                                <span class="skill-level level-advanced">2+ yrs · Systems</span>
                             </div>
-                            <div class="skill-bar" style="--skill-level: 80%;" aria-label="C - Advanced proficiency"></div>
+                            <div class="skill-bar" style="--skill-level: 80%;"
+                                aria-label="C - 2+ years systems programming">
+                            </div>
                         </div>
                         <div class="skill-item" data-level="75">
                             <div class="skill-info">
                                 <span class="skill-name">C++</span>
-                                <span class="skill-level level-intermediate">Intermediate</span>
+                                <span class="skill-level level-intermediate">1+ yr · Academic</span>
                             </div>
-                            <div class="skill-bar" style="--skill-level: 75%;" aria-label="C++ - Intermediate proficiency"></div>
+                            <div class="skill-bar" style="--skill-level: 75%;" aria-label="C++ - 1+ year academic use">
+                            </div>
                         </div>
                         <div class="skill-item" data-level="75">
                             <div class="skill-info">
                                 <span class="skill-name">JavaScript</span>
-                                <span class="skill-level level-intermediate">Intermediate</span>
+                                <span class="skill-level level-intermediate">1+ yr · Full-Stack</span>
                             </div>
-                            <div class="skill-bar" style="--skill-level: 75%;" aria-label="JavaScript - Intermediate proficiency"></div>
+                            <div class="skill-bar" style="--skill-level: 75%;"
+                                aria-label="JavaScript - 1+ year full-stack projects"></div>
                         </div>
                         <div class="skill-item" data-level="70">
                             <div class="skill-info">
                                 <span class="skill-name">Java</span>
-                                <span class="skill-level level-intermediate">Intermediate</span>
+                                <span class="skill-level level-intermediate">1+ yr · Coursework</span>
                             </div>
-                            <div class="skill-bar" style="--skill-level: 70%;" aria-label="Java - Intermediate proficiency"></div>
+                            <div class="skill-bar" style="--skill-level: 70%;" aria-label="Java - 1+ year coursework">
+                            </div>
                         </div>
                         <div class="skill-item" data-level="65">
                             <div class="skill-info">
                                 <span class="skill-name">Go</span>
-                                <span class="skill-level level-familiar">Familiar</span>
+                                <span class="skill-level level-familiar">Learning · Side Projects</span>
                             </div>
-                            <div class="skill-bar" style="--skill-level: 65%;" aria-label="Go - Familiar proficiency"></div>
+                            <div class="skill-bar" style="--skill-level: 65%;"
+                                aria-label="Go - Learning, side projects">
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- ML & AI - NEURAL_MODULES -->
+                <!-- ML & AI - ML_FRAMEWORKS -->
                 <div class="skill-category category-ml" data-animate-skill role="listitem" aria-labelledby="cat-ml">
                     <div class="skill-category-header">
                         <span class="skill-category-icon" aria-hidden="true">&#129504;</span>
-                        <h3 class="skill-category-title" id="cat-ml">NEURAL_MODULES</h3>
+                        <h3 class="skill-category-title" id="cat-ml">ML / AI</h3>
                     </div>
                     <p class="skill-category-desc">Advanced ML frameworks and research implementations</p>
                     <div class="skill-list">
                         <div class="skill-item expert" data-level="92">
                             <div class="skill-info">
                                 <span class="skill-name">scikit-learn</span>
-                                <span class="skill-level level-expert">Expert</span>
+                                <span class="skill-level level-expert">3+ yrs · 10+ Projects</span>
                             </div>
-                            <div class="skill-bar" style="--skill-level: 92%;" aria-label="scikit-learn - Expert proficiency"></div>
+                            <div class="skill-bar" style="--skill-level: 92%;"
+                                aria-label="scikit-learn - 3+ years, 10+ projects"></div>
                         </div>
                         <div class="skill-item expert" data-level="90">
                             <div class="skill-info">
                                 <span class="skill-name">PyTorch</span>
-                                <span class="skill-level level-expert">Expert</span>
+                                <span class="skill-level level-expert">2+ yrs · Research</span>
                             </div>
-                            <div class="skill-bar" style="--skill-level: 90%;" aria-label="PyTorch - Expert proficiency"></div>
+                            <div class="skill-bar" style="--skill-level: 90%;"
+                                aria-label="PyTorch - 2+ years research use"></div>
                         </div>
                         <div class="skill-item" data-level="88">
                             <div class="skill-info">
                                 <span class="skill-name">TensorFlow</span>
-                                <span class="skill-level level-advanced">Advanced</span>
+                                <span class="skill-level level-advanced">2+ yrs · Deployed Models</span>
                             </div>
-                            <div class="skill-bar" style="--skill-level: 88%;" aria-label="TensorFlow - Advanced proficiency"></div>
+                            <div class="skill-bar" style="--skill-level: 88%;"
+                                aria-label="TensorFlow - 2+ years, deployed models"></div>
                         </div>
                         <div class="skill-item" data-level="85">
                             <div class="skill-info">
                                 <span class="skill-name">Flower (Federated)</span>
-                                <span class="skill-level level-advanced">Advanced</span>
+                                <span class="skill-level level-advanced">1+ yr · Research Paper</span>
                             </div>
-                            <div class="skill-bar" style="--skill-level: 85%;" aria-label="Flower Federated Learning - Advanced proficiency"></div>
+                            <div class="skill-bar" style="--skill-level: 85%;"
+                                aria-label="Flower Federated Learning - 1+ year, research paper"></div>
                         </div>
                         <div class="skill-item" data-level="85">
                             <div class="skill-info">
                                 <span class="skill-name">SMOTE / Imbalanced</span>
-                                <span class="skill-level level-advanced">Advanced</span>
+                                <span class="skill-level level-advanced">Production · FAAA</span>
                             </div>
-                            <div class="skill-bar" style="--skill-level: 85%;" aria-label="SMOTE and Imbalanced Learning - Advanced proficiency"></div>
+                            <div class="skill-bar" style="--skill-level: 85%;"
+                                aria-label="SMOTE and Imbalanced Learning - Production use in FAAA"></div>
                         </div>
                         <div class="skill-item" data-level="80">
                             <div class="skill-info">
                                 <span class="skill-name">OpenCV</span>
-                                <span class="skill-level level-advanced">Advanced</span>
+                                <span class="skill-level level-advanced">1+ yr · CV Projects</span>
                             </div>
-                            <div class="skill-bar" style="--skill-level: 80%;" aria-label="OpenCV - Advanced proficiency"></div>
+                            <div class="skill-bar" style="--skill-level: 80%;"
+                                aria-label="OpenCV - 1+ year, computer vision projects"></div>
                         </div>
                         <div class="skill-item" data-level="80">
                             <div class="skill-info">
                                 <span class="skill-name">LangGraph / LLMs</span>
-                                <span class="skill-level level-advanced">Advanced</span>
+                                <span class="skill-level level-advanced">1+ yr · Agentic AI</span>
                             </div>
-                            <div class="skill-bar" style="--skill-level: 80%;" aria-label="LangGraph and LLM Integration - Advanced proficiency"></div>
+                            <div class="skill-bar" style="--skill-level: 80%;"
+                                aria-label="LangGraph and LLM Integration - 1+ year, agentic AI"></div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Developer Tools - PERIPHERALS -->
-                <div class="skill-category category-tools" data-animate-skill role="listitem" aria-labelledby="cat-tools">
+                <!-- Developer Tools -->
+                <div class="skill-category category-tools" data-animate-skill role="listitem"
+                    aria-labelledby="cat-tools">
                     <div class="skill-category-header">
                         <span class="skill-category-icon" aria-hidden="true">&#128295;</span>
-                        <h3 class="skill-category-title" id="cat-tools">PERIPHERALS</h3>
+                        <h3 class="skill-category-title" id="cat-tools">DEV TOOLS</h3>
                     </div>
                     <p class="skill-category-desc">Professional developer tools and infrastructure</p>
                     <div class="skill-list">
                         <div class="skill-item expert" data-level="95">
                             <div class="skill-info">
                                 <span class="skill-name">Git / GitHub</span>
-                                <span class="skill-level level-expert">Expert</span>
+                                <span class="skill-level level-expert">3+ yrs · Daily Use</span>
                             </div>
-                            <div class="skill-bar" style="--skill-level: 95%;" aria-label="Git and GitHub - Expert proficiency"></div>
+                            <div class="skill-bar" style="--skill-level: 95%;"
+                                aria-label="Git and GitHub - 3+ years daily use"></div>
                         </div>
                         <div class="skill-item" data-level="90">
                             <div class="skill-info">
                                 <span class="skill-name">VS Code</span>
-                                <span class="skill-level level-expert">Expert</span>
+                                <span class="skill-level level-expert">3+ yrs · Extensions</span>
                             </div>
-                            <div class="skill-bar" style="--skill-level: 90%;" aria-label="VS Code - Expert proficiency"></div>
+                            <div class="skill-bar" style="--skill-level: 90%;"
+                                aria-label="VS Code - 3+ years, extension development"></div>
                         </div>
                         <div class="skill-item" data-level="90">
                             <div class="skill-info">
                                 <span class="skill-name">Linux / Bash</span>
-                                <span class="skill-level level-expert">Expert</span>
+                                <span class="skill-level level-expert">3+ yrs · Daily Driver</span>
                             </div>
-                            <div class="skill-bar" style="--skill-level: 90%;" aria-label="Linux and Bash - Expert proficiency"></div>
+                            <div class="skill-bar" style="--skill-level: 90%;"
+                                aria-label="Linux and Bash - 3+ years daily driver"></div>
                         </div>
                         <div class="skill-item" data-level="85">
                             <div class="skill-info">
                                 <span class="skill-name">Vim / Neovim</span>
-                                <span class="skill-level level-advanced">Advanced</span>
+                                <span class="skill-level level-advanced">2+ yrs · Primary Editor</span>
                             </div>
-                            <div class="skill-bar" style="--skill-level: 85%;" aria-label="Vim and Neovim - Advanced proficiency"></div>
+                            <div class="skill-bar" style="--skill-level: 85%;"
+                                aria-label="Vim and Neovim - 2+ years primary editor"></div>
                         </div>
                         <div class="skill-item" data-level="85">
                             <div class="skill-info">
                                 <span class="skill-name">Streamlit</span>
-                                <span class="skill-level level-advanced">Advanced</span>
+                                <span class="skill-level level-advanced">1+ yr · Dashboards</span>
                             </div>
-                            <div class="skill-bar" style="--skill-level: 85%;" aria-label="Streamlit - Advanced proficiency"></div>
+                            <div class="skill-bar" style="--skill-level: 85%;"
+                                aria-label="Streamlit - 1+ year, dashboard development"></div>
                         </div>
                         <div class="skill-item" data-level="75">
                             <div class="skill-info">
                                 <span class="skill-name">GCP / Cloud</span>
-                                <span class="skill-level level-intermediate">Intermediate</span>
+                                <span class="skill-level level-intermediate">Certified · Deployments</span>
                             </div>
-                            <div class="skill-bar" style="--skill-level: 75%;" aria-label="GCP and Cloud Services - Intermediate proficiency"></div>
+                            <div class="skill-bar" style="--skill-level: 75%;"
+                                aria-label="GCP and Cloud Services - Certified, deployment experience"></div>
                         </div>
                     </div>
                 </div>
@@ -3695,14 +4080,15 @@
         <section class="section" id="contact" aria-label="Contact Information">
             <header class="section-header" data-animate>
                 <div class="section-header-box" aria-hidden="true">+------------------------------------------+
-|  <span class="section-header-title">GET_IN_TOUCH</span>                          |
-+------------------------------------------+</div>
+                    | <span class="section-header-title">GET_IN_TOUCH</span> |
+                    +------------------------------------------+</div>
                 <p class="section-header-subtitle">// Execute connection protocols</p>
             </header>
 
             <div class="contact-grid" role="list" aria-label="Contact methods">
                 <!-- Email -->
-                <a href="mailto:kavinraj191105@gmail.com" class="contact-card" data-animate-contact role="listitem" aria-label="Send email">
+                <a href="mailto:kavinraj191105@gmail.com" class="contact-card" data-animate-contact role="listitem"
+                    aria-label="Send email">
                     <div class="contact-card-header">
                         <span class="contact-icon">[@]</span>
                         <span class="contact-command">cat send_email.txt</span>
@@ -3711,7 +4097,8 @@
                 </a>
 
                 <!-- LinkedIn -->
-                <a href="https://www.linkedin.com/in/kavinraj95/" target="_blank" rel="noopener noreferrer" class="contact-card" data-animate-contact role="listitem" aria-label="Connect on LinkedIn">
+                <a href="https://www.linkedin.com/in/kavinraj95/" target="_blank" rel="noopener noreferrer"
+                    class="contact-card" data-animate-contact role="listitem" aria-label="Connect on LinkedIn">
                     <div class="contact-card-header">
                         <span class="contact-icon">[in]</span>
                         <span class="contact-command">./linkedin --connect</span>
@@ -3720,7 +4107,8 @@
                 </a>
 
                 <!-- GitHub -->
-                <a href="https://github.com/kavinraj-95" target="_blank" rel="noopener noreferrer" class="contact-card" data-animate-contact role="listitem" aria-label="View GitHub profile">
+                <a href="https://github.com/kavinraj-95" target="_blank" rel="noopener noreferrer" class="contact-card"
+                    data-animate-contact role="listitem" aria-label="View GitHub profile">
                     <div class="contact-card-header">
                         <span class="contact-icon">[gh]</span>
                         <span class="contact-command">./github --view</span>
@@ -3729,7 +4117,8 @@
                 </a>
 
                 <!-- Phone -->
-                <a href="tel:+917305199372" class="contact-card" data-animate-contact role="listitem" aria-label="Call phone">
+                <a href="tel:+917305199372" class="contact-card" data-animate-contact role="listitem"
+                    aria-label="Call phone">
                     <div class="contact-card-header">
                         <span class="contact-icon">[#]</span>
                         <span class="contact-command">./phone --call</span>
@@ -3742,15 +4131,48 @@
     </main>
 
     <!-- ============================================
+         SCROLL PROGRESS BAR
+    ============================================= -->
+    <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
+    <!-- ============================================
+         BACK TO TOP BUTTON
+    ============================================= -->
+    <button class="back-to-top-btn" id="back-to-top" aria-label="Back to top" title="Back to top">
+        &#8593;
+    </button>
+
+    <!-- ============================================
          FOOTER
     ============================================= -->
     <footer class="footer" role="contentinfo">
         <div class="footer-content">
             <p class="footer-copyright">&copy; 2026 <span>Kavinraj S</span>. All rights reserved.</p>
+            <div class="footer-social-links">
+                <a href="https://github.com/kavinraj-95" target="_blank" rel="noopener noreferrer"
+                    class="footer-social-link" aria-label="GitHub">[&gt;_] GitHub</a>
+                <a href="https://linkedin.com/in/kavinraj95" target="_blank" rel="noopener noreferrer"
+                    class="footer-social-link" aria-label="LinkedIn">[in] LinkedIn</a>
+                <a href="mailto:kavinraj191105@gmail.com" class="footer-social-link" aria-label="Email">[@] Email</a>
+            </div>
             <div class="footer-links">
-                <a href="https://github.com/kavinraj-95" target="_blank" rel="noopener noreferrer" class="footer-link">source-code</a>
-                <a href="#contact" class="footer-link">contact-me</a>
-                <a href="#hero" class="footer-link">back-to-top</a>
+                <a href="#projects" class="footer-link">projects</a>
+                <a href="#skills" class="footer-link">skills</a>
+                <a href="#contact" class="footer-link">contact</a>
+            </div>
+        </div>
+        <div class="footer-status">
+            <div class="footer-status-item">
+                <span class="footer-status-dot"></span>
+                <span>System Online</span>
+            </div>
+            <div class="footer-status-item">
+                <span>Uptime: </span>
+                <span id="footer-uptime">0h 0m 0s</span>
+            </div>
+            <div class="footer-status-item">
+                <span>Section: </span>
+                <span id="footer-section">hero</span>
             </div>
         </div>
     </footer>
@@ -3758,7 +4180,9 @@
     <!-- ============================================
          TERMINAL TOGGLE BUTTON
     ============================================= -->
-    <button class="terminal-toggle-btn" id="terminal-toggle" aria-label="Toggle terminal" aria-expanded="false" title="Open Terminal (` key)">
+    <div class="terminal-hint" id="terminal-hint">Try the interactive terminal! Press <strong>`</strong></div>
+    <button class="terminal-toggle-btn" id="terminal-toggle" aria-label="Toggle terminal" aria-expanded="false"
+        title="Open Terminal (` key)">
         <span class="terminal-icon">>_</span>
     </button>
 
@@ -3778,9 +4202,12 @@
         <div class="terminal-output" id="terminal-output" aria-live="polite" role="log"></div>
         <div class="terminal-input-line">
             <span class="terminal-prompt">
-                <span class="terminal-user">kavinraj</span><span class="terminal-at">@</span><span class="terminal-host">portfolio</span>:<span class="terminal-path" id="terminal-prompt-path">~</span><span class="terminal-dollar">$</span>
+                <span class="terminal-user">kavinraj</span><span class="terminal-at">@</span><span
+                    class="terminal-host">portfolio</span>:<span class="terminal-path"
+                    id="terminal-prompt-path">~</span><span class="terminal-dollar">$</span>
             </span>
-            <input type="text" class="terminal-input" id="terminal-input" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Terminal command input" placeholder="Type 'help' for commands...">
+            <input type="text" class="terminal-input" id="terminal-input" autocomplete="off" autocapitalize="off"
+                spellcheck="false" aria-label="Terminal command input" placeholder="Type 'help' for commands...">
         </div>
         <div class="terminal-statusbar">
             <span class="status-hint">Press ` or ESC to toggle</span>
@@ -3801,7 +4228,7 @@
          * Stage 5: Technical Skills Visualization
          * Stage 6: Terminal System, Contact & Footer
          */
-        (function() {
+        (function () {
             'use strict';
 
             // ============================================
@@ -4552,7 +4979,7 @@
                 elements.terminalContainer.classList.add('open');
                 elements.terminalToggle.classList.add('active');
                 elements.terminalToggle.setAttribute('aria-expanded', 'true');
-                elements.terminalInput.focus();
+                setTimeout(() => elements.terminalInput.focus(), 300);
 
                 // Show welcome message on first open
                 if (!state.terminalWelcomeShown) {
@@ -4820,7 +5247,7 @@
                     appendOutput('=== PROJECT INDEX ===', 'header');
                     appendOutput('', 'response');
                     appendOutput('1. fraud_detection.exe  - ML fraud detection (284K+ txns)', 'response');
-                    appendOutput('2. test_generator.vscode- AI unit test generator (85% time saved)', 'response');
+                    appendOutput('2. polyverse.social     - Decentralized social platform', 'response');
                     appendOutput('3. devvault.platform    - Post-quantum secure coding', 'response');
                     appendOutput('4. neat_drive.sim       - NEAT self-driving simulation', 'response');
                     appendOutput('5. sentinel_health      - Secure EHR application', 'response');
@@ -4893,11 +5320,9 @@
                 const info = [
                     'kavinraj@portfolio',
                     '──────────────────',
-                    'OS: KAVINRAJ.SYS v1.0',
                     'Host: Web Browser',
                     'Kernel: JavaScript ES6+',
                     'Shell: Terminal v1.0',
-                    'Theme: Retro Terminal',
                     'CPU: Neural Processors x8',
                     'Memory: Infinite Ideas',
                     'Uptime: Since 2023'
@@ -5070,6 +5495,100 @@
             }
 
             // ============================================
+            // SCROLL PROGRESS BAR
+            // ============================================
+            function initScrollProgress() {
+                const progressBar = document.getElementById('scroll-progress');
+                if (!progressBar) return;
+
+                window.addEventListener('scroll', () => {
+                    const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+                    const scrolled = (window.scrollY / scrollHeight) * 100;
+                    progressBar.style.width = Math.min(scrolled, 100) + '%';
+                }, { passive: true });
+            }
+
+            // ============================================
+            // BACK TO TOP BUTTON
+            // ============================================
+            function initBackToTop() {
+                const btn = document.getElementById('back-to-top');
+                if (!btn) return;
+
+                // Show/hide based on scroll position
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > window.innerHeight) {
+                        btn.classList.add('visible');
+                    } else {
+                        btn.classList.remove('visible');
+                    }
+                }, { passive: true });
+
+                // Smooth scroll to top on click
+                btn.addEventListener('click', () => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+
+            // ============================================
+            // FOOTER STATUS BAR
+            // ============================================
+            function initFooterStatus() {
+                const uptimeEl = document.getElementById('footer-uptime');
+                const sectionEl = document.getElementById('footer-section');
+                const pageLoadTime = Date.now();
+
+                // Update uptime every second
+                if (uptimeEl) {
+                    setInterval(() => {
+                        const elapsed = Math.floor((Date.now() - pageLoadTime) / 1000);
+                        const hours = Math.floor(elapsed / 3600);
+                        const minutes = Math.floor((elapsed % 3600) / 60);
+                        const seconds = elapsed % 60;
+                        uptimeEl.textContent = `${hours}h ${minutes}m ${seconds}s`;
+                    }, 1000);
+                }
+
+                // Track current section
+                if (sectionEl) {
+                    const sections = document.querySelectorAll('section[id]');
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                sectionEl.textContent = entry.target.id;
+                            }
+                        });
+                    }, { threshold: 0.3 });
+
+                    sections.forEach(section => observer.observe(section));
+                }
+            }
+
+            // ============================================
+            // TERMINAL HINT TOOLTIP
+            // ============================================
+            function initTerminalHint() {
+                const hint = document.getElementById('terminal-hint');
+                const toggleBtn = document.getElementById('terminal-toggle');
+                if (!hint || !toggleBtn) return;
+
+                // Show hint after 8 seconds
+                const showTimeout = setTimeout(() => {
+                    hint.classList.add('visible');
+                    // Auto-hide after 6 seconds
+                    setTimeout(() => {
+                        hint.classList.remove('visible');
+                    }, 6000);
+                }, 8000);
+
+                // Hide hint when terminal is opened
+                toggleBtn.addEventListener('click', () => {
+                    clearTimeout(showTimeout);
+                    hint.classList.remove('visible');
+                }, { once: true });
+            }
+
+            // ============================================
             // INITIALIZATION
             // ============================================
             function init() {
@@ -5104,6 +5623,18 @@
                 // Initialize terminal
                 initTerminal();
 
+                // Initialize scroll progress bar
+                initScrollProgress();
+
+                // Initialize back-to-top button
+                initBackToTop();
+
+                // Initialize footer status
+                initFooterStatus();
+
+                // Initialize terminal hint
+                initTerminalHint();
+
                 // Start boot sequence
                 runBootSequence();
             }
@@ -5117,4 +5648,5 @@
         })();
     </script>
 </body>
+
 </html>
