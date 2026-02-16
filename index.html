@@ -1,227 +1,800 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- ============================================
+         KAVINRAJ.SYS - Portfolio v1.0
+         Stage 1: Foundation and Boot Sequence
+         Stage 2: Hero Section and Navigation
+         A retro-themed ML Engineer portfolio
+    ============================================= -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kavinraj S | CSE Undergraduate</title>
+    <meta name="description" content="Kavinraj S - ML Engineer specializing in Federated Learning, Computer Vision, and IoT. Portfolio showcasing projects in machine learning and distributed systems.">
+    <meta name="keywords" content="Machine Learning, ML Engineer, Federated Learning, Computer Vision, IoT, Python, Portfolio">
+    <meta name="author" content="Kavinraj S">
+    <meta name="theme-color" content="#0a0f14">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Kavinraj S | ML Engineer">
+    <meta property="og:description" content="ML Engineer specializing in Federated Learning, Computer Vision, and IoT">
+
+    <title>KAVINRAJ.SYS | ML Engineer</title>
+
+    <!-- Preload fonts for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
-        * {
+        /* ============================================
+           CSS CUSTOM PROPERTIES - COLOR SYSTEM
+           Retro terminal palette with teal/amber accents
+        ============================================= */
+        :root {
+            /* Background colors - Dark mode base */
+            --bg-primary: #0a0f14;
+            --bg-secondary: #121a22;
+            --bg-tertiary: #0d1419;
+            --bg-elevated: #1a252e;
+            --bg-card: #0f161c;
+
+            /* Text colors */
+            --text-primary: #00d4aa;
+            --text-secondary: #7fdbca;
+            --text-muted: #4a6670;
+            --text-dim: #2d3d45;
+            --text-white: #e8f4f0;
+
+            /* Accent colors */
+            --accent-teal: #00d4aa;
+            --accent-teal-dim: rgba(0, 212, 170, 0.6);
+            --accent-amber: #f5a623;
+            --accent-amber-dim: rgba(245, 166, 35, 0.6);
+            --accent-purple: #7c3aed;
+            --accent-purple-dim: rgba(124, 58, 237, 0.6);
+            --accent-red: #ff6b6b;
+            --accent-blue: #4da6ff;
+
+            /* Glow effects */
+            --glow-teal: rgba(0, 212, 170, 0.15);
+            --glow-teal-strong: rgba(0, 212, 170, 0.3);
+            --glow-amber: rgba(245, 166, 35, 0.15);
+            --glow-purple: rgba(124, 58, 237, 0.15);
+
+            /* Borders and lines */
+            --border-color: #1e2d36;
+            --border-glow: rgba(0, 212, 170, 0.3);
+
+            /* Shadows */
+            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+            --shadow-glow: 0 0 20px var(--glow-teal);
+
+            /* Typography */
+            --font-mono: 'JetBrains Mono', 'Fira Code', 'Source Code Pro', 'Consolas', monospace;
+            --font-size-xs: 0.75rem;
+            --font-size-sm: 0.875rem;
+            --font-size-base: 1rem;
+            --font-size-lg: 1.125rem;
+            --font-size-xl: 1.25rem;
+            --font-size-2xl: 1.5rem;
+            --font-size-3xl: 2rem;
+            --font-size-4xl: 2.5rem;
+            --font-size-5xl: 3.5rem;
+            --font-size-6xl: 4.5rem;
+
+            /* Spacing */
+            --spacing-xs: 0.25rem;
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 1.5rem;
+            --spacing-xl: 2rem;
+            --spacing-2xl: 3rem;
+            --spacing-3xl: 4rem;
+
+            /* Layout */
+            --max-width: 1200px;
+            --border-radius: 4px;
+            --border-radius-lg: 8px;
+            --nav-height: 60px;
+
+            /* Transitions */
+            --transition-fast: 150ms ease;
+            --transition-base: 250ms ease;
+            --transition-slow: 400ms ease;
+
+            /* Z-index layers */
+            --z-base: 1;
+            --z-elevated: 10;
+            --z-nav: 50;
+            --z-overlay: 100;
+            --z-boot: 1000;
+        }
+
+        /* ============================================
+           CSS RESET AND BASE STYLES
+        ============================================= */
+        *,
+        *::before,
+        *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #333;
+            font-family: var(--font-mono);
+            font-size: var(--font-size-base);
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            min-height: 100vh;
             overflow-x: hidden;
+            padding: 0;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
+        /* Hide scrollbar during boot sequence */
+        body.booting {
+            overflow: hidden;
         }
 
-        header {
-            text-align: center;
-            padding: 60px 20px;
-            color: white;
-            animation: fadeInDown 1s ease-out;
+        /* Selection styling */
+        ::selection {
+            background-color: var(--accent-teal);
+            color: var(--bg-primary);
         }
 
-        h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        /* Focus styles for accessibility */
+        :focus-visible {
+            outline: 2px solid var(--accent-teal);
+            outline-offset: 2px;
         }
 
-        .subtitle {
-            font-size: 1.3em;
-            opacity: 0.95;
-            margin-bottom: 20px;
+        /* ============================================
+           CRT SCREEN EFFECT - SCANLINES OVERLAY
+           Creates subtle retro monitor effect
+        ============================================= */
+        .crt-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: var(--z-overlay);
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(0, 0, 0, 0.03) 2px,
+                rgba(0, 0, 0, 0.03) 3px
+            );
         }
 
-        .contact-links {
+        /* Subtle screen flicker animation */
+        @keyframes screenFlicker {
+            0%, 100% { opacity: 1; }
+            92% { opacity: 1; }
+            93% { opacity: 0.95; }
+            94% { opacity: 1; }
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: radial-gradient(
+                ellipse at center,
+                transparent 0%,
+                rgba(0, 0, 0, 0.15) 100%
+            );
+            z-index: calc(var(--z-overlay) - 1);
+        }
+
+        /* ============================================
+           TYPOGRAPHY UTILITIES
+           Text glow effects and styling
+        ============================================= */
+        .text-glow {
+            text-shadow:
+                0 0 5px var(--glow-teal),
+                0 0 10px var(--glow-teal),
+                0 0 15px var(--glow-teal);
+        }
+
+        .text-glow-subtle {
+            text-shadow: 0 0 8px var(--glow-teal);
+        }
+
+        .text-glow-amber {
+            text-shadow:
+                0 0 5px var(--glow-amber),
+                0 0 10px var(--glow-amber);
+        }
+
+        .text-glow-strong {
+            text-shadow:
+                0 0 10px var(--glow-teal-strong),
+                0 0 20px var(--glow-teal-strong),
+                0 0 30px var(--glow-teal),
+                0 0 40px var(--glow-teal);
+        }
+
+        /* ============================================
+           BOOT SEQUENCE STYLES
+           System initialization animation
+        ============================================= */
+        #boot-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-primary);
+            z-index: var(--z-boot);
             display: flex;
+            flex-direction: column;
             justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-top: 20px;
+            align-items: flex-start;
+            padding: var(--spacing-xl);
+            padding-left: 10%;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
         }
 
-        .contact-links a {
-            color: white;
-            text-decoration: none;
-            padding: 10px 20px;
-            background: rgba(255,255,255,0.2);
-            border-radius: 25px;
-            transition: all 0.3s ease;
+        #boot-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .boot-content {
+            max-width: 700px;
+            width: 100%;
+        }
+
+        .boot-line {
+            font-family: var(--font-mono);
+            font-size: var(--font-size-sm);
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-xs);
+            opacity: 0;
+            transform: translateY(5px);
+            text-shadow: 0 0 8px var(--glow-teal);
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .boot-line.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+
+        .boot-line.status-ok {
+            color: var(--accent-teal);
+        }
+
+        .boot-line.status-info {
+            color: var(--text-secondary);
+        }
+
+        .boot-line.status-header {
+            color: var(--accent-amber);
+            font-weight: 600;
+        }
+
+        .boot-line .ok-tag {
+            color: var(--accent-teal);
+            font-weight: 600;
+        }
+
+        .boot-line .loading-tag {
+            color: var(--accent-amber);
+        }
+
+        .boot-line .error-tag {
+            color: var(--accent-red);
+        }
+
+        /* Progress bar styling */
+        .boot-progress {
+            color: var(--accent-teal);
+            letter-spacing: -2px;
+        }
+
+        /* Blinking cursor effect */
+        .boot-cursor {
+            display: inline-block;
+            width: 10px;
+            height: 18px;
+            background-color: var(--accent-teal);
+            animation: cursorBlink 1s infinite;
+            vertical-align: text-bottom;
+            margin-left: 2px;
+        }
+
+        @keyframes cursorBlink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        /* Boot prompt styling */
+        .boot-prompt {
+            margin-top: var(--spacing-lg);
+            font-size: var(--font-size-base);
+            color: var(--text-primary);
+            text-shadow: 0 0 10px var(--glow-teal);
+        }
+
+        .boot-prompt-text {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .boot-prompt-text.visible {
+            opacity: 1;
+        }
+
+        /* Continue message */
+        .boot-continue {
+            margin-top: var(--spacing-xl);
+            font-size: var(--font-size-sm);
+            color: var(--text-muted);
+            opacity: 0;
+            animation: none;
+        }
+
+        .boot-continue.visible {
+            opacity: 1;
+            animation: pulseFade 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulseFade {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        /* Skip button */
+        .boot-skip {
+            position: fixed;
+            bottom: var(--spacing-xl);
+            right: var(--spacing-xl);
+            font-family: var(--font-mono);
+            font-size: var(--font-size-xs);
+            color: var(--text-muted);
+            background: transparent;
+            border: 1px solid var(--border-color);
+            padding: var(--spacing-sm) var(--spacing-md);
+            cursor: pointer;
+            border-radius: var(--border-radius);
+            transition: all var(--transition-fast);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .boot-skip:hover {
+            color: var(--text-primary);
+            border-color: var(--accent-teal);
+            background: var(--glow-teal);
+        }
+
+        .boot-skip:focus {
+            outline: none;
+            border-color: var(--accent-teal);
+            box-shadow: 0 0 0 2px var(--glow-teal);
+        }
+
+        /* ============================================
+           STICKY NAVIGATION BAR
+           Appears after scrolling past hero
+        ============================================= */
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--nav-height);
+            background: rgba(10, 15, 20, 0.95);
             backdrop-filter: blur(10px);
-        }
-
-        .contact-links a:hover {
-            background: rgba(255,255,255,0.3);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-
-        .section {
-            background: white;
-            margin: 30px 0;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            animation: fadeInUp 0.8s ease-out;
-            transition: transform 0.3s ease;
-        }
-
-        .section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.25);
-        }
-
-        h2 {
-            color: #667eea;
-            margin-bottom: 25px;
-            font-size: 2em;
-            border-bottom: 3px solid #667eea;
-            padding-bottom: 10px;
-        }
-
-        .education-item, .experience-item {
-            margin-bottom: 25px;
-            padding: 20px;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            border-radius: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .education-item:hover, .experience-item:hover {
-            transform: scale(1.02);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .item-header {
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: var(--z-nav);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 10px;
-            flex-wrap: wrap;
+            padding: 0 var(--spacing-xl);
+            transform: translateY(-100%);
+            opacity: 0;
+            transition: transform var(--transition-base), opacity var(--transition-base);
         }
 
-        .item-title {
-            font-weight: bold;
-            font-size: 1.2em;
-            color: #764ba2;
+        .nav-bar.visible {
+            transform: translateY(0);
+            opacity: 1;
         }
 
-        .item-date {
-            color: #666;
-            font-style: italic;
+        .nav-logo {
+            font-size: var(--font-size-lg);
+            font-weight: 600;
+            color: var(--text-primary);
+            text-shadow: 0 0 10px var(--glow-teal);
+            text-decoration: none;
+            transition: color var(--transition-fast);
         }
 
-        .item-subtitle {
-            color: #555;
-            margin-bottom: 10px;
+        .nav-logo:hover {
+            color: var(--accent-amber);
+            text-shadow: 0 0 10px var(--glow-amber);
         }
 
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
+        .nav-links {
+            display: flex;
+            gap: var(--spacing-md);
+            list-style: none;
         }
 
-        .project-card {
-            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
-            padding: 25px;
-            border-radius: 12px;
-            transition: all 0.3s ease;
+        .nav-link {
+            font-size: var(--font-size-sm);
+            color: var(--text-muted);
+            text-decoration: none;
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: var(--border-radius);
+            transition: all var(--transition-fast);
+            position: relative;
+        }
+
+        .nav-link::before {
+            content: '[';
+            opacity: 0;
+            transform: translateX(5px);
+            transition: all var(--transition-fast);
+        }
+
+        .nav-link::after {
+            content: ']';
+            opacity: 0;
+            transform: translateX(-5px);
+            transition: all var(--transition-fast);
+        }
+
+        .nav-link:hover {
+            color: var(--accent-teal);
+            text-shadow: 0 0 8px var(--glow-teal);
+        }
+
+        .nav-link:hover::before,
+        .nav-link:hover::after {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .nav-link.active {
+            color: var(--accent-amber);
+            text-shadow: 0 0 8px var(--glow-amber);
+        }
+
+        .nav-link.active::before,
+        .nav-link.active::after {
+            opacity: 1;
+            transform: translateX(0);
+            color: var(--accent-amber);
+        }
+
+        /* Mobile nav toggle */
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            background: transparent;
+            border: none;
             cursor: pointer;
+            padding: var(--spacing-sm);
         }
 
-        .project-card:hover {
-            transform: translateY(-8px) rotate(1deg);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        .nav-toggle span {
+            width: 24px;
+            height: 2px;
+            background: var(--text-primary);
+            transition: all var(--transition-fast);
         }
 
-        .project-title {
-            font-weight: bold;
-            font-size: 1.3em;
-            color: #d84315;
-            margin-bottom: 8px;
+        /* ============================================
+           HERO SECTION
+           Full-screen introduction with typing effect
+        ============================================= */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: var(--spacing-3xl) 10%;
+            position: relative;
+            overflow: hidden;
         }
 
-        .project-tech {
-            color: #666;
-            font-size: 0.9em;
-            margin-bottom: 12px;
-            font-style: italic;
+        /* ASCII Art decoration */
+        .hero-ascii {
+            position: absolute;
+            top: 10%;
+            right: 5%;
+            font-size: var(--font-size-xs);
+            color: var(--text-dim);
+            opacity: 0.4;
+            line-height: 1.2;
+            pointer-events: none;
+            white-space: pre;
         }
 
-        .project-desc {
-            color: #333;
-            line-height: 1.6;
+        /* Terminal prompt prefix */
+        .hero-prompt {
+            font-size: var(--font-size-lg);
+            color: var(--text-muted);
+            margin-bottom: var(--spacing-md);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease forwards;
+            animation-delay: 0.2s;
         }
 
-        .skills-container {
+        .hero-prompt-user {
+            color: var(--accent-purple);
+        }
+
+        .hero-prompt-at {
+            color: var(--text-muted);
+        }
+
+        .hero-prompt-host {
+            color: var(--accent-amber);
+        }
+
+        .hero-prompt-path {
+            color: var(--accent-blue);
+        }
+
+        .hero-prompt-symbol {
+            color: var(--text-primary);
+        }
+
+        /* Main name with typing effect */
+        .hero-name-container {
+            position: relative;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .hero-name {
+            font-size: var(--font-size-6xl);
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: 4px;
+            text-shadow:
+                0 0 10px var(--glow-teal-strong),
+                0 0 20px var(--glow-teal-strong),
+                0 0 30px var(--glow-teal),
+                0 0 40px var(--glow-teal);
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .hero-cursor {
+            display: inline-block;
+            width: 4px;
+            height: 1em;
+            background-color: var(--accent-teal);
+            margin-left: 4px;
+            vertical-align: text-bottom;
+            animation: heroCursorBlink 530ms infinite;
+        }
+
+        @keyframes heroCursorBlink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        /* Subtitle rotation container */
+        .hero-subtitle-container {
+            height: 40px;
+            margin-bottom: var(--spacing-xl);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-subtitle {
+            font-size: var(--font-size-xl);
+            color: var(--text-secondary);
+            position: absolute;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            text-shadow: 0 0 8px var(--glow-teal);
+        }
+
+        .hero-subtitle.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hero-subtitle::before {
+            content: '> ';
+            color: var(--accent-amber);
+        }
+
+        /* Contact commands */
+        .hero-commands {
             display: flex;
             flex-wrap: wrap;
-            gap: 15px;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-3xl);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease forwards;
+            animation-delay: 1.5s;
         }
 
-        .skill-category {
-            flex: 1;
-            min-width: 250px;
-            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-            padding: 20px;
-            border-radius: 10px;
+        .hero-command {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            font-size: var(--font-size-sm);
+            color: var(--text-muted);
+            text-decoration: none;
+            padding: var(--spacing-sm) var(--spacing-md);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            background: transparent;
+            transition: all var(--transition-base);
+            position: relative;
+            overflow: hidden;
         }
 
-        .skill-category h3 {
-            color: #764ba2;
-            margin-bottom: 15px;
+        .hero-command::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                var(--glow-teal),
+                transparent
+            );
+            transition: left 0.4s ease;
         }
 
-        .skill-tag {
-            display: inline-block;
-            background: white;
-            padding: 8px 15px;
-            margin: 5px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            transition: all 0.2s ease;
+        .hero-command:hover {
+            color: var(--accent-amber);
+            border-color: var(--accent-amber);
+            text-shadow: 0 0 8px var(--glow-amber);
         }
 
-        .skill-tag:hover {
-            transform: scale(1.1);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        .hero-command:hover::before {
+            left: 100%;
         }
 
-        footer {
+        .hero-command-icon {
+            font-size: var(--font-size-base);
+            opacity: 0.7;
+        }
+
+        .hero-command-text {
+            font-family: var(--font-mono);
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: var(--spacing-2xl);
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--spacing-sm);
+            color: var(--text-muted);
+            font-size: var(--font-size-xs);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0;
+            animation: fadeIn 0.6s ease forwards, scrollPulse 2s ease-in-out infinite;
+            animation-delay: 2.5s, 2.5s;
+        }
+
+        .scroll-chevron {
+            width: 24px;
+            height: 24px;
+            border-right: 2px solid var(--text-muted);
+            border-bottom: 2px solid var(--text-muted);
+            transform: rotate(45deg);
+            animation: scrollBounce 1.5s ease-in-out infinite;
+        }
+
+        @keyframes scrollBounce {
+            0%, 100% { transform: rotate(45deg) translateY(0); }
+            50% { transform: rotate(45deg) translateY(5px); }
+        }
+
+        @keyframes scrollPulse {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+
+        /* ============================================
+           MAIN PORTFOLIO CONTAINER
+        ============================================= */
+        #portfolio-main {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
+
+        #portfolio-main.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Content sections (placeholder for future stages) */
+        .section {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: var(--spacing-3xl) var(--spacing-xl);
+        }
+
+        .section-placeholder {
+            min-height: 50vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            padding: 40px 20px;
-            color: white;
-            font-size: 0.9em;
+            border: 1px dashed var(--border-color);
+            border-radius: var(--border-radius-lg);
+            margin-bottom: var(--spacing-2xl);
         }
 
-        @keyframes fadeInDown {
+        .section-placeholder h2 {
+            font-size: var(--font-size-2xl);
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-md);
+            text-shadow: 0 0 10px var(--glow-teal);
+        }
+
+        .section-placeholder p {
+            color: var(--text-muted);
+            font-size: var(--font-size-sm);
+        }
+
+        /* ============================================
+           ANIMATION KEYFRAMES
+        ============================================= */
+        @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(-30px);
             }
             to {
                 opacity: 1;
-                transform: translateY(0);
             }
         }
 
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(20px);
             }
             to {
                 opacity: 1;
@@ -229,205 +802,763 @@
             }
         }
 
-        ul {
-            margin-left: 20px;
-            line-height: 1.8;
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes typewriter {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+        /* ============================================
+           UTILITY CLASSES
+        ============================================= */
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* ============================================
+           RESPONSIVE DESIGN - DESKTOP FIRST
+        ============================================= */
+
+        /* Tablet breakpoint */
+        @media (max-width: 1024px) {
+            :root {
+                --font-size-3xl: 1.75rem;
+                --font-size-4xl: 2.25rem;
+                --font-size-5xl: 2.75rem;
+                --font-size-6xl: 3.5rem;
+            }
+
+            #boot-screen {
+                padding-left: 5%;
+            }
+
+            .hero {
+                padding: var(--spacing-2xl) 5%;
+            }
+
+            .hero-ascii {
+                display: none;
+            }
+
+            .nav-bar {
+                padding: 0 var(--spacing-lg);
+            }
+        }
+
+        /* Mobile breakpoint */
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2em;
+            :root {
+                --font-size-base: 0.9375rem;
+                --font-size-sm: 0.8125rem;
+                --font-size-xs: 0.6875rem;
+                --font-size-3xl: 1.5rem;
+                --font-size-4xl: 2rem;
+                --font-size-5xl: 2.25rem;
+                --font-size-6xl: 2.5rem;
             }
-            
+
+            #boot-screen {
+                padding: var(--spacing-md);
+                padding-left: var(--spacing-md);
+            }
+
+            .boot-content {
+                max-width: 100%;
+            }
+
+            .boot-line {
+                font-size: var(--font-size-xs);
+                white-space: normal;
+                word-break: break-word;
+            }
+
+            .boot-skip {
+                bottom: var(--spacing-md);
+                right: var(--spacing-md);
+            }
+
+            /* Mobile navigation */
+            .nav-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: var(--nav-height);
+                left: 0;
+                width: 100%;
+                flex-direction: column;
+                background: rgba(10, 15, 20, 0.98);
+                padding: var(--spacing-md);
+                border-bottom: 1px solid var(--border-color);
+                gap: 0;
+                transform: translateY(-20px);
+                opacity: 0;
+                visibility: hidden;
+                transition: all var(--transition-base);
+            }
+
+            .nav-links.open {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .nav-link {
+                padding: var(--spacing-md);
+                border-bottom: 1px solid var(--border-color);
+            }
+
+            .nav-link:last-child {
+                border-bottom: none;
+            }
+
+            /* Hero adjustments */
+            .hero {
+                padding: var(--spacing-xl) var(--spacing-md);
+                min-height: 100vh;
+                justify-content: center;
+            }
+
+            .hero-prompt {
+                font-size: var(--font-size-sm);
+            }
+
+            .hero-name {
+                font-size: var(--font-size-5xl);
+                letter-spacing: 2px;
+            }
+
+            .hero-subtitle-container {
+                height: 35px;
+            }
+
+            .hero-subtitle {
+                font-size: var(--font-size-base);
+            }
+
+            .hero-commands {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+            }
+
+            .hero-command {
+                justify-content: center;
+            }
+
+            .scroll-indicator {
+                bottom: var(--spacing-lg);
+            }
+
             .section {
-                padding: 25px;
+                padding: var(--spacing-xl) var(--spacing-md);
             }
-            
-            .project-grid {
-                grid-template-columns: 1fr;
+        }
+
+        /* Small mobile */
+        @media (max-width: 480px) {
+            :root {
+                --font-size-5xl: 2rem;
+                --font-size-6xl: 2.25rem;
+            }
+
+            .boot-line {
+                font-size: 0.625rem;
+            }
+
+            .hero-name {
+                font-size: var(--font-size-4xl);
+            }
+        }
+
+        /* Reduced motion preference */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            .boot-continue.visible {
+                animation: none;
+                opacity: 1;
+            }
+
+            .hero-cursor {
+                animation: none;
+                opacity: 1;
+            }
+
+            .scroll-indicator {
+                animation: none;
+                opacity: 0.6;
+            }
+
+            .scroll-chevron {
+                animation: none;
             }
         }
     </style>
 </head>
-<body>
-    <header>
-        <h1>Kavinraj S</h1>
-        <div class="subtitle">Computer Science Undergraduate | GPA: 9.0</div>
-        <div class="subtitle">Machine Learning • IoT • Federated Learning</div>
-        <div class="contact-links">
-            <a href="mailto:kavinraj191105@gmail.com">📧 Email</a>
-            <a href="https://linkedin.com/in/kavinraj-s-a161aa1b4" target="_blank">💼 LinkedIn</a>
-            <a href="https://github.com/kavinraj-95" target="_blank">💻 GitHub</a>
-            <a href="tel:+917305199372">📱 +91 7305199372</a>
+<body class="booting">
+    <!-- CRT Scanline Overlay -->
+    <div class="crt-overlay" aria-hidden="true"></div>
+
+    <!-- ============================================
+         BOOT SEQUENCE SCREEN
+         Displays system initialization animation
+    ============================================= -->
+    <div id="boot-screen" role="presentation" aria-label="Loading animation">
+        <div class="boot-content">
+            <!-- Boot messages will be inserted here by JavaScript -->
+            <div id="boot-messages"></div>
+
+            <!-- Final prompt after boot completes -->
+            <div class="boot-prompt">
+                <span class="boot-prompt-text" id="boot-prompt-text">
+                    kavinraj@portfolio:~$ <span class="boot-cursor"></span>
+                </span>
+            </div>
+
+            <!-- Continue message -->
+            <div class="boot-continue" id="boot-continue">
+                Press any key or click to continue...
+            </div>
         </div>
-    </header>
 
-    <div class="container">
-        <section class="section">
-            <h2>🎓 Education</h2>
-            <div class="education-item">
-                <div class="item-header">
-                    <div class="item-title">Amrita Vishwa Vidyapeetham</div>
-                    <div class="item-date">June 2023 – May 2027</div>
-                </div>
-                <div class="item-subtitle">Bachelor of Technology in Computer Science | Minor: Internet of Things</div>
-                <div class="item-subtitle"><strong>GPA: 9.0/10.0</strong></div>
-                <div style="margin-top: 15px;">
-                    <strong>Relevant Coursework:</strong>
-                    <div style="margin-top: 10px;">
-                        <span class="skill-tag">Data Structures & Algorithms</span>
-                        <span class="skill-tag">Machine Learning</span>
-                        <span class="skill-tag">Computer Vision</span>
-                        <span class="skill-tag">Natural Language Processing</span>
-                        <span class="skill-tag">Database Systems</span>
-                        <span class="skill-tag">Internet of Things</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>💼 Experience</h2>
-            <div class="experience-item">
-                <div class="item-header">
-                    <div class="item-title">Software Intern - XCMG</div>
-                    <div class="item-date">May 2024 – July 2024</div>
-                </div>
-                <div class="item-subtitle">Tamil Nadu, India</div>
-                <ul>
-                    <li>Redesigned the consumables-tracking workflow and built a real-time monitoring dashboard using Python, improving reporting speed and data accessibility</li>
-                    <li>Identified bottlenecks in existing processes with cross-functional teams and streamlined reporting paths, reducing manual effort</li>
-                </ul>
-            </div>
-            <div class="experience-item">
-                <div class="item-header">
-                    <div class="item-title">Virtual Research Intern - IEEE</div>
-                    <div class="item-date">Dec 2024 – Mar 2025</div>
-                </div>
-                <div class="item-subtitle">Remote</div>
-                <ul>
-                    <li>Developed a case study on Federated Learning covering system architecture, privacy constraints, and evaluation tradeoffs</li>
-                    <li>Automated preprocessing and simulation pipelines in Python, enabling repeatable FL experiments and reducing setup time</li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>🚀 Projects</h2>
-            <div class="project-grid">
-                <div class="project-card">
-                    <div class="project-title">NEAT-Drive</div>
-                    <div class="project-tech">Python, NEAT | 2025</div>
-                    <div class="project-desc">
-                        Self-driving car simulation using NEAT to evolve neural controllers for lane-keeping and obstacle avoidance. Designed fitness functions and tuned genetic parameters for improved convergence.
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-title">Medical Image Segmentation</div>
-                    <div class="project-tech">Python, CUTS | 2024–2025</div>
-                    <div class="project-desc">
-                        CUTS-based segmentation model for breast tumor detection in ultrasound images. Implemented preprocessing pipelines and benchmarked variants for robust segmentation.
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-title">Privacy-Preserving FL System</div>
-                    <div class="project-tech">Python, PyTorch, FLwr | 2024</div>
-                    <div class="project-desc">
-                        Federated learning setup training models across distributed clients without centralizing data. Achieved accuracy within ~2% of centralized baseline while maintaining privacy.
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-title">Touchless-Screen Interface</div>
-                    <div class="project-tech">Python, OpenCV, MediaPipe | 2024</div>
-                    <div class="project-desc">
-                        Gesture-controlled interface using computer vision for finger tracking and event mapping. Achieved low-latency recognition for real-time HCI demonstrations.
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-title">KatBot</div>
-                    <div class="project-tech">Python, LangGraph, Llama, Streamlit | 2024</div>
-                    <div class="project-desc">
-                        Local private chatbot with document reasoning and session-aware context routing for offline operation and enhanced privacy.
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-title">Crypt Hack</div>
-                    <div class="project-tech">HTML, CSS, JavaScript | 2023</div>
-                    <div class="project-desc">
-                        Cipher decryption tool implementing Wheatstone–Playfair decryption using simulated annealing with interactive visualization.
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>🛠️ Technical Skills</h2>
-            <div class="skills-container">
-                <div class="skill-category">
-                    <h3>Languages</h3>
-                    <span class="skill-tag">Python</span>
-                    <span class="skill-tag">C</span>
-                    <span class="skill-tag">C++</span>
-                    <span class="skill-tag">Java</span>
-                    <span class="skill-tag">Go</span>
-                    <span class="skill-tag">JavaScript</span>
-                    <span class="skill-tag">SQL</span>
-                </div>
-                <div class="skill-category">
-                    <h3>ML & AI</h3>
-                    <span class="skill-tag">PyTorch</span>
-                    <span class="skill-tag">TensorFlow</span>
-                    <span class="skill-tag">FLwr</span>
-                    <span class="skill-tag">OpenCV</span>
-                    <span class="skill-tag">LangGraph</span>
-                </div>
-                <div class="skill-category">
-                    <h3>Tools & Platforms</h3>
-                    <span class="skill-tag">Git</span>
-                    <span class="skill-tag">Vim</span>
-                    <span class="skill-tag">VS Code</span>
-                    <span class="skill-tag">GCP</span>
-                    <span class="skill-tag">Linux (Arch)</span>
-                    <span class="skill-tag">Windows</span>
-                </div>
-            </div>
-        </section>
+        <!-- Skip button -->
+        <button class="boot-skip" id="boot-skip" aria-label="Skip boot animation">
+            [ESC] Skip
+        </button>
     </div>
 
-    <footer>
-        <p>© 2025 Kavinraj S | Chengalpet, Tamil Nadu</p>
-        <p style="margin-top: 10px; opacity: 0.8;">Built with passion for technology and innovation</p>
-    </footer>
+    <!-- ============================================
+         STICKY NAVIGATION BAR
+         Appears after scrolling past hero section
+    ============================================= -->
+    <nav class="nav-bar" id="nav-bar" role="navigation" aria-label="Main navigation">
+        <a href="#hero" class="nav-logo">KAVINRAJ.SYS</a>
 
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#hero" class="nav-link active">HOME</a></li>
+            <li><a href="#experience" class="nav-link">EXPERIENCE</a></li>
+            <li><a href="#projects" class="nav-link">PROJECTS</a></li>
+            <li><a href="#skills" class="nav-link">SKILLS</a></li>
+            <li><a href="#contact" class="nav-link">CONTACT</a></li>
+        </ul>
+    </nav>
+
+    <!-- ============================================
+         MAIN PORTFOLIO CONTAINER
+    ============================================= -->
+    <main id="portfolio-main" role="main">
+
+        <!-- ============================================
+             HERO SECTION
+             Full-screen introduction with terminal aesthetics
+        ============================================= -->
+        <section class="hero" id="hero" aria-label="Introduction">
+
+            <!-- ASCII Art Neural Network Decoration -->
+            <div class="hero-ascii" aria-hidden="true">
+     o---o
+    /|\   |\
+   o-+-o-+-o
+    \|/   |/
+     o---o
+    /|\   |\
+   o-+-o-+-o
+    \|/   |/
+     o---o
+            </div>
+
+            <!-- Terminal Prompt -->
+            <div class="hero-prompt">
+                <span class="hero-prompt-user">kavinraj</span><span class="hero-prompt-at">@</span><span class="hero-prompt-host">portfolio</span><span class="hero-prompt-path">:~</span><span class="hero-prompt-symbol">$</span> ./whoami
+            </div>
+
+            <!-- Name with Typing Effect -->
+            <div class="hero-name-container">
+                <h1 class="hero-name" id="hero-name" aria-label="Kavinraj S"></h1>
+                <span class="hero-cursor" id="hero-cursor"></span>
+            </div>
+
+            <!-- Rotating Subtitles -->
+            <div class="hero-subtitle-container" aria-live="polite">
+                <span class="hero-subtitle" data-subtitle="0">ML Research Engineer</span>
+                <span class="hero-subtitle" data-subtitle="1">Federated Learning Specialist</span>
+                <span class="hero-subtitle" data-subtitle="2">Computer Vision Developer</span>
+                <span class="hero-subtitle" data-subtitle="3">Full-Stack Problem Solver</span>
+            </div>
+
+            <!-- Contact Commands -->
+            <div class="hero-commands">
+                <a href="mailto:kavinraj.sathyan@gmail.com" class="hero-command" aria-label="Send email">
+                    <span class="hero-command-icon">@</span>
+                    <span class="hero-command-text">./email --send</span>
+                </a>
+                <a href="https://linkedin.com/in/kavinraj-s" class="hero-command" target="_blank" rel="noopener noreferrer" aria-label="Connect on LinkedIn">
+                    <span class="hero-command-icon">in</span>
+                    <span class="hero-command-text">./linkedin --connect</span>
+                </a>
+                <a href="https://github.com/kavinraj-s" class="hero-command" target="_blank" rel="noopener noreferrer" aria-label="View GitHub profile">
+                    <span class="hero-command-icon">&gt;_</span>
+                    <span class="hero-command-text">./github --view</span>
+                </a>
+                <a href="tel:+1234567890" class="hero-command" aria-label="Call phone">
+                    <span class="hero-command-icon">#</span>
+                    <span class="hero-command-text">./phone --call</span>
+                </a>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="scroll-indicator" aria-hidden="true">
+                <span>Scroll to continue</span>
+                <div class="scroll-chevron"></div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             PLACEHOLDER SECTIONS
+             Will be implemented in Stage 3+
+        ============================================= -->
+        <section class="section" id="experience">
+            <div class="section-placeholder">
+                <h2>// EXPERIENCE</h2>
+                <p>Stage 3: Work history and achievements</p>
+            </div>
+        </section>
+
+        <section class="section" id="projects">
+            <div class="section-placeholder">
+                <h2>// PROJECTS</h2>
+                <p>Stage 3: Featured projects showcase</p>
+            </div>
+        </section>
+
+        <section class="section" id="skills">
+            <div class="section-placeholder">
+                <h2>// SKILLS</h2>
+                <p>Stage 3: Technical skills matrix</p>
+            </div>
+        </section>
+
+        <section class="section" id="contact">
+            <div class="section-placeholder">
+                <h2>// CONTACT</h2>
+                <p>Stage 3: Contact information and form</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============================================
+         JAVASCRIPT - BOOT SEQUENCE + HERO LOGIC
+    ============================================= -->
     <script>
-        // Add smooth scroll animation for sections
-        const sections = document.querySelectorAll('.section');
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+        /**
+         * KAVINRAJ.SYS Portfolio Scripts
+         * Stage 1: Boot Sequence
+         * Stage 2: Hero Animations & Navigation
+         */
+        (function() {
+            'use strict';
+
+            // ============================================
+            // CONFIGURATION
+            // ============================================
+            const CONFIG = {
+                // Boot sequence settings
+                bootDuration: 3500,
+                messageDelay: 180,
+                skipTransition: 300,
+                autoAdvanceDelay: 500,
+                storageKey: 'kavinraj_boot_seen',
+
+                // Hero typing settings
+                typingSpeed: 80,           // ms per character
+                typingStartDelay: 400,     // delay before typing starts
+
+                // Subtitle rotation settings
+                subtitleDisplayTime: 3000,  // 3 seconds display
+                subtitleFadeTime: 500,      // 500ms fade transition
+
+                // Navigation settings
+                navScrollThreshold: 100     // pixels before nav appears
+            };
+
+            // Boot sequence messages
+            const BOOT_MESSAGES = [
+                { text: '[BOOT] INITIALIZING KAVINRAJ.SYS v1.0...', class: 'status-header' },
+                { text: '[INIT] Loading bootloader...', class: 'status-info' },
+                { text: '[BOOT] Checking system memory... 16.0 GB', class: 'status-info', suffix: '<span class="ok-tag">[OK]</span>' },
+                { text: '[BOOT] Initializing neural processors...', class: 'status-info', suffix: '<span class="ok-tag">[OK]</span>' },
+                { text: '[BOOT] Loading ML frameworks...', class: 'status-info', suffix: '<span class="ok-tag">[OK]</span>' },
+                { text: '[BOOT] Mounting /home/kavinraj...', class: 'status-info', suffix: '<span class="ok-tag">[OK]</span>' },
+                { text: '[DATA] LOADING PROFILE DATA...', class: 'status-header' },
+                { text: '[DATA] Parsing education.json...', class: 'status-info', suffix: '<span class="ok-tag">[OK]</span>' },
+                { text: '[DATA] Parsing experience.json...', class: 'status-info', suffix: '<span class="ok-tag">[OK]</span>' },
+                { text: '[DATA] Indexing projects...', class: 'status-info', suffix: '<span class="ok-tag">[OK]</span>' },
+                { text: '[BOOT] <span class="boot-progress">........................</span> 100%', class: 'status-ok' },
+                { text: '[BOOT] SYSTEM READY', class: 'status-header' }
+            ];
+
+            // The name to be typed
+            const HERO_NAME = 'KAVINRAJ S';
+
+            // ============================================
+            // DOM ELEMENTS
+            // ============================================
+            const elements = {
+                // Boot screen
+                bootScreen: document.getElementById('boot-screen'),
+                bootMessages: document.getElementById('boot-messages'),
+                bootPrompt: document.getElementById('boot-prompt-text'),
+                bootContinue: document.getElementById('boot-continue'),
+                bootSkip: document.getElementById('boot-skip'),
+
+                // Main content
+                portfolioMain: document.getElementById('portfolio-main'),
+
+                // Hero section
+                heroName: document.getElementById('hero-name'),
+                heroCursor: document.getElementById('hero-cursor'),
+                heroSubtitles: document.querySelectorAll('.hero-subtitle'),
+
+                // Navigation
+                navBar: document.getElementById('nav-bar'),
+                navToggle: document.getElementById('nav-toggle'),
+                navLinks: document.getElementById('nav-links'),
+                navItems: document.querySelectorAll('.nav-link'),
+
+                // Body
+                body: document.body
+            };
+
+            // ============================================
+            // STATE
+            // ============================================
+            let state = {
+                bootComplete: false,
+                isTransitioning: false,
+                currentSubtitle: 0,
+                subtitleInterval: null,
+                navVisible: false,
+                mobileNavOpen: false
+            };
+
+            // ============================================
+            // UTILITY FUNCTIONS
+            // ============================================
+            function sleep(ms) {
+                return new Promise(resolve => setTimeout(resolve, ms));
+            }
+
+            // ============================================
+            // BOOT SEQUENCE
+            // ============================================
+            async function runBootSequence() {
+                const delay = CONFIG.messageDelay;
+
+                for (let i = 0; i < BOOT_MESSAGES.length; i++) {
+                    if (state.bootComplete) return;
+
+                    const msg = BOOT_MESSAGES[i];
+                    const line = document.createElement('div');
+                    line.className = `boot-line ${msg.class || ''}`;
+                    line.innerHTML = msg.text + (msg.suffix ? ' ' + msg.suffix : '');
+                    elements.bootMessages.appendChild(line);
+
+                    void line.offsetWidth;
+                    line.classList.add('visible');
+
+                    const msgDelay = i === BOOT_MESSAGES.length - 1 ? delay * 2 : delay;
+                    await sleep(msgDelay);
                 }
-            });
-        }, { threshold: 0.1 });
 
-        sections.forEach(section => {
-            section.style.opacity = '0';
-            section.style.transform = 'translateY(30px)';
-            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(section);
-        });
+                await sleep(300);
+                showPromptAndContinue();
+            }
 
-        // Add click effect to project cards
-        document.querySelectorAll('.project-card').forEach(card => {
-            card.addEventListener('click', function() {
-                this.style.transform = 'scale(0.98)';
+            function showPromptAndContinue() {
+                if (state.bootComplete) return;
+
+                elements.bootPrompt.classList.add('visible');
+
                 setTimeout(() => {
-                    this.style.transform = '';
-                }, 200);
-            });
-        });
+                    elements.bootContinue.classList.add('visible');
+                    state.bootComplete = true;
+                    enableContinue();
+
+                    setTimeout(() => {
+                        if (!state.isTransitioning) {
+                            transitionToPortfolio();
+                        }
+                    }, CONFIG.autoAdvanceDelay + 2000);
+                }, 400);
+            }
+
+            function enableContinue() {
+                document.addEventListener('keydown', handleContinue);
+                document.addEventListener('click', handleContinueClick);
+            }
+
+            function handleContinue(e) {
+                if (state.bootComplete && !state.isTransitioning && e.key !== 'Escape') {
+                    transitionToPortfolio();
+                }
+            }
+
+            function handleContinueClick(e) {
+                if (state.bootComplete && !state.isTransitioning && e.target !== elements.bootSkip) {
+                    transitionToPortfolio();
+                }
+            }
+
+            function skipBoot() {
+                if (state.isTransitioning) return;
+                state.bootComplete = true;
+                transitionToPortfolio();
+            }
+
+            function transitionToPortfolio() {
+                if (state.isTransitioning) return;
+                state.isTransitioning = true;
+
+                document.removeEventListener('keydown', handleContinue);
+                document.removeEventListener('click', handleContinueClick);
+
+                elements.bootScreen.classList.add('hidden');
+
+                setTimeout(() => {
+                    elements.body.classList.remove('booting');
+                    elements.portfolioMain.classList.add('visible');
+
+                    // Start hero animations after portfolio is visible
+                    setTimeout(() => {
+                        initHeroAnimations();
+                    }, 200);
+                }, CONFIG.skipTransition);
+            }
+
+            // ============================================
+            // HERO ANIMATIONS
+            // ============================================
+            function initHeroAnimations() {
+                // Start typing effect
+                setTimeout(() => {
+                    typeHeroName();
+                }, CONFIG.typingStartDelay);
+
+                // Start subtitle rotation after typing completes
+                const typingDuration = HERO_NAME.length * CONFIG.typingSpeed + CONFIG.typingStartDelay + 500;
+                setTimeout(() => {
+                    startSubtitleRotation();
+                }, typingDuration);
+            }
+
+            async function typeHeroName() {
+                const name = HERO_NAME;
+                let currentText = '';
+
+                for (let i = 0; i < name.length; i++) {
+                    currentText += name[i];
+                    elements.heroName.textContent = currentText;
+                    await sleep(CONFIG.typingSpeed);
+                }
+            }
+
+            function startSubtitleRotation() {
+                // Show first subtitle
+                elements.heroSubtitles[0].classList.add('active');
+
+                // Rotate subtitles
+                state.subtitleInterval = setInterval(() => {
+                    const current = state.currentSubtitle;
+                    const next = (current + 1) % elements.heroSubtitles.length;
+
+                    // Fade out current
+                    elements.heroSubtitles[current].classList.remove('active');
+
+                    // Fade in next after transition
+                    setTimeout(() => {
+                        elements.heroSubtitles[next].classList.add('active');
+                    }, CONFIG.subtitleFadeTime);
+
+                    state.currentSubtitle = next;
+                }, CONFIG.subtitleDisplayTime);
+            }
+
+            // ============================================
+            // NAVIGATION
+            // ============================================
+            function initNavigation() {
+                // Scroll listener for sticky nav
+                window.addEventListener('scroll', handleScroll, { passive: true });
+
+                // Mobile nav toggle
+                elements.navToggle.addEventListener('click', toggleMobileNav);
+
+                // Nav link clicks
+                elements.navItems.forEach(link => {
+                    link.addEventListener('click', handleNavClick);
+                });
+
+                // Close mobile nav when clicking outside
+                document.addEventListener('click', (e) => {
+                    if (state.mobileNavOpen &&
+                        !elements.navLinks.contains(e.target) &&
+                        !elements.navToggle.contains(e.target)) {
+                        closeMobileNav();
+                    }
+                });
+            }
+
+            function handleScroll() {
+                const scrollY = window.scrollY;
+                const heroSection = document.getElementById('hero');
+                const heroHeight = heroSection ? heroSection.offsetHeight : window.innerHeight;
+
+                // Show/hide nav based on scroll position
+                if (scrollY > heroHeight - CONFIG.navScrollThreshold) {
+                    if (!state.navVisible) {
+                        elements.navBar.classList.add('visible');
+                        state.navVisible = true;
+                    }
+                } else {
+                    if (state.navVisible) {
+                        elements.navBar.classList.remove('visible');
+                        state.navVisible = false;
+                    }
+                }
+
+                // Update active nav link based on scroll position
+                updateActiveNavLink();
+            }
+
+            function updateActiveNavLink() {
+                const sections = ['hero', 'experience', 'projects', 'skills', 'contact'];
+                const scrollY = window.scrollY + CONFIG.navScrollThreshold + 100;
+
+                for (let i = sections.length - 1; i >= 0; i--) {
+                    const section = document.getElementById(sections[i]);
+                    if (section && scrollY >= section.offsetTop) {
+                        elements.navItems.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === '#' + sections[i]) {
+                                link.classList.add('active');
+                            }
+                        });
+                        break;
+                    }
+                }
+            }
+
+            function handleNavClick(e) {
+                const href = e.currentTarget.getAttribute('href');
+
+                // Update active state
+                elements.navItems.forEach(link => link.classList.remove('active'));
+                e.currentTarget.classList.add('active');
+
+                // Close mobile nav if open
+                if (state.mobileNavOpen) {
+                    closeMobileNav();
+                }
+            }
+
+            function toggleMobileNav() {
+                if (state.mobileNavOpen) {
+                    closeMobileNav();
+                } else {
+                    openMobileNav();
+                }
+            }
+
+            function openMobileNav() {
+                state.mobileNavOpen = true;
+                elements.navLinks.classList.add('open');
+                elements.navToggle.setAttribute('aria-expanded', 'true');
+            }
+
+            function closeMobileNav() {
+                state.mobileNavOpen = false;
+                elements.navLinks.classList.remove('open');
+                elements.navToggle.setAttribute('aria-expanded', 'false');
+            }
+
+            // ============================================
+            // INITIALIZATION
+            // ============================================
+            function init() {
+                // Set up skip button
+                elements.bootSkip.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    skipBoot();
+                });
+
+                // ESC key to skip boot
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && !state.bootComplete) {
+                        skipBoot();
+                    }
+                });
+
+                // Initialize navigation
+                initNavigation();
+
+                // Start boot sequence
+                runBootSequence();
+            }
+
+            // Run on DOM ready
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', init);
+            } else {
+                init();
+            }
+        })();
     </script>
 </body>
 </html>
